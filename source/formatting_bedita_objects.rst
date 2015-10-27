@@ -44,8 +44,8 @@ add to the formatted object the count of relations and children.
 By default no count is done.
 
 
-Help ApiFormatter to cast object fields in the right way
---------------------------------------------------------
+Help ``ApiFormatter`` to cast object fields in the right way
+------------------------------------------------------------
 
 When formatting BEdita object ``ApiFormatter`` asks help to related
 object type Model to know which fields have to be cast in the right
