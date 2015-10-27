@@ -110,16 +110,16 @@ endpoints list.
       Note that those special endpoints work only for GET requests.
 
 
-Customize ``/objects`` endpoint with your own filter types
+Customize ``/objects`` endpoint with your own URL path filter types
 -------------------------------------------------------------------
 
 ``objects`` endpoint can be customized with URL path filters building
-endpoint structured as ``/objects/:id/filter``. URL path
-filters on by default are visible in ``ApiBaseController::$allowedObjectsFilter`` property
+endpoint structured as ``/objects/:id/url_path_filter``. URL path
+filters on by default are visible in ``ApiBaseController::$allowedObjectsUrlPath`` property
 
 .. code-block:: php
 
-    protected $allowedObjectsFilter = array(
+    protected $allowedObjectsUrlPath = array(
             'get' => array(
                 'relations',
                 'children',
@@ -147,13 +147,13 @@ filters on by default are visible in ``ApiBaseController::$allowedObjectsFilter`
 URL path filters can be inhibited or new ones can be added overriding
 that property in ``ApiController``.
 
-In practice filters are divided by request type (GET, POST,
+In practice URL path filters are divided by request type (GET, POST,
 ...) so it is possible doing request like ``GET /objects/1/children``,
 ``POST /objects/1/relations`` but not ``POST /objects/1/siblings``
 because of that filter is active only for GET requests.
 
 Every URL path filter must have a corresponding controller method named
-*"request type + Objects + filter camelized"* that will handle
+*"request type + Objects + URL path filter camelized"* that will handle
 the request. First url part *:id* and every other url parts after URL
 path filter will be passed to that method as arguments.
 
@@ -163,7 +163,7 @@ path filters and add a new 'foo\_bar' filter for GET request, in
 
 .. code-block:: php
 
-    protected $allowedObjectsFilter = array(
+    protected $allowedObjectsUrlPath = array(
             'get' => array(
                 'relations',
                 'children',
