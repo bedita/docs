@@ -1,4 +1,4 @@
-Auhtentication
+Authentication
 ==============
 
 Key concepts
