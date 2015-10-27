@@ -1,8 +1,10 @@
 # BEdita documentation
 
+[![Documentation Status](https://readthedocs.org/projects/bedita/badge/?version=latest)](http://bedita.readthedocs.org/en/latest/?badge=latest)
+
 This is the repository of the BEdita documentation you can see at https://bedita.readthedocs.org
 
-# Build the documentation manually
+## Build the documentation manually
 
 The documentation is built using [Sphinx](http://sphinx-doc.org/).
 
