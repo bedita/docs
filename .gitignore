@@ -1,0 +1,7 @@
+/build
+/.project
+/*.settings
+/*.cache
+/.buildpath
+.DS_Store
+/.tmp
