@@ -169,6 +169,8 @@ Get publication's descendants
 
     :reqheader Authorization: optional :term:`access token`
 
+    .. include:: /fragments/query_string_objects.rst
+
     :resheader Content-Type: application/json
 
     :status 200: Success
@@ -253,7 +255,17 @@ Get object's children of type *section*
     The object has to be a section or the publication.
     The children are just sections (*section BEdita object type*)
 
-    .. include:: /fragments/objects_related_endpoint_desc.rst
+    :reqheader Authorization: optional :term:`access token`
+
+    .. include:: /fragments/objects_common_params.rst
+
+    :query string filter[query]: used for fulltext search
+    :query int page: the page requested
+    :query int page_size: the page dimension
+
+    :resheader Content-Type: application/json
+
+    .. include:: /fragments/objects_common_status.rst
 
 Get object's children of type *contents*
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -264,7 +276,19 @@ Get object's children of type *contents*
     The object has to be a section or the publication.
     The children are other than sections.
 
-    .. include:: /fragments/objects_related_endpoint_desc.rst
+    :reqheader Authorization: optional :term:`access token`
+
+    .. include:: /fragments/objects_common_params.rst
+
+    :query string filter[object_type]: the object type or a comma separated list of
+        object types requested. "*section*" object type is not accepted
+    :query string filter[query]: used for fulltext search
+    :query int page: the page requested
+    :query int page_size: the page dimension
+
+    :resheader Content-Type: application/json
+
+    .. include:: /fragments/objects_common_status.rst
 
 Get object's descendants
 ~~~~~~~~~~~~~~~~~~~~~~~~
@@ -340,7 +364,17 @@ Get the related objects detail
 
     Return the paginated collection of objects related by *relation_name* to object *object_id*.
 
-    .. include:: /fragments/objects_related_endpoint_desc.rst
+    :reqheader Authorization: optional :term:`access token`
+
+    .. include:: /fragments/objects_common_params.rst
+
+    :param string relation_name: the name of the relation
+
+    .. include:: /fragments/query_string_objects.rst
+
+    :resheader Content-Type: application/json
+
+    .. include:: /fragments/objects_common_status.rst
 
 .. _get-the-relation-detail:
 
