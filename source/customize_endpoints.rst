@@ -127,6 +127,8 @@ those allowed. If validation fails the response return a :http:statuscode:`400` 
 
 To validate your own query string parameters there are two ways. Directly in ``ApiController`` or via configuration.
 
+.. _configure-allowed-query-string-controller:
+
 Configure allowed query string parameter in ``ApiController``
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -160,10 +162,12 @@ in the array keys. It will be considered as a special word used as *group name* 
         'endpoint_two' => array('_paramGroup', 'param_three')
     );
 
+.. _configure-allowed-query-string-conf:
+
 Configure allowed query string parameter in configuration file
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Using the same convention seen above you can customize the allowed query string editing ``app/config/frontend.ini.php``
+Using the same convention seen :ref:`above <configure-allowed-query-string-controller>` you can customize the allowed query string editing ``app/config/frontend.ini.php``
 or ``app/config/frontend.cfg.php``
 
 .. code-block:: php

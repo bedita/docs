@@ -31,7 +31,10 @@ To configure REST API you need to edit the frontend configuration file
             )
         ),
         'validation' => array(
-            'writableObjects' => array('document', 'event')
+            'writableObjects' => array('document', 'event'),
+            'allowedUrlParams' => array(
+               'endpoint_name' => array('param_one', 'param_two')
+            )
         )
     );
 
@@ -49,5 +52,7 @@ Possible configuration params are:
 -  ``formatting`` permits to setup some fomatting rules as object fields to
    :ref:`remove <formatting-remove-fields>` or to :ref:`keep <formatting-keep-fields>`
 -  ``validation`` setup some validation rules used generally in write
-   operations. For example ``writableObjects`` define what object types
-   are writable.
+   operations or to validate request and data:
+
+      - ``writableObjects`` define what object types are writable
+      - ``allowedUrlParams`` define which :ref:`query string paramters are valid for endpoints <configure-allowed-query-string-conf>`
