@@ -158,18 +158,25 @@ Get a collection of objects
 
 The ``/objects`` endpoint can be used to retrieve a collection of objects.
 
-Get publication's descendants
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
 .. http:get:: /objects
 
-    Return a paginated list of objects that are descendants of the
-    related publication configured in ``app/config/frontend.ini.php``.
+    It return a collection of objects:
+
+    * if called with ``id`` query string parameter the response will contain a collection of the objects requested
+    * else it returns a paginated list of objects that are descendants of the
+      related publication configured in ``app/config/frontend.ini.php``.
+
+    .. important::
+
+        Note that when ``id`` query string is used, no other parameters is valid but :term:`access token`.
+
     The response will be an array of objects as shown below.
 
     :reqheader Authorization: optional :term:`access token`
 
     .. include:: /fragments/query_string_objects.rst
+    :query id: a comma separated list of object ids. **See the important note above**.
+        The max number of ids you can request is defined by ``ApiBaseController::$paginationOptions['maxPageSize']``
 
     :resheader Content-Type: application/json
 
