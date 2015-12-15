@@ -160,7 +160,7 @@ The ``/objects`` endpoint can be used to retrieve a collection of objects.
 
 .. http:get:: /objects
 
-    It return a collection of objects:
+    It returns a collection of objects:
 
     * if called with ``id`` query string parameter the response will contain a collection of the objects requested
     * else it returns a paginated list of objects that are descendants of the
