@@ -497,12 +497,12 @@ Create an object
 
     where inside ``"data"`` are placed all fields to save.
     User has to be :doc:`authenticated </endpoints/auth>`
-    and ``"data": {}`` must contain: ``object_type`` i.e. the
-    object type you want to create at least a parent (``parents`` key)
-    accessible (with right permission for user authorized) on publication
-    tree or at least a relation (``relations`` key) with another object
-    reachable (where *reachable* means an accessible object on tree or
-    related to an accessible object on tree).
+    and ``"data": {}`` must contain:
+
+    *  ``object_type`` i.e. the object type you want to create
+    * **at least** a parent (``parents`` key) accessible (with right permission for user authorized) on publication tree
+      **or at least** a relation (``relations`` key) with another object reachable (where *reachable* means an accessible object on tree or
+      related to an accessible object on tree).
 
     Required keys in JSON are shown below.
 
@@ -536,6 +536,23 @@ Create an object
                         "related_id": 3
                     }
                 ]
+            }
+
+    :reqjson object data.custom_properties: (**optional**) a list of custom properties to save. Set a custom property to ``null`` to delete it.
+        For custom properties that supports multi options an array of values can be passed.
+        Custom properties types are checked before save,
+        so if type is *number* its value must be numeric, if it's *date* its value must be a compatibile ISO 6901 format.
+
+        .. code-block:: json
+
+            {
+                "custom_properties": {
+                    "custom_name_text": "my text here",
+                    "custom_name_number": 12,
+                    "custom_name_date": "2015-12-15T09:29:00+02:00",
+                    "custom_name_multiple": ["one", "two", "three"],
+                    "custom_name_to_remove": null
+                }
             }
 
     :resheader Content-Type: application/json
