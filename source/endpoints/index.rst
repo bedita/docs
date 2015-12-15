@@ -14,7 +14,7 @@ endpoints.
 
     auth
     objects
-    poster
+    posters
     me
 
 .. seealso::
