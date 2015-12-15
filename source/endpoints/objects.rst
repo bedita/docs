@@ -541,7 +541,7 @@ Create an object
     :reqjson object data.custom_properties: (**optional**) a list of custom properties to save. Set a custom property to ``null`` to delete it.
         For custom properties that supports multi options an array of values can be passed.
         Custom properties types are checked before save,
-        so if type is *number* its value must be numeric, if it's *date* its value must be a compatibile ISO 6901 format.
+        so if type is *number* its value must be numeric, if it's *date* its value must be a compatibile ISO 8601 format.
 
         .. code-block:: json
 
