@@ -41,7 +41,7 @@ endpoints available, for example
         "auth": "https://example.com/api/v1/auth",
         "me": "https://example.com/api/v1/me",
         "objects": "https://example.com/api/v1/objects",
-        "poster": "https://example.com/api/v1/poster"
+        "posters": "https://example.com/api/v1/posters"
     }
 
 

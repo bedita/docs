@@ -4,7 +4,7 @@ Posters ``/posters``
 .. include:: /fragments/endpoint_dev_warning.rst
 
 Get the image representation of object *object_id* as thumbnail url
---------------------------------------------------------------------
+-------------------------------------------------------------------
 
 .. http:get:: /posters/(object_id)
 
@@ -61,7 +61,7 @@ Get the image representation of object *object_id* as thumbnail url
       }
 
 Get a collection of image representations
-------------------------------------------
+-----------------------------------------
 
 The ``/posters`` endpoint can be used also to retrieve a collection of image representations.
 
@@ -69,16 +69,14 @@ The ``/posters`` endpoint can be used also to retrieve a collection of image rep
 
     If called with ``id`` query string parameter the response will contain a collection of the requested `posters`
 
-    .. important::
-
-        Note that when ``id`` query string is used, no other parameters is valid but :term:`access token`.
-
     The response will be an array of posters as shown below.
 
     :reqheader Authorization: optional :term:`access token`
 
-    :query id: a comma separated list of object ids. **See the important note above**.
+    :query id: a comma separated list of object ids.
         The max number of ids you can request is defined by ``ApiBaseController::$paginationOptions['maxPageSize']``
+    :queryparam int width: the thumbnail width
+    :queryparam int height: the thumbnail height
 
     :resheader Content-Type: application/json
 
@@ -91,7 +89,7 @@ The ``/posters`` endpoint can be used also to retrieve a collection of image rep
 
     .. sourcecode:: http
 
-        GET /posters HTTP/1.1
+        GET /posters?id=1,2,3,4,5 HTTP/1.1
         Host: example.com
         Accept: application/json, text/javascript
 
