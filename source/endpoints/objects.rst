@@ -132,26 +132,83 @@ Get an object
         is the complete API request url to get the object related, for example
         https://example.com/api/objects/15/relations/attach
 
-    If *object_id* corresponds to a **section** or a **publication** then the
-    response will contain ``data.object.children`` with the total count of
-    children, count of contents, count of sections and the related url.
+        .. _embed-relations-example:
 
-    .. code-block:: json
+        **Embedding related objects**
 
-        {
-            "children": {
-                "count": 14,
-                "url": "https://example.com/api/objects/1/children",
-                "contents": {
-                    "count": 12,
-                    "url": "https://example.com/api/objects/1/contents"
-                },
-                "sections": {
-                    "count": 2,
-                    "url": "https://example.com/api/objects/1/sections"
+        Requests with ``embed[relations]`` query string will add
+        ``objects`` key to ``data.object.relations.<relation_name>``, for example
+
+        .. code-block:: http
+
+            GET /objects/15?embed[relations]=attach|3,seealso|2 HTTP/1.1
+
+        will have as ``relations`` key
+
+        .. code-block:: json
+
+            {
+                "relations": {
+                    "attach": {
+                        "count": 8,
+                        "url": "https://example.com/api/objects/15/relation/attach",
+                        "objects": [
+                            {
+                                "id": 13,
+                                "title": "attach one"
+                            },
+                            {
+                                "id": 21,
+                                "title": "attach two"
+                            },
+                            {
+                                "id": 22,
+                                "title": "attach three"
+                            }
+                        ]
+                    },
+                    "seealso": {
+                        "count": 2,
+                        "url": "https://example.com/api/objects/15/relation/seealso",
+                        "objects": [
+                            {
+                                "id": 30,
+                                "title": "seealso one"
+                            },
+                            {
+                                "id": 31,
+                                "title": "seealso two"
+                            }
+                        ]
+                    }
                 }
             }
-        }
+
+        where the ``objects`` collections have been simplified but every item
+        inside them is a complete object.
+
+    .. note::
+
+        If *object_id* corresponds to a **section** or a **publication** then the
+        response will contain ``data.object.children`` with the total count of
+        children, count of contents, count of sections and the related url.
+
+        .. code-block:: json
+
+            {
+                "children": {
+                    "count": 14,
+                    "url": "https://example.com/api/objects/1/children",
+                    "contents": {
+                        "count": 12,
+                        "url": "https://example.com/api/objects/1/contents"
+                    },
+                    "sections": {
+                        "count": 2,
+                        "url": "https://example.com/api/objects/1/sections"
+                    }
+                }
+            }
 
 Get a collection of objects
 ---------------------------
