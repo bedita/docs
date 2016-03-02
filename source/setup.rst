@@ -66,7 +66,8 @@ Enable API on old frontend app
 
       $apiBaseUrl = Configure::read('api.baseUrl');
       if (!empty($apiBaseUrl) && is_string($apiBaseUrl)) {
-         Router::connect($apiBaseUrl . '/*', array('controller' => 'api', 'action' => 'route'));
+         $apiBaseUrl .= (substr($apiBaseUrl, -1) === '/') ? '*' : '/*';
+         Router::connect($apiBaseUrl, array('controller' => 'api', 'action' => 'route'));
       }
 
    above
