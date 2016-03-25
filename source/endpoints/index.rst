@@ -7,9 +7,10 @@ BEdita4 exposes a set of default endpoints.
     :maxdepth: 2
 
     auth
+    users
+    roles
     objects
     admin
     meta
-    users
 
 

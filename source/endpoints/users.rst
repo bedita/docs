@@ -1,9 +1,7 @@
-Users and Roles ``/users``
-===========================
+Users ``/users``
+=================
 
-``/users`` endpoint is used to manage users and roles
+``/users`` endpoint is used to manage users
 
 Main responsabilities of this endpoint are:
     * create, update and remove users
-    * create, update and remove roles (see :term:`role`)
-    * assign roles to users
