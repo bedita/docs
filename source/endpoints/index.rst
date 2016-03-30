@@ -11,6 +11,9 @@ BEdita4 exposes a set of default endpoints.
     roles
     objects
     admin
-    meta
-
+    object_types
+    relations
+    categories
+    me
+    posters
 

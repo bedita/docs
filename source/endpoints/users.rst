@@ -5,3 +5,4 @@ Users ``/users``
 
 Main responsabilities of this endpoint are:
     * create, update and remove users
+

@@ -3,7 +3,7 @@ Administration ``/admin``
 
 ``/admin`` endpoint deals with administrative operations on current project
 
-Main responsabilities of this endpoint are:
+Main responsabilities of this endpoint:
     * manage configuration properties
     * show system information, including project logs
     * view event logs
