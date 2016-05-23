@@ -6,6 +6,7 @@ BEdita4 exposes a set of default endpoints.
 .. toctree::
     :maxdepth: 2
 
+    home
     auth
     users
     roles
