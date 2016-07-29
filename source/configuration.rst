@@ -72,3 +72,29 @@ Api Keys are checked on every request using this rules:
     - current ``X-Api-Key`` header value is read should match one of these keys
     - if corresponding Api Key has an `origin` - HTTP request `origin` is read and should also match
     - otherwise an error response is sent using HTTP 403 code
+
+
+CORS
+-----
+
+
+It's possible to setup some basic `CORS <https://developer.mozilla.org/en-US/docs/Web/HTTP/Access_control_CORS>`_ configuration parameters directly in BEdita4.
+
+Using this settings please beware of possible conflicts with similar settings made on your HTTP server.
+
+An optional 'CORS' configuration should be like this example:
+
+.. sourcecode:: php
+
+    'CORS' => [
+        'allowOrigin' => '*.example.com', // string or array
+        'allowMethods' => ['GET', 'POST'], // (optional) array
+        'allowHeaders' => ['X-CSRF-Token'] // (optional) array
+    ]
+
+Where:
+
+- **CORS.allowOrigin** is a single domain or an array of domains
+- **CORS.allowMethods** is an array of HTTP methods
+- **CORS.allowHeaders** must be an array of HTTP headers
+
