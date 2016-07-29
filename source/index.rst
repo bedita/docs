@@ -16,6 +16,7 @@ customized for frontend needs.
    response_and_erroros
    authentication
    pagination
+   uploading_files
    customize_endpoints
    formatting_bedita_objects
    endpoints/index

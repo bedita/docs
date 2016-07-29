@@ -73,7 +73,7 @@ master_doc = 'index'
 
 # General information about the project.
 project = u'BEdita'
-copyright = u'2015, Channelweb Srl, Chialab Srl'
+copyright = u'2015-2016, Channelweb Srl, Chialab Srl'
 author = u'Channelweb Srl, Chialab Srl'
 
 # The version info for the project you're documenting, acts as replacement for

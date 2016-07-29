@@ -14,6 +14,7 @@ endpoints.
 
     auth
     objects
+    files
     posters
     me
 
