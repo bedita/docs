@@ -3,6 +3,11 @@ Authentication ``/auth``
 
 ``/auth`` endpoint is used to handle login actions using default authentication method and external supported providers.
 
+Two different actions are supported:
+
+* standard **login** - providing username and password and without ``Authorization`` header
+* token **renew** - with ``Authorization`` header and without username and password
+
 Login
 -----
 
@@ -12,7 +17,7 @@ Login
 
     :form username: Username of user to be logged in. To be omitted when renewing token.
     :form password_hash: Password of user to be logged in. To be omitted when renewing token.
-    :reqheader Authorization: *(Optional)* Renew token, prefixed with ``Bearer``.
+    :reqheader Authorization: *(Optional)* Use only in token renew, prefixed with ``Bearer``.
     :status 200: Login successful.
     :status 401: Unauthorized user, or invalid renew token.
     :resjson meta.jwt: The JSON Web Token to be used to authenticate (in header :http:header:`Authorization`).
