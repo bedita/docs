@@ -56,7 +56,7 @@ If you want to use ``/files`` endpoint for your custom object types, your model 
   In this case the upload will follow the classic BEdita flow putting the file uploaded in the path defined in configuration
   as ``$config['mediaRoot']`` and reachable from ``$config['mediaUrl']`` url unless you follow the below convention.
 
-* if you need to handle the upload in a way different from BEdita the object model must **implements** two methods:
+* if you need to handle the upload in a way different the object model must **implements** two methods:
 
  .. php:method:: apiUpload(File $source, array $options)
 

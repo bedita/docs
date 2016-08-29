@@ -21,6 +21,8 @@ Upload a file
     The ``object_type`` needs to validate some property of the file uploaded as the mime type.
     For example the `image` object type will accept ``image/jpeg`` but will reject ``video/mp4``.
 
+    ``file_name`` should be the original file name **url encoded**.  
+
     .. include:: /fragments/objects_writable_important.rst
 
     User has to be :doc:`authenticated </endpoints/auth>`
