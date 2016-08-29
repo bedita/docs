@@ -20,18 +20,10 @@ The process of upload follow the schema:
 
 where:
 
-(A) The client send a request to upload a file
-(B) The API responds with :http:statuscode:`200` and an upload token
+(A) The client send a request to upload a file named `:filename` related to an object type `:object_type`.
+    See :http:post:`/files/(string:object_type)/(string:file_name)` for more info.
+(B) The API responds with :http:statuscode:`200` and an :term:`upload token`.
 (C) The client finalize the upload request creating a BEdita object
-    and using the upload token received for link the new object to
+    and using the :term:`upload token` received for link the new object to
     the file uploaded
-(D) The API responds with  :http:statuscode:`201`
-
-.. glossary::
-    :sorted:
-
-    Upload token
-        An opaque token issued from API server that refers to a file uploaded
-        from an authenticated user and for a specific object type.
-        The token has a an expiration date. If used after that expiration date
-        the request will be invalid. 
+(D) The API responds with  :http:statuscode:`201` as shown in :http:post:`/objects`

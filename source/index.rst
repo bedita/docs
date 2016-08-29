@@ -20,6 +20,7 @@ customized for frontend needs.
    customize_endpoints
    formatting_bedita_objects
    endpoints/index
+   glossary
 
 Indices and tables
 ==================
