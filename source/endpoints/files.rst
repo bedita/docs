@@ -4,6 +4,14 @@ Files upload ``/files``
 It is used to upload files that must be linked to an object,
 generally multimedia objects as `image`, `video`, `audio`,...
 
+The file upload flow is described in :doc:`../uploading_files` section.
+
+.. warning::
+
+    At the moment uploaded files are only linkable to new BEdita objects
+    that support upload.
+    You can't change file associated to an existing object.
+
 Upload a file
 -------------
 
@@ -107,4 +115,4 @@ Upload a file
     .. note::
 
         In this example the image object created is located on publication tree.
-        See :http:post:`/objects` to know the required paramters on object creation.
+        See :http:post:`/objects` to know the required paramters creating an object.
