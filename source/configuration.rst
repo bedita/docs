@@ -87,9 +87,9 @@ An optional 'CORS' configuration should be like this example:
 .. sourcecode:: php
 
     'CORS' => [
-        'allowOrigin' => '*.example.com', // string or array
-        'allowMethods' => ['GET', 'POST'], // (optional) array
-        'allowHeaders' => ['X-CSRF-Token'] // (optional) array
+        'allowOrigin' => '*.example.com', // string or array , also '*'
+        'allowMethods' => ['GET', 'POST'], // (optional) array, also '*'
+        'allowHeaders' => ['X-CSRF-Token'] // (optional) array, also '*'
     ]
 
 Where:
@@ -97,6 +97,18 @@ Where:
 - **CORS.allowOrigin** is a single domain or an array of domains
 - **CORS.allowMethods** is an array of HTTP methods
 - **CORS.allowHeaders** must be an array of HTTP headers
+
+So if you want to allow every CORS call with the most permissive setting,
+on development and test systems, you may set:
+
+.. sourcecode:: php
+
+    'CORS' => [
+        'allowOrigin' => '*',  // allow every origin
+        'allowMethods' => '*', // allow every method
+        'allowHeaders' => '*'  // allow every header
+    ]
+
 
 Security
 --------
