@@ -34,8 +34,9 @@ Upload a file
 
     :resheader Content-Type: application/json
     :status 200: Success, the file was uploaded. The response body will contain the :term:`upload token`
-    :status 400: Required parameters are missing or the request is malformed or some validation fails
+    :status 400: Required parameters are missing or the request is malformed or some validation fails.
     :status 401: Request is not authorized
+    :status 403: The quota available or the max number of files allowed is exceeded 
     :status 409: The file is already present
 
     **Example request**:

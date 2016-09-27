@@ -45,6 +45,32 @@ An example of configuration could be:
 To allow ``image/png`` and ``image/gif`` mime types for ``Image`` object
 and all ``video/*`` mime types for ``Video`` object.
 
+Limiting max file size allowed and quota available
+--------------------------------------------------
+
+Usually you would want to limit the amount of files and space available for every user. 
+The default max file size supported and the quota available are defined in ``ApiUploadComponent`` as
+
+.. code-block:: php
+
+    protected $quota = array(
+        'maxFileSize' => 52428800,  // max file size uploadable 50 MB
+        'maxSizeAvailable' => 524288000,  // quota available 500 MB
+        'maxFilesAllowed' => 500 // max number of files uploadable
+    );
+
+These parameters are configurable editing ``app/config/frontend.cfg.php``, for example
+
+.. code-block:: php
+
+    $config['api']['upload'] => array(
+        'quota' => array(
+            'maxFileSize' => 8*1024*1024, // 8 MB
+            'maxSizeAvailable' => 50*1024*1024, // 50 MB
+            'maxFilesAllowed' => 100
+        )
+    );
+
 Creating a custom object type supporting upload
 -----------------------------------------------
 
