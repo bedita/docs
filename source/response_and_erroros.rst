@@ -86,8 +86,26 @@ Every time the API thrown an error the response will be similar to
 where:
 
 -  ``status`` is the HTTP status code
--  ``code`` is the API error code (not implemented)
+-  ``code`` is the API error code (if exists)
 -  ``message`` is the error message
 -  ``details`` is the error detail
--  ``more_info`` is the url to error documentation (not implemented)
+-  ``more_info`` can contain useful information for better understand the error.
 -  ``url`` is the url that has responded with the error
+
+.. _error-codes:
+
+Error codes
+~~~~~~~~~~~
+
+Here is a list of the error codes thrown from the API. 
+
++-------------------------------------+-------------------------------------+-------------------------------+
+|      Error Code                     |   Description                       | HTTP status code              |
++=====================================+=====================================+===============================+
+| UPLOAD_MAX_FILESIZE_EXCEEDED        | Upload max file size exceeded       | :http:statuscode:`400`        |
++-------------------------------------+-------------------------------------+-------------------------------+
+| UPLOAD_QUOTA_EXCEEDED               | Upload quota available exceeded     | :http:statuscode:`403`        |
++-------------------------------------+-------------------------------------+-------------------------------+
+| UPLOAD_FILES_LIMIT_EXCEEDED         | Maximum number of files allowed     | :http:statuscode:`403`        | 
+|                                     | exceeded                            |                               |
++-------------------------------------+-------------------------------------+-------------------------------+
