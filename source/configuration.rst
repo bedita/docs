@@ -35,6 +35,13 @@ To configure REST API you need to edit the frontend configuration file
             'allowedUrlParams' => array(
                'endpoint_name' => array('param_one', 'param_two')
             )
+        ),
+        'upload' => array(
+            'quota' => array(
+                'maxFileSize' => 8*1024*1024, // 8 MB
+                'maxSizeAvailable' => 50*1024*1024, // 50 MB
+                'maxFilesAllowed' => 500
+            )
         )
     );
 
@@ -56,3 +63,6 @@ Possible configuration params are:
 
       - ``writableObjects`` define what object types are writable
       - ``allowedUrlParams`` define which :ref:`query string paramters are valid for endpoints <configure-allowed-query-string-conf>`
+- ``upload`` the upload configuration. Contains:
+
+      - ``quota`` is an array with space and files limits available for every user. See :ref:`quota-limits`.

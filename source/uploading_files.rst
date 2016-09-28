@@ -45,6 +45,8 @@ An example of configuration could be:
 To allow ``image/png`` and ``image/gif`` mime types for ``Image`` object
 and all ``video/*`` mime types for ``Video`` object.
 
+.. _quota-limits:
+
 Limiting max file size allowed and quota available
 --------------------------------------------------
 
