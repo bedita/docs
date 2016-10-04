@@ -5,9 +5,9 @@ Setup
 Prerequisites
 =============
 
- * PHP 7 (recommended) or PHP >= 5.5.9, with extensions *mbstring*, *intl*
+ * PHP 7 (recommended) or PHP >= 5.6, with extensions *mbstring*, *intl*
  * MySQL >= 5.5 (Posgtres and SQLite support in future releases)
- * [Composer](https://getcomposer.org/doc/00-intro.md#installation-linux-unix-osx)
+ * `Composer <https://getcomposer.org/doc/00-intro.md#installation-linux-unix-osx>`_
 
 
 A web server like Apache or Nginx also recommended in general, but not strictly necessary
