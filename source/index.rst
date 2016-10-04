@@ -10,6 +10,7 @@ BEdita 4 documentation
     setup
     configuration
     database
+    bedita_objects
     shell
     endpoints/index
     glossary
