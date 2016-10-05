@@ -12,9 +12,11 @@ BEdita ``objects`` also represent your application data model.
 
 Let's try to explain that with some examples: are you building an application to show a museum collection?
 
-Your objects will be artworks, authors and probably historical events, locations and museum rooms, but of course also images and videos.
+Your objects will be artworks, authors and maybe historical events, locations and museum rooms,
+but also images and videos.
 
-All of them with some relations between them: an artwork was _createdBy_ an author (or more authors), it could _represent_ an historical event, it was _created_ on a particular place
+All of them with some relations between them: an artwork was _createdBy_ an author (or more authors),
+it could _represent_ an historical event, it was _created_ on a particular place
 and be _situated_ in a museum room or _borrowed_ from another museum or gallery.
 
 Are you building a rental car application?
@@ -40,11 +42,12 @@ An object in BEdita is identified with these capabilities:
 * objects share a common id space and have a unique name for every project - url friendly string identifier
 
 Apart from objects we have four basic groups of entities
-* entities like tags, categories, permissions or annotations are special entities that we assign to objects: they are not objects itself
+* entities like tags, categories, permissions or annotations are special entities
+that we assign to objects: they are not objects itself, they rather define object properties
 * entities like object types, relations, properties are used to design our object model
 * other entities like endpoints, configurations, applications, auth providers will be rarely seen directy by API client developers
 or backend users: they handle API and project behaviors
-* roles are special entities used only to give permissions on objects, endpoints or object types - they are not objects
+* roles are special entities used only to give users permissions on objects, endpoints or object types - they are not objects
 
 ``Users`` (see :term:`user`) of instead are a special object type: you may add properties and relations to other objects, but you may not extend it with a new type.
 
