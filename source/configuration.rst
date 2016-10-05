@@ -21,6 +21,7 @@ Using configurations keep in mind these common usage rules and best practices:
 
 Below a brief BEdita4 configurations reference in alphabetical order.
 
+.. _configuration-accept:
 
 Accept
 ------
