@@ -17,6 +17,5 @@ BEdita4 exposes a set of default endpoints.
     object_types
     relations
     categories
-    me
     posters
 
