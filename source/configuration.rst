@@ -74,6 +74,7 @@ Api Keys are checked on every request using this rules:
     - if corresponding Api Key has an `origin` - HTTP request `origin` is read and should also match
     - otherwise an error response is sent using HTTP 403 code
 
+.. _configuration-cors:
 
 CORS
 -----

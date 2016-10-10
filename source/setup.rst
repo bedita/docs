@@ -88,13 +88,72 @@ You may see the first admin user created like a root user on Linux or MySQL: it 
 Web Server
 ==========
 
+On a development setup it's possible to use PHP builtin webserver, have a look
+at `CakePHP Development Server <http://book.cakephp.org/3.0/en/installation.html#development-server>`_
+Using this simple command
+
+.. code-block:: bash
+
+  $ bin/cake server
+
+This will serve the backend application at http://localhost:8765/.
+
+This setup should be used **ONLY** in development and **NEVER** as a production setup.
+
+For test and production setups is always advisable to use a **real** web server like Apache2 or Nginx.
+
 
 Apache2
 -------
 
+Below some instructions for **Apache 2.4**, but also other versions of Apache, like 2.2, will work.
+
+Please make sure that **mod_rewrite** is enabled. On Ubuntu 14.04 or 16.04 or on Debian 8 you may verify it like this
+
+.. code-block:: bash
+
+  $ more /etc/apache2/mods-enabled/rewrite.load
+  LoadModule rewrite_module /usr/lib/apache2/modules/mod_rewrite.so
+
+On other systems with different Apache configurations this check should be similar.
+
+A simple minimal working virtualhost configuration can look like this:
+
+.. code-block:: apache
+
+    <VirtualHost *:80>
+        ServerName api.example.com
+
+        DocumentRoot /path/to/bedita/webroot
+        <Directory /path/to/bedita/webroot>
+            Options FollowSymLinks
+            AllowOverride All
+            Require all granted
+        </Directory>
+    </VirtualHost>
+
+Where:
+ * ``/path/to/bedita`` refers simply to the **Backend** path on filesystem
+ * ``DocumentRoot`` should point to the ``webroot`` folder
+ * ``AllowOverride All`` is needed to enable ``.htaccess`` files
+ * ``Require all granted`` allows access from anywhere, you may decide to set some restrictions based on hosts/IP
+
+To enable `CORS <https://developer.mozilla.org/en-US/docs/Web/HTTP/Access_control_CORS>`_ on virtualhost configuration
+you may add these lines, provided that **mod_headers** is enabled
+
+.. code-block:: apache
+
+    Header set Access-Control-Allow-Origin "*"
+    Header set Access-Control-Allow-Headers "content-type, origin, x-requested-with, authorization"
+    Header set Access-Control-Allow-Methods "PUT, GET, POST, PATCH, DELETE, OPTIONS"
+
+In this example:
+ * all origins and HTTP methods are allowed, you may want to add restrictions
+ * only headers used by BEdita4 are allowed
+
+Alternatively you can setup *CORS* configuration directly in BEdita, see :ref:`configuration-cors`
 
 Nginx
 -----
 
-Advanced setup
-==============
+[TBD]
