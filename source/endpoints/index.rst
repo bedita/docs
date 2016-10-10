@@ -16,6 +16,6 @@ BEdita4 exposes a set of default endpoints.
     admin
     object_types
     relations
-    categories
+    status
     posters
 
