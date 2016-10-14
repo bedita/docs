@@ -70,14 +70,14 @@ Therefore some tools are provided to help you:
 * simple application examples
 * libraries in javascript and other languages/platforms
 
-These tools may help you, but are not strictly necessary: BEdita REST API are consumed only through open
-and well documented standards and protocols like HTTP, JSON-API or JWT.
+These tools may help you, but are not strictly necessary: BEdita API is built on open
+and well documented standards and protocols like **HTTP**, **JWT** or **JSON-API**.
 
-You should be able to use the API using *curl* or the most sophisticated Java framework without these tools.
+You should be able to use the API using *curl* or the most sophisticated Java framework also without these tools.
 
 
 .. rubric:: Notes
 
 .. [#a] it's possible however, only for testing/debugging purposes, to activate HTML responses
-        to use in a browser for example, see :ref:`configuration-accept`
-.. [#b] XML and other formats like YML could be added in future releases.
+        to use the **Backend** in a browser, see :ref:`configuration-accept`
+.. [#b] other formats like YML (or XML) could be added in future releases.
