@@ -8,7 +8,7 @@ Three different actions are supported:
 
 * standard **login** - providing username and password and without ``Authorization`` header
 * token **renew** - with ``Authorization`` header and without username and password
-* **whoami** - user logged profile data
+* **whoami** - get logged user profile data
 
 
 Login
@@ -67,8 +67,8 @@ Login
     **Example response**: (*same as above, with new JWT and renew token*)
 
 
-Whoami
-------
+Who Am I?
+---------
 
 .. http:get:: /auth
 
