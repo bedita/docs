@@ -57,15 +57,3 @@ Apart from objects we have four basic groups of entities
 to other objects, but you may not extend it with a new type.
 
 It's a powerful yet simple model design that you may use successfully in a wide range of applications.
-
-
-Usage
-------
-
-So, what will you do with BEdita objects?
-
- * extend core types, adding new properties
- * create new types
- * define relations between object types
- * create actual relations between objects
-
