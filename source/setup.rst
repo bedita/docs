@@ -41,32 +41,10 @@ There are four basic steps to install BEdita 4
   $ cd bedita
   $ composer install
 
-**3. Configure your database connection**
+**3. Create an empty database**
 
-Create an empty MySQL (or Posgtres or SQLite, in the future) database and edit
-CakePHP default configuration file located in ``config/app.php`` where datasources are defined.
-
-Look for ``Datasources`` array definition then modify ``host``, ``username``,
-``password`` and ``database`` fields.
-
-.. code-block:: php
-
-    'Datasources' => [
-        'default' => [
-            'className' => 'Cake\Database\Connection',
-            'driver' => 'Cake\Database\Driver\Mysql',
-            'host' => 'localhost',
-            //'port' => 'non_standard_port_number',
-            'username' => '......',
-            'password' => '......',
-            'database' => '......',
-            .....
-        ],
-    ]
-
-Other noteworthy fields:
- * ``port`` - populate only in case of non standard ports
- * ``driver`` - change to ``'Cake\Database\Driver\Postgres'`` or ``'Cake\Database\Driver\Sqlite'`` accordingly
+Create an empty MySQL (or Posgtres or SQLite, in the future) database and keep track of main connection parameters
+like ``host``, ``username``, ``password`` and ``database``.
 
 **4. Run shell script to initialize the database and create first admin user**
 
@@ -84,6 +62,7 @@ An interactive shell script will guide you through missing installation steps:
 You may see the first admin user created like a root user on Linux or MySQL: it has **administrator**
 :term:`role` privileges and cannot be removed.
 
+To setup a database connection you may also edit the main configuration file, see `Manual Setup`_.
 
 Web Server
 ==========
@@ -157,3 +136,32 @@ Nginx
 -----
 
 [TBD]
+
+
+Manual Setup
+============
+
+To setup database connection manually or review the current connection
+you may edit the main default configuration file located in ``config/app.php`` where datasources are defined.
+
+Look for ``Datasources`` array definition then modify ``host``, ``username``,
+``password`` and ``database`` fields.
+
+.. code-block:: php
+
+    'Datasources' => [
+        'default' => [
+            'className' => 'Cake\Database\Connection',
+            'driver' => 'Cake\Database\Driver\Mysql',
+            'host' => 'localhost',
+            //'port' => 'non_standard_port_number',
+            'username' => '......',
+            'password' => '......',
+            'database' => '......',
+            .....
+        ],
+    ]
+
+Other noteworthy fields:
+ * ``port`` - populate only in case of non standard ports
+ * ``driver`` - change to ``'Cake\Database\Driver\Postgres'`` or ``'Cake\Database\Driver\Sqlite'`` accordingly
