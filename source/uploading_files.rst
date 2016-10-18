@@ -84,32 +84,97 @@ If you want to use ``/files`` endpoint for your custom object types, your model 
   In this case the upload will follow the classic BEdita flow putting the file uploaded in the path defined in configuration
   as ``$config['mediaRoot']`` and reachable from ``$config['mediaUrl']`` url unless you follow the below convention.
 
-* if you need to handle the upload in a way different the object model must **implements** two methods:
+* if you need to handle the upload in a way different, the object model must **implements**:
 
- .. php:method:: apiUpload(File $source, array $options)
+ .. php:interface:: UploadableInterface
 
-      Used for execute the upload action given the source file. It deals with moving the uploaded file
-      in a target destination returning the target url.
+    .. php:method:: apiUpload(File $source, array $options)
 
-      :param File $source: The instance of CakePHP `File <http://api.cakephp.org/1.3/class-File.html>`_ referred to the
-                           file uploaded
-      :param array $options: An array of options containing:
-    
-                             * ``fileName``: the safe file name obtained from source original file name
-                             * ``hashFile``: the md5 hash of the source file
-                             * ``user``: the user data identified by :term:`access token`
-      :returns: Either false on failure, or the target url where the the file is reachable.
+        Used for execute the upload action given the source file. It deals with moving the uploaded file
+        in a target destination returning the target url. 
 
- .. php:method:: apiUploadTransformData(array $uploadData)
+        :param File $source: The instance of CakePHP `File <http://api.cakephp.org/1.3/class-File.html>`_ referred to the
+                            file uploaded
+        :param array $options: An array of options containing:
+        
+                                * ``fileName``: the safe file name obtained from source original file name
+                                * ``hashFile``: the md5 hash of the source file
+                                * ``user``: the user data identified by :term:`access token`
+        :returns: Either false on failure, or the target url where the the file is reachable.
 
-      Used for finalize the upload action adding additional fields to object data to save.
+    .. php:method:: apiUploadTransformData(array $uploadData)
 
-      :param array $uploadData: An array of data containing information about file previously uploaded:
+        Used for finalize the upload action adding additional fields to object data to save.
 
-                             * ``uri``: the url of file uploaded (that one returned from ``apiUpload()``)
-                             * ``name``: the safe file name
-                             * ``mime_type``: the file mime-type
-                             * ``file_size``:  the file size
-                             * ``original_name``:  the original file name uploaded
-                             * ``hash_file``: the md5 hash of file
-      :returns: array of additional fields to add to object data passed in creation according to ``Model`` table used.
+        :param array $uploadData: An array of data containing information about file previously uploaded:
+
+                                * ``uri``: the url of file uploaded (that one returned from ``apiUpload()``)
+                                * ``name``: the safe file name
+                                * ``mime_type``: the file mime-type
+                                * ``file_size``:  the file size
+                                * ``original_name``:  the original file name uploaded
+                                * ``hash_file``: the md5 hash of file
+        :returns: array of additional fields to add to object data passed in creation according to ``Model`` table used.
+
+    .. php:method:: apiUploadQuota(array $uploadableObjects, array $user, $event)
+
+        It should return the quota usage and total amount of uploaded objects for ``$user``.
+        This method is intended to be bound to ``Api.uploadQuota`` event, so the model should add it as listener.
+
+        For example:
+
+        .. code-block:: php
+
+            class CustomObjectType {
+
+                public function __construct() {
+                    parent::__construct();
+                    BeLib::eventManager()->bind(
+                        'Api.uploadQuota',
+                        array('CustomObjectType', 'apiUploadQuota')
+                    );
+                }
+
+                public function apiUploadQuota(array $uploadableObjects, array $user, $event) {
+                    // do stuff to calculate object type quota used
+                    return array_merge($event->result, $calculatedQuota);
+                }
+
+            }
+
+        :param array $uploadableObjects: Array of uploadable object types
+        :param array $user: User data
+        :param $event: The dispatched event
+
+        :returns: array or false in case of error.
+
+            The result must be merged with ``$event->result`` and returned in the form:
+
+            .. code-block:: php
+
+                array(
+                    'object_type_name' => array(
+                        'size' => 12345678,
+                        'number' => 256
+                     ),
+                )
+
+    .. php:method:: apiCreateThumbnail($id, $thumbConf = array())
+
+        Create the thumbnail for the requested resource (if necessary)
+        and returns an array containing the uri of the thumb and the object id refered from thumb.
+
+        :param int $id: The object id
+        :param array $thumbConf: The thumbnail configuration
+
+        :returns: array or false
+        
+            It must return ``false`` if the thumb creation fails
+            else the array must contain the keys ``id`` and ``uri``
+
+            .. code-block:: php
+
+                array(
+                    'id' => 15,
+                    'uri' => 'https://example.com/thumb/thumb_name.jpg'
+                )
