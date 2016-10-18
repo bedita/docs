@@ -8,7 +8,7 @@ enabled the API present a set of default endpoints that can be
 customized for frontend needs.
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 5
    :caption: REST API
 
    setup
