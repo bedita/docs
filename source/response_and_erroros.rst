@@ -82,7 +82,7 @@ So the same date should be sent from client as ``2016-11-14T15:54:01+01:00`` or 
 
 .. tip::
 
-    If you need to customize the format data types you could be interesed in reading :ref:`formatting-objects-cast-types`
+    If you need to customize the format data types you could be interested in reading :ref:`formatting-objects-cast-types`
 
 Errors
 ------
