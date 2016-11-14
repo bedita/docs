@@ -44,6 +44,8 @@ add to the formatted object the count of relations and children.
 By default no count is done.
 
 
+.. _formatting-objects-cast-types:
+
 Help ``ApiFormatter`` to cast object fields in the right way
 ------------------------------------------------------------
 

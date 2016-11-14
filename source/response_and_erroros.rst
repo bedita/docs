@@ -65,6 +65,25 @@ where:
    Content** HTTP status code. Pass another status code as first argument to send
    different status code.
 
+``data`` fields format
+~~~~~~~~~~~~~~~~~~~~~~
+
+Every response in data is formatted in the right type usually according to database fields type.
+So it can contain values as integers, floats, booleans and dates.
+
+While other types are clear we need to clarify the format used for dates.
+All reponse dates are formatted using `ISO-8601 <https://en.wikipedia.org/wiki/ISO_8601>`_ standard combining
+date and time, for example ``2016-11-14T15:54:01+01:00``.
+
+The client should always send dates in that format or using the form with **Z** as zone designator to indicate UTC,
+coming for example from javascript function ``Date().toISOString()``.
+
+So the same date should be sent from client as ``2016-11-14T15:54:01+01:00`` or ``2016-11-14T14:54:01.640Z``.
+
+.. tip::
+
+    If you need to customize the format data types you could be interesed in reading :ref:`formatting-objects-cast-types`
+
 Errors
 ------
 
