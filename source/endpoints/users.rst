@@ -81,8 +81,7 @@ Successful response example follows:
                 "status": "on",
                 "uname": "johndoe",
                 "title": "john",
-                "lang": "eng",
-                [...] // more internal attributes
+                "lang": "eng"
             },
             "relationships": {
                 "roles": {
@@ -98,6 +97,8 @@ Successful response example follows:
             "home": "http://example.com/home"
         }
     }
+
+``data.attributes`` object contains more internal attributes.
 
 Get user data
 -------------
@@ -133,14 +134,12 @@ It returns a collection of users:
                 {
                     "id": 19283,
                     "type": "users",
-                    -"attributes": {
+                    "attributes": {
                         "username": "johndoe",
                         "name": "john",
-                        "surname": "doe",
-                        // ...
-                    },
-                },
-                // ...
+                        "surname": "doe"
+                    }
+                }
             ],
             "links": {
                 "self": "http://example.com/users/19283",
@@ -148,7 +147,7 @@ It returns a collection of users:
                 "first": "http://example.com/users",
                 "last": "http://example.com/users",
                 "prev": null,
-                "next": nul
+                "next": null
             },
             "meta": {
                 "pagination": {
@@ -160,6 +159,9 @@ It returns a collection of users:
                 }
             }
         }
+
+``data`` is an array of objects; in this example, you see only one.
+``data.attributes`` object contains more internal attributes.
 
 Modify a user
 -------------
@@ -204,8 +206,7 @@ Response 200 OK is expected.
             "attributes": {
                 "username": "johndoe",
                 "name": "Johnny",
-                "surname": "Doe",
-                // ...
+                "surname": "Doe"
             },
             "relationships": {
                 "roles": {
@@ -222,6 +223,7 @@ Response 200 OK is expected.
         }
     }
 
+``data.attributes`` object contains more internal attributes.
 
 Remove a user
 -------------
@@ -236,7 +238,7 @@ Note: in this example user id is 19283.
 
 .. sourcecode:: http
 
-    DEL /users/19283 HTTP/1.1
+    DELETE /users/19283 HTTP/1.1
     Host: example.com
 
 Expected response is ``204 No Content``. When user is not found, response is ``404 Not Found``.
