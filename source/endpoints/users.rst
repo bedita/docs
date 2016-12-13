@@ -89,7 +89,7 @@ Successful response example follows:
 Get user data
 -------------
 
-You can obtain user data by using ``GET /users`` and ``GET /users/<id>`` endpoint.
+You can obtain user data by using ``GET /users`` and ``GET /users/(user_id)`` endpoint.
 
 .. http:get:: /users
 
@@ -98,7 +98,7 @@ It returns a collection of users:
     * use ``id`` query string parameter to retrieve a single user by id
     * use ``id`` query string parameter and ``roles`` token to retrieve user roles by user id
 
-.. http:get:: /users/<id>
+.. http:get:: /users/(user_id)
 
 **Example request (get users)**:
 
@@ -149,9 +149,9 @@ It returns a collection of users:
 ``data`` is an array of objects; in this example, you see only one.
 ``data.attributes`` object contains more internal attributes.
 
-.. http:get:: /users/<id>/roles
+.. http:get:: /users/(user_id)/roles
 
-You can obtain user roles by using ``GET /users/<id>/roles`` endpoint.
+You can obtain user roles by using ``GET /users/(user_id)/roles`` endpoint.
 
 **Example request (get user johndoe roles)**:
 
@@ -215,9 +215,9 @@ You can obtain user roles by using ``GET /users/<id>/roles`` endpoint.
 Modify a user
 -------------
 
-You can modify a user by using ``PATCH /users/<id>`` endpoint.
+You can modify a user by using ``PATCH /users/(user_id)`` endpoint.
 
-.. http:patch:: /users/<id>
+.. http:patch:: /users/(user_id)
 
     **Example request (modify user john doe)**:
 
@@ -277,9 +277,9 @@ Response 200 OK is expected.
 Remove a user
 -------------
 
-You can delete a user by using ``DEL /users/<id>`` endpoint.
+You can delete a user by using ``DEL /users/(user_id)`` endpoint.
 
-.. http:delete:: /users/<id>
+.. http:delete:: /users/(user_id)
 
     **Example request (delete user john doe)**:
 
@@ -299,11 +299,11 @@ Expected response is ``204 No Content``. When user is not found, response is ``4
 Add a role
 ----------
 
-You can add a role by using ``POST /users/<id>/relationships/roles`` endpoint.
-``<id>`` is a placeholder for user object id.
+You can add a role by using ``POST /users/(user_id)/relationships/roles`` endpoint.
+``(user_id)`` is a placeholder for user object id.
 You specify role id inside JSON body passed to request.
 
-.. http:post:: /users/<id>/relationships/roles
+.. http:post:: /users/(user_id)/relationships/roles
 
     **Example request (add role 7 to john doe user)**:
 
