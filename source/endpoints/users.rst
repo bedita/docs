@@ -2,7 +2,7 @@ Users ``/users``
 =================
 
 You can manage user data by using ``/users`` endpoint.
-It provides users management: creation, data retrieval, modification and removal.
+It provides users management: creation, data retrieval, modification, removal and roles associations.
 
 Create a user
 -------------
@@ -246,3 +246,44 @@ Expected response is ``204 No Content``. When user is not found, response is ``4
 .. sourcecode:: http
 
     HTTP/1.1 204 No Content
+
+Add a role
+----------
+
+You can add a role by using ``POST /users/<id>/relationships/roles`` endpoint.
+``<id>`` is a placeholder for user object id.
+You specify role id inside JSON body passed to request.
+
+.. http:post:: /users/<id>/relationships/roles
+
+    **Example request (add role 7 to john doe user)**:
+
+In this example, purpose is adding a role (id 7) to 'johndoe' user (id 19283).
+
+.. sourcecode:: http
+
+    POST /users/19283/relationships/roles HTTP/1.1
+    Host: example.com
+    Accept: application/vnd.api+json
+    Content-Type: application/vnd.api+json
+
+    {
+        "data": {
+            "type": "roles",
+            "id": 7
+        }
+    }
+
+Response 200 OK is expected.
+
+.. sourcecode:: http
+
+    HTTP/1.1 200 OK
+    Content-Type: application/vnd.api+json
+
+    {
+        "links": {
+            "self": "http://example.com/users/19283/relationships/roles",
+            "home": "http://example.com/home"
+        }
+    }
