@@ -336,3 +336,44 @@ Response 200 OK is expected.
             "home": "http://example.com/home"
         }
     }
+
+Remove a role
+-------------
+
+You can remove a role by using ``DELETE /users/(user_id)/relationships/roles`` endpoint.
+``(user_id)`` is a placeholder for user object id.
+You specify role id inside JSON body passed to request.
+
+.. http:delete:: /users/(user_id)/relationships/roles
+
+    **Example request (remove role 7 to john doe user)**:
+
+In this example, purpose is removing a role (id 7) from 'johndoe' user (id 19283).
+
+.. sourcecode:: http
+
+    DELETE /users/19283/relationships/roles HTTP/1.1
+    Host: example.com
+    Accept: application/vnd.api+json
+    Content-Type: application/vnd.api+json
+
+    {
+        "data": {
+            "type": "roles",
+            "id": 7
+        }
+    }
+
+Response 200 OK is expected.
+
+.. sourcecode:: http
+
+    HTTP/1.1 200 OK
+    Content-Type: application/vnd.api+json
+
+    {
+        "links": {
+            "self": "http://example.com/users/19283/relationships/roles",
+            "home": "http://example.com/home"
+        }
+    }
