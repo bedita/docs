@@ -10,19 +10,14 @@ Create a user
 You can create user data by using ``POST /users`` endpoint.
 Users data must be specified inside body JSON data.
 
-Request body structure is (JSON):
+Request body structure is:
 
 .. sourcecode:: json
 
     {
         "data": {
             "type": "users",
-            "attributes": {
-                // ... specificy users field:value data in here ...
-                // <field>: <value>,
-                // <field>: <value>,
-                // ...
-            }
+            "attributes": {}
         }
     }
 
@@ -43,14 +38,7 @@ Request body structure is (JSON):
             "attributes": {
                 "username": "johndoe",
                 "password": "j04nd0e",
-                "name" : "john",
-                "surname" : "doe",
-                "company": false,
-                "status": "on",
-                "uname": "johndoe",
-                "locked": false,
-                "title": "john",
-                "lang": "eng"
+                "uname": "johndoe"
             }
         }
     }
@@ -75,13 +63,11 @@ Successful response example follows:
             "attributes": {
                 "username": "johndoe",
                 "password": "j04nd0e",
-                "name": "john",
-                "surname": "doe",
-                "company": false,
-                "status": "on",
                 "uname": "johndoe",
-                "title": "john",
-                "lang": "eng"
+                "created_by": 1,
+                "modified_by": 1,
+                "created": "2016-12-13T12:08:02+00:00",
+                "modified": "2016-12-13T12:08:02+00:00"
             },
             "relationships": {
                 "roles": {
@@ -110,7 +96,7 @@ You can obtain user data by using ``GET /users`` and ``GET /users/<id>`` endpoin
 It returns a collection of users:
 
     * use ``id`` query string parameter to retrieve a single user by id
-    * use ``id`` query string parameter and ``roles`` token to retrieve a roles for user by user id
+    * use ``id`` query string parameter and ``roles`` token to retrieve user roles by user id
 
 .. http:get:: /users/<id>
 
