@@ -110,58 +110,121 @@ You can obtain user data by using ``GET /users`` and ``GET /users/<id>`` endpoin
 It returns a collection of users:
 
     * use ``id`` query string parameter to retrieve a single user by id
+    * use ``id`` query string parameter and ``roles`` token to retrieve a roles for user by user id
 
 .. http:get:: /users/<id>
 
-    **Example request (get users)**:
+**Example request (get users)**:
 
-    .. sourcecode:: http
+.. sourcecode:: http
 
-        GET /users HTTP/1.1
-        Host: example.com
-        Accept: application/vnd.api+json
-        Content-Type: application/x-www-form-urlencoded
+    GET /users HTTP/1.1
+    Host: example.com
+    Accept: application/vnd.api+json
 
-    **Example response**:
+**Example response**:
 
-    .. sourcecode:: http
+.. sourcecode:: http
 
-        HTTP/1.1 200 OK
-        Content-Type: application/vnd.api+json
+    HTTP/1.1 200 OK
+    Content-Type: application/vnd.api+json
 
-        {
-            "data": [
-                {
-                    "id": 19283,
-                    "type": "users",
-                    "attributes": {
-                        "username": "johndoe",
-                        "name": "john",
-                        "surname": "doe"
-                    }
-                }
-            ],
-            "links": {
-                "self": "http://example.com/users/19283",
-                "home": "http://example.com/home",
-                "first": "http://example.com/users",
-                "last": "http://example.com/users",
-                "prev": null,
-                "next": null
-            },
-            "meta": {
-                "pagination": {
-                    "count": 1,
-                    "page": 1,
-                    "page_count": 1,
-                    "page_items": 1,
-                    "page_size": 20
+    {
+        "data": [
+            {
+                "id": 19283,
+                "type": "users",
+                "attributes": {
+                    "username": "johndoe",
+                    "name": "john",
+                    "surname": "doe"
                 }
             }
+        ],
+        "links": {
+            "self": "http://example.com/users/19283",
+            "home": "http://example.com/home",
+            "first": "http://example.com/users",
+            "last": "http://example.com/users",
+            "prev": null,
+            "next": null
+        },
+        "meta": {
+            "pagination": {
+                "count": 1,
+                "page": 1,
+                "page_count": 1,
+                "page_items": 1,
+                "page_size": 20
+            }
         }
+    }
 
 ``data`` is an array of objects; in this example, you see only one.
 ``data.attributes`` object contains more internal attributes.
+
+.. http:get:: /users/<id>/roles
+
+You can obtain user roles by using ``GET /users/<id>/roles`` endpoint.
+
+**Example request (get user johndoe roles)**:
+
+.. sourcecode:: http
+
+    GET /users/19283/roles HTTP/1.1
+    Host: example.com
+    Accept: application/vnd.api+json
+
+**Example response**:
+
+.. sourcecode:: http
+
+    HTTP/1.1 200 OK
+    Content-Type: application/vnd.api+json
+
+    {
+        "data": [
+            {
+                "id": "7",
+                "type": "roles",
+                "attributes": {
+                    "name": "dummy role",
+                    "description": null,
+                    "unchangeable": false,
+                    "created": "2016-12-13T11:28:32+00:00",
+                    "modified": "2016-12-13T11:28:32+00:00"
+                },
+                "links": {
+                    "self": "http://example.com/roles/7"
+                },
+                "relationships": {
+                "users": {
+                    "links": {
+                    "related": "http://example.com/roles/7/users",
+                    "self": "http://example.com/roles/7/relationships/users"
+                    }
+                }
+                }
+            }
+        ],
+        "links": {
+            "self": "http://example.com/users/19283/roles",
+            "home": "http://example.com/home",
+            "first": "http://example.com/users/19283/roles",
+            "last": "http://example.com/users/19283/roles",
+            "prev": null,
+            "next": null
+        },
+        "meta": {
+            "pagination": {
+                "count": 1,
+                "page": 1,
+                "page_count": 1,
+                "page_items": 1,
+                "page_size": 20
+            }
+        }
+    }
 
 Modify a user
 -------------
