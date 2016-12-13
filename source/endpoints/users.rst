@@ -23,7 +23,7 @@ Request body structure is:
 
 .. http:post:: /users
 
-    **Example request (create user john doe)**:
+**Example request (create user john doe)**:
 
 .. sourcecode:: http
 
@@ -219,7 +219,7 @@ You can modify a user by using ``PATCH /users/(user_id)`` endpoint.
 
 .. http:patch:: /users/(user_id)
 
-    **Example request (modify user john doe)**:
+**Example request (modify user john doe)**:
 
 In this example, purpose is modifying 'johndoe' user's name and surname from 'john doe' to 'Johnny Doe'.
 
@@ -281,7 +281,7 @@ You can delete a user by using ``DEL /users/(user_id)`` endpoint.
 
 .. http:delete:: /users/(user_id)
 
-    **Example request (delete user john doe)**:
+**Example request (delete user john doe)**:
 
 Note: in this example user id is 19283.
 
@@ -305,7 +305,7 @@ You specify role id inside JSON body passed to request.
 
 .. http:post:: /users/(user_id)/relationships/roles
 
-    **Example request (add role 7 to john doe user)**:
+**Example request (add role 7 to john doe user)**:
 
 In this example, purpose is adding a role (id 7) to 'johndoe' user (id 19283).
 
@@ -346,7 +346,7 @@ You specify role id inside JSON body passed to request.
 
 .. http:delete:: /users/(user_id)/relationships/roles
 
-    **Example request (remove role 7 to john doe user)**:
+**Example request (remove role 7 to john doe user)**:
 
 In this example, purpose is removing a role (id 7) from 'johndoe' user (id 19283).
 
