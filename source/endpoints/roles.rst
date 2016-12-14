@@ -289,10 +289,10 @@ Expected response is ``204 No Content``. When role is not found, response is ``4
 
     HTTP/1.1 204 No Content
 
-Add a role
-----------
+Add a user role
+---------------
 
-You can add a role by using ``POST /roles/(role_id)/relationships/users`` endpoint.
+You can add a role to a user by using ``POST /roles/(role_id)/relationships/users`` endpoint.
 ``(role_id)`` is a placeholder for role id.
 You specify user id inside JSON body passed to request.
 
