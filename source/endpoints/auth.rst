@@ -19,7 +19,7 @@ Login
     Perform login.
 
     :form username: Username of user to be logged in. To be omitted when renewing token.
-    :form password_hash: Password of user to be logged in. To be omitted when renewing token.
+    :form password: Password of user to be logged in. To be omitted when renewing token.
     :reqheader Authorization: *(Optional)* Use only in token renew, prefixed with ``Bearer``.
     :status 200: Login successful.
     :status 401: Unauthorized user, or invalid renew token.
@@ -35,7 +35,7 @@ Login
         Accept: application/vnd.api+json
         Content-Type: application/x-www-form-urlencoded
 
-        username=bedita&password_hash=bedita
+        username=bedita&password=bedita
 
     **Example response**:
 
