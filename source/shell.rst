@@ -59,6 +59,11 @@ up-to-date with the latest changes, are performed.
 
    Path to configuration file (default: :file:`config/app.php`).
 
+Example
+    ::
+
+        $ bin/cake bedita init
+
 .. _shell:data_seed:
 
 ``data_seed``
@@ -89,6 +94,11 @@ The ``insert`` subcommand will populate the database with random fake data.
    Default values for fields. Useful when you want to create large amount of
    objects that share some common trait. It must be provided in the form of a
    comma-separated list of ``key=value`` pairs.
+
+Example
+    ::
+
+        $ bin/cake data_seed insert -t users -n 50
 
 .. _shell:db_admin:
 
@@ -141,6 +151,11 @@ command-line flags ``--[no-]force`` and ``--[no-]seed``.
 
    Database connection to be used (default: ``default``).
 
+Example
+    ::
+
+        $ bin/cake db_admin init --no-force --seed
+
 .. _shell:db_admin:check_schema:
 
 ``check_schema``
@@ -168,6 +183,11 @@ employ this command in other automated tasks.
 
    Database connection to be used (default: ``default``).
 
+Example
+    ::
+
+        $ bin/cake db_admin check_schema --verbose
+
 .. _shell:db_admin:save_schema:
 
 ``save_schema``
@@ -181,6 +201,11 @@ employ this command in other automated tasks.
 .. option:: -c <connection>, --connection <connection>
 
    Database connection to be used (default: ``default``).
+
+Example
+    ::
+
+        $ bin/cake db_admin save_schema
 
 .. _shell:spec:
 
@@ -203,3 +228,8 @@ for currently available API endpoints.
 .. option:: -o <output>, --output <output>
 
    Specify an output file (default: :file:`plugins/BEdita/API/spec/be4.yaml`).
+
+Example
+    ::
+
+        $ bin/cake spec generate
