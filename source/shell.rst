@@ -9,6 +9,9 @@ in the :file:`bin/` directory. The basic syntax is::
 
     bin/cake SHELL [COMMAND] [argument1 argument2 ...] [--option1 --option2=val ...]
 
+.. warning::
+    Windows users must use ``bin\cake`` instead (note the backslash).
+
 For instance, if you want to run the :ref:`shell:bedita:setup` command in the
 :ref:`shell:bedita` shell you can run::
 
@@ -168,7 +171,8 @@ employ this command in other automated tasks.
 ``save_schema``
 ---------------
 
-This subcommand is deprecated. Run :command:`bin/cake migrations dump` instead.
+.. deprecated:: 4.0.0
+    Run :command:`bin/cake migrations dump` instead.
 
 .. program:: db_admin save_schema
 
