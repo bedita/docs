@@ -4,6 +4,21 @@ Shell commands
 
 A number of administration tasks can be performed via shell.
 
+All shells and commands listed below can be invoked via a binary that's located
+in the :file:`bin/` directory. The basic syntax is::
+
+    bin/cake SHELL [COMMAND] [argument1 argument2 ...] [--option1 --option2=val ...]
+
+For instance, if you want to run the :ref:`shell:bedita:setup` command in the
+:ref:`shell:bedita` shell you can run::
+
+    bin/cake bedita setup
+
+If you want to run the :ref:`shell:db_admin:init` command in the
+:ref:`shell:db_admin` shell with a couple of additional options you can run::
+
+    bin/cake db_admin init --no-force --seed
+
 .. _shell:bedita:
 
 ``bedita``
