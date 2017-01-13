@@ -62,7 +62,7 @@ up-to-date with the latest changes, are performed.
 Example
     ::
 
-        $ bin/cake bedita init
+        $ bin/cake bedita setup
 
 .. _shell:data_seed:
 
