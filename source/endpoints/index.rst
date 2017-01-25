@@ -18,4 +18,5 @@ BEdita4 exposes a set of default endpoints.
     relations
     status
     posters
+    trash
 
