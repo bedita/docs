@@ -24,6 +24,10 @@ If you want to run the :ref:`shell:db_admin:init` command in the
 
     $ bin/cake db_admin init --no-force --seed
 
+.. note::
+    `Bash autocomplete <https://book.cakephp.org/3.0/en/console-and-shells/completion-shell.html#how-to-enable-bash-autocompletion-for-the-cakephp-console>`_
+    might come in handy
+
 .. _shell:bedita:
 
 ``bedita``
@@ -63,42 +67,6 @@ Example
     ::
 
         $ bin/cake bedita setup
-
-.. _shell:data_seed:
-
-``data_seed``
-=============
-
-The ``data_seed`` shell can be used to populate the database with fake data
-in experimental or testing scenarios.
-
-.. _shell:data_seed:insert:
-
-``insert``
-----------
-
-The ``insert`` subcommand will populate the database with random fake data.
-
-.. program:: data_seed insert
-
-.. option:: -t <table>, --table <table>
-
-   Database table name to insert data in (default: ``users``).
-
-.. option:: -n <number>, --number <number>
-
-   Number of rows to be added in the table (default: 1).
-
-.. option:: -f <fields>, --fields <fields>
-
-   Default values for fields. Useful when you want to create large amount of
-   objects that share some common trait. It must be provided in the form of a
-   comma-separated list of ``key=value`` pairs.
-
-Example
-    ::
-
-        $ bin/cake data_seed insert -t users -n 50
 
 .. _shell:db_admin:
 
