@@ -125,10 +125,12 @@ you may add these lines, provided that **mod_headers** is enabled
     Header set Access-Control-Allow-Origin "*"
     Header set Access-Control-Allow-Headers "content-type, origin, x-requested-with, authorization"
     Header set Access-Control-Allow-Methods "PUT, GET, POST, PATCH, DELETE, OPTIONS"
+    Header set Access-Control-Expose-Headers "Location"
 
 In this example:
  * all origins and HTTP methods are allowed, you may want to add restrictions
  * only headers used by BEdita4 are allowed
+ * "Location" header is exposed in response, this is useful to get URL of a newly created resource
 
 Alternatively you can setup *CORS* configuration directly in BEdita, see :ref:`configuration-cors`
 
