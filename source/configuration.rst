@@ -112,6 +112,28 @@ on development and test systems, you may set:
     ]
 
 
+Plugins
+-------
+
+Plugins setup for your BEdita4 instance is done through ``'Plugins'`` configuration key:
+
+.. sourcecode:: php
+
+    'Plugins' => [
+        'DebugKit' => ['debugOnly' => true, 'bootstrap' => true],
+        'MyPlugin' => ['autoload' => true, 'bootstrap' => true, 'routes' => true],
+    ]
+
+
+Where each key is a plugin name, and for each plugin available options are:
+
+- **debugOnly** - boolean - (default: *false*) If true load this plugin in *'debug'* mode only.
+- **bootstrap** - boolean - (default: *false*) If true load the ``$plugin/config/bootstrap.php`` file.
+- **routes** - boolean - (default: *false*) If true load the ``$plugin/config/routes.php`` file.
+- **ignoreMissing** - boolean - (default: *false*) If true ignore missing bootstrap/routes files.
+- **autoload** - boolean - (default: *false*) Whether or not you want an autoloader registered
+
+
 Security
 --------
 
