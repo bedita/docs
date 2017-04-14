@@ -11,7 +11,7 @@ Pagination
 -----------
 
   * ``page`` - select page number to retrieve
-  * ``page_size`` - define page size; default size is defined in *default.page.size* (???) configuration parameter (which is usually 20), and maximum possible size is defined in *max.page.size* (???) configuration parameter
+  * ``page_size`` - define page size; default page size and maximum possible size are defined via configuration parameter (defaults are 20 and 100) see :ref:`configuration-pagination`
 
 Examples:
 

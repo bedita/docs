@@ -111,6 +111,24 @@ on development and test systems, you may set:
         'allowHeaders' => '*'  // allow every header
     ]
 
+.. _configuration-pagination:
+
+Pagination
+----------
+
+Pagination settings for every API _list_ response are done via ``'Pagination'`` key:
+
+.. sourcecode:: php
+
+    'Pagination' => [
+        'limit' => 20,
+        'maxLimit' => 100,
+    ]
+
+Where:
+
+- **limit** - int - Default number of items per page as seen in `page_size` meta response and query string. Defaults to 20.
+- **maxLimit** - int - Maximum acceptable items per page on a `page_size` request. Defaults to 100. This value cannot exceed 500.
 
 Plugins
 -------
