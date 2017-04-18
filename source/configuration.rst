@@ -116,7 +116,7 @@ on development and test systems, you may set:
 Pagination
 ----------
 
-Pagination settings for every API _list_ response are done via ``'Pagination'`` key:
+Pagination settings for every API *list* response are done via ``'Pagination'`` key:
 
 .. sourcecode:: php
 
