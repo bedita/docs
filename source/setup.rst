@@ -5,10 +5,9 @@ Setup
 Prerequisites
 =============
 
- * PHP 7 (recommended) or PHP >= 5.6, with extensions *mbstring*, *intl*
- * MySQL >= 5.5 (Posgtres and SQLite support in future releases)
+ * PHP 7.x (recommended) or PHP >= 5.6, with extensions *mbstring*, *intl*
+ * MySQL 5.7 (recommended) or MySQL 5.6, Postgres 9.5/9.6 or SQLite 3
  * `Composer <https://getcomposer.org/doc/00-intro.md#installation-linux-unix-osx>`_
-
 
 A web server like Apache or Nginx also recommended in general, but not strictly necessary
 on a development enviroment.
@@ -26,27 +25,21 @@ Install
 =======
 
 
-There are four basic steps to install BEdita 4
+There are three basic steps to install BEdita 4
 
-**1. Clone git repository**
-
-.. code-block:: bash
-
-  $ git clone -b 4-develop https://github.com/bedita/bedita.git
-
-**2. Run composer install**
+**1. Create project via composer**
 
 .. code-block:: bash
 
-  $ cd bedita
-  $ composer install
+  $ composer create-project -s dev bedita/bedita
 
-**3. Create an empty database**
+**2. Create an empty database**
 
-Create an empty MySQL (or Posgtres or SQLite, in the future) database and keep track of main connection parameters
+Create an empty MySQL or Posgtres database and keep track of main connection parameters
 like ``host``, ``username``, ``password`` and ``database``.
+Do nothing for SQLite since a new local file will be created.
 
-**4. Run shell script to initialize the database and create first admin user**
+**3. Run shell script to initialize the database and create first admin user**
 
 Open a shell prompt on root installation folder and write
 
@@ -167,3 +160,4 @@ Look for ``Datasources`` array definition then modify ``host``, ``username``,
 Other noteworthy fields:
  * ``port`` - populate only in case of non standard ports
  * ``driver`` - change to ``'Cake\Database\Driver\Postgres'`` or ``'Cake\Database\Driver\Sqlite'`` accordingly
+ * for SQlite you need to set only an absolute local file path in ``database``
