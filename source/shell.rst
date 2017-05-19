@@ -156,24 +156,33 @@ Example
 
         $ bin/cake db_admin check_schema --verbose
 
-.. _shell:db_admin:save_schema:
 
-``save_schema``
----------------
+.. _shell:jobs:
 
-.. deprecated:: 4.0.0
-    Run :command:`bin/cake migrations dump` instead.
+``jobs``
+========
 
-.. program:: db_admin save_schema
+The ``jobs`` shell is used to run asynchonous pending jobs stored in `async_jobs` table.
 
-.. option:: -c <connection>, --connection <connection>
+.. _shell:spec:run:
 
-   Database connection to be used (default: ``default``).
+``run``
+------------
+
+The ``run`` subcommand will launch all `pending` jobs waiting to be run.
+A ``--limit`` option may be used to set a maximum number of jobs to run.
+
+.. program:: jobs run
+
+.. option:: -l <limit>, --limit <output>
+
+   Specify maximum number of jobs to run.
 
 Example
     ::
 
-        $ bin/cake db_admin save_schema
+        $ bin/cake jobs run
+
 
 .. _shell:spec:
 
