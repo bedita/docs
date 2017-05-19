@@ -5,7 +5,8 @@ Glossary
 
     object
         an object in BEdita is the atomic content of your project's data, it could be of different type like a document, an event, an images,
-        video or another core type, or it could be a custom type defined specifically in your project
+        video or another core type, or it could be a custom type defined specifically in your project. Have a look at :ref:`bedita-objects` for
+        a detailed overview
 
     role
         a role in RBAC permission model (https://en.wikipedia.org/wiki/Role-based_access_control)
