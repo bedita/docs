@@ -164,24 +164,38 @@ Example
 
 The ``jobs`` shell is used to run asynchonous pending jobs stored in `async_jobs` table.
 
-.. _shell:spec:run:
+.. _shell:jobs:pending:
 
-``run``
-------------
+``pending``
+-----------
 
-The ``run`` subcommand will launch all `pending` jobs waiting to be run.
+The ``pending`` subcommand will launch all `pending` jobs waiting to be run.
 A ``--limit`` option may be used to set a maximum number of jobs to run.
 
-.. program:: jobs run
+.. program:: jobs pending
 
-.. option:: -l <limit>, --limit <output>
+.. option:: -l <limit>, --limit <limit>
 
    Specify maximum number of jobs to run.
 
 Example
     ::
 
-        $ bin/cake jobs run
+        $ bin/cake jobs pending -l 10
+
+.. _shell:jobs:run:
+
+``run``
+-------
+
+The ``run`` subcommand will launch a single job from its UUID.
+
+.. program:: jobs run <uuid>
+
+Example
+    ::
+
+        $ bin/cake jobs run 0660d795-d1bf-4ca0-9a05-2ee47943a658
 
 
 .. _shell:spec:
