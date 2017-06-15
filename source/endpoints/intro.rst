@@ -18,10 +18,10 @@ are applied with some extensions.
 Every request must contain an ``Accept`` header with one of the following values:
 
     * ``application/vnd.api+json`` JSON-API default content type
-    * ``application/json`` is also fine; considered a synomym for JSON-API, is treated the same way
+    * ``application/json`` is also fine; considered a synonym for JSON-API, is treated the same way
 
 Under special circumstances, and only for GET requests, also ``text/html``, ``application/xhtml+xml``, ``application/xhtml``
-and ``text/xhtml`` may be valid provided that HTML accept is configured (see :ref:`configuration-accept`):
+and ``text/xhtml`` may be valid, provided that HTML accept is configured (see :ref:`configuration-accept`):
 response will be an HTML version of the JSON body.
 Main use is enable data navigation using a browser only in test and development enviroments.
 
@@ -29,7 +29,7 @@ Request containing input data like POST, PATCH and in some cases DELETE must als
 where accepted values are:
 
     * ``application/vnd.api+json`` JSON-API default content type
-    * ``application/json`` is considered a synomym for JSON-API just like ``Accept``
+    * ``application/json`` is considered a synonym for JSON-API just like ``Accept``
 
 **Note**: some special requests like ``POST /auth`` will require ``application/json`` since not JSON-API compliant,
 see ref:`auth-login`.
