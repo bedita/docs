@@ -1,3 +1,5 @@
+.. _bedita-objects:
+
 Objects in BEdita
 =================
 

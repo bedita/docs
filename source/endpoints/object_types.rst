@@ -1,3 +1,5 @@
+.. _api-object_types:
+
 Object types ``/object_types``
 ==============================
 

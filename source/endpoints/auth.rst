@@ -10,6 +10,7 @@ Three different actions are supported:
 * token **renew** - with ``Authorization`` header and without username and password
 * **whoami** - get logged user profile data
 
+.. _auth-login:
 
 Login
 -----
@@ -27,6 +28,22 @@ Login
     :resjson meta.renew: The renew token, to be used to reiterate login process when JWT expires.
 
     **Example request (login with username and password)**:
+    since this is not a JSON-API request you MUST use ``Content-Type: application/json``
+    or ``Content-Type: application/x-www-form-urlencoded``, see example below.
+
+    .. sourcecode:: http
+
+        POST /auth HTTP/1.1
+        Host: example.com
+        Accept: application/vnd.api+json
+        Content-Type: application/json
+
+        {
+            "username" : "bedita",
+            "password" : "bedita"
+        }
+
+    Same request using classic ``Content-Type: application/x-www-form-urlencoded``
 
     .. sourcecode:: http
 
@@ -36,6 +53,7 @@ Login
         Content-Type: application/x-www-form-urlencoded
 
         username=bedita&password=bedita
+
 
     **Example response**:
 

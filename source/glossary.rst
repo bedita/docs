@@ -30,7 +30,8 @@ Glossary
 
     object
         An object in BEdita is the atomic content of your project's data, it could be a core types like a document, an event, an image,
-        a video or it could be a custom type defined specifically in your project
+        a video or it could be a custom type defined specifically in your project. Have a look at :ref:`bedita-objects` for
+        a detailed overview.
 
 
     project
