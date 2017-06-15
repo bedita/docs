@@ -7,7 +7,8 @@ BEdita is a tool to handle the data of your mobile, IoT, web and desktop applica
 It's a full fledged content management solution with:
  * an HTTP REST driven server application - the **Backend** - with a complete API to model, create, modify and retrieve data
  * a default progressive web application - the **Manager** - to control & manage your data
- * **Tools** to create applications upon BEdita REST API
+
+..  * **Tools** to create applications upon BEdita REST API
 
 BEdita is built with `CakePHP 3 <http://cakephp.org>`_ and uses relational DBMS like `MySQL <http://www.mysql.com>`_,
 `Postgres <https://www.postgresql.org>`_ or `SQLite <http://sqlite.com>`_
@@ -60,21 +61,22 @@ Through its dynamic permission system keep in mind that users having different r
 * some users may not have access to some endpoints - like modeling new types, or view some object types
 * some users may have a read-only access to some endpoints - they may only see certain types but not create or modify anything
 
+..
+    [TEMPORARY COMMENTED OUT]
+    Tools
+    =====
 
-Tools
-=====
+    The goal of BEdita is to let you build better applications and create your application faster.
+    Therefore some tools are provided to help you:
 
-The goal of BEdita is to let you build better applications and create your application faster.
-Therefore some tools are provided to help you:
+    * simple application examples
+    * libraries in javascript and other languages/platforms
 
-* simple application examples
-* libraries in javascript and other languages/platforms
+    These tools may help you, but are not strictly necessary: BEdita API is built on open
+    and well documented standards and protocols like **HTTP**, **JWT** or **JSON-API**.
 
-These tools may help you, but are not strictly necessary: BEdita API is built on open
-and well documented standards and protocols like **HTTP**, **JWT** or **JSON-API**.
-
-You should be able to use the API using *curl* or the most sophisticated Java framework also without these tools.
-
+    You should be able to use the API using *curl* or the most sophisticated Java framework also without these tools.
+..
 
 .. rubric:: Notes
 
