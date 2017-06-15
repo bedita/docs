@@ -6,8 +6,8 @@ Glossary
 
     access token
         A string granted by the authorization server used to identify the issuer of a request.
-        The access token has to be sent to the resource server every time that the client want
-        to access to protected resources.
+        The access token has to be sent to the resource server every time that the client wants
+        to access protected resources.
         This token is sent in ``Authorization`` HTTP header using a ``Bearer`` scheme on each request like this: ``Authorization: Bearer <token>``
 
 
@@ -21,7 +21,7 @@ Glossary
         * an **header** containing informations about the token type and algorithm used. It is Base64URL encoded.
         * a **payload** containing informations in the form of claims (informations we want to transmit).
           It is Base64URL encoded.
-        * a **signature** used to verify the authenticity of the JWT using an valid algorithm defined by
+        * a **signature** used to verify the authenticity of the JWT using a valid algorithm defined by
           `JSON Web Signature (JWS) <https://tools.ietf.org/html/rfc7515>`_
           specification (for example a shared secret `HMAC <https://tools.ietf.org/html/rfc7515#page-36>`_).
 
@@ -29,8 +29,8 @@ Glossary
 
 
     object
-        An object in BEdita is the atomic content of your project's data, it could be of different type like a document, an event, an images,
-        video or another core type, or it could be a custom type defined specifically in your project
+        An object in BEdita is the atomic content of your project's data, it could be a core types like a document, an event, an image,
+        a video or it could be a custom type defined specifically in your project
 
 
     project
@@ -49,7 +49,7 @@ Glossary
 
 
     user
-        Actual project users with credentials to login; main attributes are username and passowrd or some external
+        Project users accessing resources with credentials to login; main attributes are username and password or some external
         auth provider identifiers and other profile data like first name, surname, and other contact information;
         each user has usually at least one role, used to grant access on endpoint operations;
         user authentication is not always mandatory, some endpoints may respond to GET anonymous requests,
