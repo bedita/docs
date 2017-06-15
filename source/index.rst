@@ -11,6 +11,7 @@ BEdita 4 documentation
     configuration
     database
     bedita_objects
+    authorization
     shell
     endpoints/index
     glossary
