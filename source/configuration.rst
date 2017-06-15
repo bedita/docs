@@ -151,16 +151,19 @@ Where each key is a plugin name, and for each plugin available options are:
 - **ignoreMissing** - boolean - (default: *false*) If true ignore missing bootstrap/routes files.
 - **autoload** - boolean - (default: *false*) Whether or not you want an autoloader registered
 
+.. _configuration-security:
 
 Security
 --------
 
-Additional security settings regarding JWT (JSON Web Tokens) are possible, even though not mandatory.
+Additional security settings regarding anonymous access and :term:`JWT` (JSON Web Tokens) are possible, even though not mandatory.
 
 .. sourcecode:: php
 
     'Security' => [
-        // ...
+        //....
+        'blockAnonymousApps' => true,
+        'blockAnonymousUsers' => true,
         'jwt' => [
             'duration' => '+2 hours',
             'algorithm' => 'HS256',
@@ -169,5 +172,7 @@ Additional security settings regarding JWT (JSON Web Tokens) are possible, even 
 
 Where:
 
+- **Security.blockAnonymousUsers** when true on each request user must be identified, anonymous requests will receive a ``401 Unauthorized`` response - when false anonymous read requests (GET) are possible, but identification is always required for write operations (POST, PATCH, DELETE)
+- **Security.blockAnonymousApps** when true on each request application must be identified, anonymous or unknown applications will receive a ``403 Forbidden`` response
 - **Security.jwt.duration** is the default duration of the generated JWT. Keeping this value low increases security, but increases load on server as more renew requests will be performed by clients.
 - **Security.jwt.algorithm** is the encryption algorithm used to issue new tokens. Must be one of ``HS256``, ``HS512``, ``HS384``, or ``RS256``.
