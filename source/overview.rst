@@ -15,7 +15,7 @@ BEdita is built with `CakePHP 3 <http://cakephp.org>`_ and uses relational DBMS 
 in conjunction with (optional) NoSQL systems like `Redis <http://redis.io/>`_, `Elastic Search <https://www.elastic.co/>`_ and `InfluxDb <https://www.influxdata.com/time-series-platform/influxdb/>`_ to boost
 performance and scale up to Big Data scenarios.
 
-`JSON-API <http://jsonapi.org>`_ is the primary, although not unique, exchange data format.
+`JSON API <http://jsonapi.org>`_ is the primary, although not unique, exchange data format.
 
 
 Backend
@@ -29,7 +29,7 @@ and accessible via standard HTTP ports.
 So at first it may look like a *standard* Web application, but it's not.
 
 It doesn't offer an HTML interface, it doesn't respond in HTML [#a]_ but only in JSON [#b]_: the only way to communicate
-with this service is through its JSON API REST endpoints. See :doc:`endpoints/index` for an overview.
+with this service is through its :term:`JSON API` REST endpoints. See :doc:`endpoints/index` for an overview.
 
 
 To install a backend instance see :doc:`setup`
@@ -73,7 +73,7 @@ Through its dynamic permission system keep in mind that users having different r
     * libraries in javascript and other languages/platforms
 
     These tools may help you, but are not strictly necessary: BEdita API is built on open
-    and well documented standards and protocols like **HTTP**, **JWT** or **JSON-API**.
+    and well documented standards and protocols like **HTTP**, **JWT** or **JSON API**.
 
     You should be able to use the API using *curl* or the most sophisticated Java framework also without these tools.
 ..

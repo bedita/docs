@@ -4,8 +4,10 @@ Common GET parameters
 Many HTTP query parameters in BEdita4 API GET method calls are common and may be used to manipulate API response and get only the data you need in your application.
 
 Common parameters described here may be used in all API endpoints that handle entities/objects directly.
-They are available in all endpoints except: ``/me``, ``/auth``, ``/home`` and ``/admin``
+They are available in all endpoints except: ``/auth``, ``/home`` and ``/admin``
 
+
+.. _get-pagination:
 
 Pagination
 -----------
@@ -78,3 +80,7 @@ Examples:
    *  ``/users?sort=-username`` return users alphabetically from last to first by username (reverse order)
    *  ``/roles?sort=-id`` roles from last to first id
 
+Filters
+-------
+
+[TBD]
