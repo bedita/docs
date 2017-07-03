@@ -12,13 +12,13 @@ There are intentionally no API client language specific examples, so a basic kno
 Headers
 -------
 
-Since the primary exchange format is JSON-API its `content negotiation rules <http://jsonapi.org/format/#content-negotiation>`_
+Since the primary exchange format is :term:`JSON API` its `content negotiation rules <http://jsonapi.org/format/#content-negotiation>`_
 are applied with some extensions.
 
 Every request must contain an ``Accept`` header with one of the following values:
 
-    * ``application/vnd.api+json`` JSON-API default content type
-    * ``application/json`` is also fine; considered a synonym for JSON-API, is treated the same way
+    * ``application/vnd.api+json`` :term:`JSON API` default content type
+    * ``application/json`` is also fine; considered a synonym for :term:`JSON API`, is treated the same way
 
 Under special circumstances, and only for GET requests, also ``text/html``, ``application/xhtml+xml``, ``application/xhtml``
 and ``text/xhtml`` may be valid, provided that HTML accept is configured (see :ref:`configuration-accept`):
@@ -28,10 +28,10 @@ Main use is enable data navigation using a browser only in test and development 
 Request containing input data like POST, PATCH and in some cases DELETE must also provide a ``Content-Type`` header
 where accepted values are:
 
-    * ``application/vnd.api+json`` JSON-API default content type
-    * ``application/json`` is considered a synonym for JSON-API just like ``Accept``
+    * ``application/vnd.api+json`` :term:`JSON API` default content type
+    * ``application/json`` is considered a synonym for :term:`JSON API` just like ``Accept``
 
-**Note**: some special requests like ``POST /auth`` will require ``application/json`` since not JSON-API compliant,
+**Note**: some special requests like ``POST /auth`` will require ``application/json`` since not :term:`JSON API` compliant,
 see ref:`auth-login`.
 
 Other two important headers are:

@@ -6,6 +6,7 @@ API reference
     :maxdepth: 2
 
     intro
+    request_response
     parameters
     home
     auth

@@ -28,7 +28,7 @@ Login
     :resjson meta.renew: The renew token, to be used to reiterate login process when JWT expires.
 
     **Example request (login with username and password)**:
-    since this is not a JSON-API request you MUST use ``Content-Type: application/json``
+    since this is not a :term:`JSON API` request you MUST use ``Content-Type: application/json``
     or ``Content-Type: application/x-www-form-urlencoded``, see example below.
 
     .. sourcecode:: http
