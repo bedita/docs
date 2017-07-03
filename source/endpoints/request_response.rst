@@ -142,7 +142,7 @@ At the root level we have:
  * ``"meta"`` will contain metadata of single resources or of resource lists, mainly pagination info for lists
  * ``"links"`` key appears in more than one place and will contain
 
-    - ``"self"`` (always present) with a link pointing to the resource containing it; it can be an array of resources, a single resource ora a relationship
+    - ``"self"`` (always present) with a link pointing to the resource containing it; it can be an array of resources, a single resource or a relationship
     - ``"home"`` link to :doc:`home` endpoint
     - ``"first"`` ``"last"`` ``"prev"`` ``"next"`` :ref:`get-pagination` URIs to access pages in case of resources array
 
@@ -156,7 +156,7 @@ Giving a closer look at **data** key there are some important things to notice:
     - **special core** properties available for all object types, with some specific meaning and usage:
 
         * ``"status"`` may have only ``on``, ``draft`` or ``off`` as values; it representes an editorial status, depending on client application settings objects with status ``draft`` and ``off`` may not be visible
-        * ``"uname"`` is the object unique name, a modifiable unique identifier of every object inside a project, represented by an URL-friendly string that may be derived from the ``"title"`` or from other properties; upon creation a ``uname`` is automatically created and when a client applications request to create or modifiy this property the actual value may be changed by the system to avoid conflicts with an existing identical ``uname``
+        * ``"uname"`` is the object unique name, a modifiable unique identifier of every object inside a project, represented by an URL-friendly string that may be derived from the ``"title"`` or from other properties; upon creation a ``uname`` is automatically created and when a client application requests to create or modifiy this property the actual value may be changed by the system to avoid conflicts with an existing identical ``uname``
         * ``"extra"`` is a special property where an application may put arbitrary data, use it as you wish... we don't wanna know :)
 
  * ``"meta"`` is for resource metadata, or properties that are not directly changeable by a client application, like:
