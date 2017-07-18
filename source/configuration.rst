@@ -46,34 +46,6 @@ In ``config`` table we may override it with a record with these fields
 - *name*: ``'Accept'``
 - *content*: ``{ "html" : true }``
 
-
-ApiKeys
--------
-
-*Api Keys* are stored in configuration with this structure:
-
-.. sourcecode:: php
-
-    'ApiKeys' => [
-        // array key is the actual api key string
-        'sdgwr89081023jfdklewRASdasdwdfswdr' => [
-            'label' => 'web app', // (optional)
-            'origin' => 'example.com', // (optional) could be '*'
-        ],
-        'w4nvwpq5028DDfwnrK2933293423nfnaa4' => [
-            ....
-         ],
-    ]
-
-Api Keys are checked on every request using this rules:
-
-* if no Api Keys are defined HTTP request is always accepted
-* if one or more Api Keys are defined:
-
-    - current ``X-Api-Key`` header value is read should match one of these keys
-    - if corresponding Api Key has an `origin` - HTTP request `origin` is read and should also match
-    - otherwise an error response is sent using HTTP 403 code
-
 .. _configuration-cors:
 
 CORS
