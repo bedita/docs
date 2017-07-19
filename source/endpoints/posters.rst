@@ -1,6 +1,11 @@
 Posters ``/posters``
 ========================
 
+.. note::
+
+    This endpoint is not yet available
+
+
 ``/posters`` endpoint gets the thumbnail url of an image representation
 of an object or a collection of objects.
 

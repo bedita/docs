@@ -1,15 +1,17 @@
 Administration ``/admin``
 ==========================
 
+.. note::
+
+    This endpoint is not yet available
+
+
 ``/admin`` endpoint deals with administrative operations on current project
 
-Main responsabilities of this endpoint:
-    * manage configuration properties
-    * show system information, including project logs
-    * view event logs
-    * view email jobs and logs
-    * manage core and plugin modules
-    * perform internal software update operations
-    * manage cache settings and cache cleanup/invalidation
-    * list and stop asynchronous batch jobs
+Managed resources by this endpoint are:
+
+ * asynchronous jobs
+ * client applications definitions, including API KEYs management
+ * custom endpoints
+ * configuration properties
 
