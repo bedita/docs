@@ -1,6 +1,11 @@
 Relations ``/relations``
 ========================
 
+.. note::
+
+    This endpoint is not yet available
+
+
 ``/relations`` endpoint is used to manage relations between objects
 
 Main responsabilities of this endpoint are:
