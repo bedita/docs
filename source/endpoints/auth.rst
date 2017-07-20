@@ -4,11 +4,13 @@ Authentication ``/auth``
 ``/auth`` endpoint is responsible for login related actions.
 With it a user is able to login and to get user login data.
 
-Three different actions are supported:
+Different actions are supported:
 
 * standard **login** - providing username and password and without ``Authorization`` header
 * token **renew** - with ``Authorization`` header and without username and password
 * **whoami** - get logged user profile data
+* credential **change** request - request to update password
+* credential **change** update - actual password update action using secret hash
 
 .. _auth-login:
 
@@ -84,6 +86,7 @@ Login
 
     **Example response**: (*same as above, with new JWT and renew token*)
 
+.. _auth-whoami:
 
 Who Am I?
 ---------
@@ -134,3 +137,80 @@ Who Am I?
         }
 
     **Note**: some fields in previous example are missing for brevity in user *"attributes"*.
+
+.. _auth-change:
+
+Credentials change
+------------------
+
+Authentications credential change works in two steps:
+ * a credential change request action
+ * an actual credential change using a secret hash
+
+Only use case currently supported is ``password`` change.
+
+After a request action an email is sent to requesting user containing a URL with a secret hash to actually perform the change.
+
+.. http:post:: /auth/change
+
+    Request a credential change.
+
+    :form contact: Email of user requesting credendials change.
+    :form change_url: Change URL that will be sent via email.
+    :status 204: No content on operation success.
+    :status 400: On malformed or missing input data.
+    :status 404: If no user is found.
+
+    **Example request**:
+    Since this is not a :term:`JSON API` request you MUST use ``Content-Type: application/json``
+
+    .. sourcecode:: http
+
+        POST /auth/change HTTP/1.1
+        Content-Type: application/json
+
+        {
+            "contact": "{my email}",
+            "change_url": "{change url}"
+        }
+
+
+A ``change_url`` is required in order to create the URL that will be sent to the user in this form:
+
+    .. sourcecode:: http
+
+        {change_url}?uuid={uuid}
+
+Where ``{uuid}`` is a system generated hash that will expire after 24h.
+
+In your ``change_url`` page you will have to read the ``uuid`` query parameter and proceed to actual change performing the following request.
+
+
+.. http:patch:: /auth/change
+
+    Perform a credential (password) change.
+
+    :form uuid: Secret UUID sent via email in ``change_url``.
+    :form password: New user password.
+    :form login: Optional boolean parameter, if ``true`` a login is also performed.
+    :status 200: On operation success.
+    :status 400: On malformed or missing input data.
+    :status 404: Not found if provided UUID is incorrect or expired.
+
+    **Example request**:
+    Since this is not a :term:`JSON API` request you MUST use ``Content-Type: application/json``
+
+    .. sourcecode:: http
+
+        PATCH /auth/change HTTP/1.1
+        Content-Type: application/json
+
+        {
+            "uuid": "{uuid}",
+            "password": "{new password}",
+            "login": true
+        }
+
+Response will contain user data as in previous :ref:`auth-whoami` request.
+
+If ``"login"`` is true a login is also performed and :term:`JWT` :term:`access token` and :term:`refresh token` tokens are returned in ``"meta"`` section for immediate use. This key is optional, if missing ``"login": false`` is assumed.
