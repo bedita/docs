@@ -188,7 +188,7 @@ In your ``change_url`` page you will have to read the ``uuid`` query parameter a
 
 .. http:patch:: /auth/change
 
-    Performa a credential (password) change.
+    Perform a credential (password) change.
 
     :form uuid: Secret UUID sent via email in ``change_url``.
     :form password: New user password.
@@ -211,6 +211,6 @@ In your ``change_url`` page you will have to read the ``uuid`` query parameter a
             "login": true
         }
 
-Response will contain user data as in previsous :ref:`auth-whoami` request.
+Response will contain user data as in previous :ref:`auth-whoami` request.
 
 If ``"login"`` is true a login is also performed and :term:`JWT` :term:`access token` and :term:`refresh token` tokens are returned in ``"meta"`` section for immediate use. This key is optional, if missing ``"login": false`` is assumed.

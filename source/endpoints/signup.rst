@@ -15,7 +15,7 @@ Signup works in two steps:
 Signup request
 --------------
 
-Thi request allows unverified user signup via **POST** that will usually be called anonymously.
+This request allows unverified user signup via **POST** that will usually be called anonymously.
 
 Minimum required data are: ``username``, ``password`` and ``email``.
 
