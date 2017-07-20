@@ -155,7 +155,7 @@ After a request action an email is sent to requesting user containing a URL with
 
     Request a credential change.
 
-    :form contact: Email of user requesting credenditals change.
+    :form contact: Email of user requesting credendials change.
     :form change_url: Change URL that will be sent via email.
     :status 204: No content on operation success.
     :status 400: On malformed or missing input data.

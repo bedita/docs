@@ -6,7 +6,7 @@ Signup ``/signup``
 Of course users can be created using :doc:`users` endpoint, but with ``/signup`` you may allow autonomous user registration.
 
 Signup works in two steps:
- * signup request: a new user is created, but not activated or verified - therefore she may or may not perform some actions in your application
+ * signup request: a new user is created, but not activated or verified - therefore the new user may or may not perform some actions in your application
  * signup activation: through a UUID hash actual activation and verification of user's email is done
 
 
@@ -38,7 +38,7 @@ In this first step a user with status ``draft`` will be created, user verificati
 
     :form username: Username of user, must be unique.
     :form password: Password of user.
-    :form email: Users email, must be unique.
+    :form email: User email, must be unique.
     :form activation_url: Activation URL that will be sent via email.
     :form redirect_url: Optional redirect url that will be added to activation URL as parameter.
     :status 202: Successful user creation. User data will be displayed in response.
@@ -117,7 +117,7 @@ In this first step a user with status ``draft`` will be created, user verificati
 Signup activation
 -----------------
 
-User verification and activation is done via a simple **POST** like in the following example that should be invoked in your
+User verification and activation are done via a simple **POST** like in the following example that should be invoked in your
 **activation url** page after reading the passed **uuid** parameter.
 
 On success an HTTP 202 status code is returned with an empty body.
