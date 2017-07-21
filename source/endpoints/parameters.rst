@@ -4,8 +4,8 @@ Common GET parameters
 Many HTTP query parameters in BEdita4 API GET method calls are common and may be used to manipulate API response and get only the data you need in your application.
 
 Common parameters described here may be used in all API endpoints that handle entities/objects directly.
-They are available in all endpoints except: ``/auth``, ``/home`` and ``/admin``
 
+They are available in all endpoints except few special ones like: ``/auth``, ``/home``, ``/signup`` and ``/status``. These endpoints are designed to handle particular use cases where lists of resources or objects are not directly handled.
 
 .. _get-pagination:
 
@@ -65,7 +65,7 @@ Field selection
 Search
 ------
 
-  * ``q`` or ``query`` - perform a natural language search
+  * ``q`` or ``filter[query]`` - perform a natural language search using a filter, see :ref:`get-query` below
 
 
 Sort
@@ -80,7 +80,81 @@ Examples:
    *  ``/users?sort=-username`` return users alphabetically from last to first by username (reverse order)
    *  ``/roles?sort=-id`` roles from last to first id
 
+.. _get-filters:
+
 Filters
 -------
 
-[TBD]
+Filters are one the most powerful and versatile tools in BEdita API in order to retrieve only resources or objects you really need in  your application.
+
+Filter expressions
+^^^^^^^^^^^^^^^^^^
+
+Generally every filter in a query string will have following syntax:
+
+  1. ``filter[{item}]={value}`` the simplest form, a filter item should be equal to some value
+  2. ``filter[{item}][{op}]={value}`` is a logical operation on filter value, where ``{op}`` can have following values:
+
+    * ``neq``, ``ne``, ``'!=`` or ``<>`` negation operator, meaning that filter item shoud not be equal to ``{{value}}``
+    * ``lt`` or ``<`` less than operator, meaning that filter item shoud be less than ``{{value}}``
+    * ``lte``, ``le`` or ``<=`` less or equal operator; filter item shoud be less or equal than ``{{value}}``
+    * ``gt`` or ``>`` greater than operator; filter item shoud be greater than ``{{value}}``
+    * ``gte``, ``ge`` or ``>=`` greater or equal than operator; filter item shoud be greater or equal than ``{{value}}``
+
+  3. ``filter[{item}][]={value}`` array sintax: add a value to an array representig possible values of a filter item
+
+Filter expressions can be combined using ``&`` separator as many times as you want, limited only by the URL size.
+
+Too many ``filter`` combinations may of course result in unwantend or meaningless results, use them with caution :)
+
+Field filter
+^^^^^^^^^^^^
+
+The most common and simplest filter: retrieve only resources that have a field equal to some value, or greater/less than some value.
+
+Examples:
+
+   *  ``/users?filter[name]=Gustavo`` get users that have *Gustavo* as first ``name``
+   *  ``/objects?filter[id][gt]=100`` retrieve users with ``id`` greater than 100
+
+.. _get-query:
+
+Query filter
+^^^^^^^^^^^^
+
+Simple text search may be performed with a query filter
+
+   *  ``/objects?filter[query]=gustavo`` get objects that have *gustavo* in some of their textual fields
+   *  ``/users?q=gustavo`` convience synonym for the preceeding filter query - ``filter[query]=..`` or ``q=..`` are identical
+
+**Note**: currently only raw text search is performed, more sophisticated actual natural language search will be available in a future release
+
+Type filter
+^^^^^^^^^^^
+
+Type filters are used to select some :term:`object` types, tipically used in ``/objects`` endpoint
+
+   *  ``/objects?filter[type]=events`` select only objects of type *events*
+   *  ``/objects?filter[type][ne]=documents`` all object types except *documents*
+   *  ``/objects?filter[type][]=locations&filter[type][]=profiles&`` select only *locations* and *profiles*
+
+Geo filter
+^^^^^^^^^^
+
+Geo filters are able to retrieve results on objects of type ``location`` or on types extending ``locations`` using geo coordinates.
+
+   *  ``/locations?filter[geo][center]=44.4944183,11.3464055`` retrieve locations ordered by proximity to a given ``center`` point expressed in terms of latitude and longitute; each item will show in ``meta.extra.distance`` the distance in meters to the ``center`` point
+   *  ``/locations?filter[geo][center]=44.4944183,11.3464055&filter[geo][radius]=5000`` same as the above filter, but results are limited in a radius of 5km
+
+**Note**: in order to work this filter **requires** that the underlying database supports geo-spatial functions like ``ST_GeomFromText``, this is true for **MySQL 5.7** or **PostGIS** for instance.
+
+Date ranges filter
+^^^^^^^^^^^^^^^^^^
+
+Date ranges are entities used in some objects like ``events`` to indicate start and end dates.
+
+With this filter you are able to retrieve objects using conditions on date time intervals.
+
+  *  ``/events?filter[date_ranges][start_date][gt]=2017-08-01`` events starting after ``2017-08-01``
+  *  ``/events?filter[date_ranges][end_date][le]=2017-08-15`` events with end date lesser or equal than ``2017-08-15``
+  *  ``/events?filter[date_ranges][start_date][gt]=2017-07-01&filter[date_ranges][end_date][lt]=2017-07-30`` events starting and ending between ``2017-07-01`` and ``2017-07-30``
