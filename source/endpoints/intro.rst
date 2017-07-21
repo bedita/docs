@@ -31,8 +31,8 @@ where accepted values are:
     * ``application/vnd.api+json`` :term:`JSON API` default content type
     * ``application/json`` is considered a synonym for :term:`JSON API` just like ``Accept``
 
-**Note**: some special requests like ``POST /auth`` will require ``application/json`` since not :term:`JSON API` compliant,
-see ref:`auth-login`.
+**Note**: some special requests like ``POST /auth`` or ``POST /signup`` will require ``application/json`` since not :term:`JSON API` compliant,
+see ref:`auth-login` or ref:`signup-request` for some examples.
 
 Other two important headers are:
    * ``Authorization`` containing `JWT <https://jwt.io>`_ token in the form ``Bearer {token}`` to identify the user performing the request

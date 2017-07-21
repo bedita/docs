@@ -16,6 +16,7 @@ API reference
     admin
     object_types
     relations
+    signup
     status
     posters
     trash
