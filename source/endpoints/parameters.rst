@@ -85,7 +85,7 @@ Examples:
 Filters
 -------
 
-Filters are one of the most powerful and versatile tools in BEdita API in order to retrieve only resources or objects you really need in your application.
+Filters are one the most powerful and versatile tools in **BEdita API** in order to retrieve only resources or objects you really need in  your application.
 
 Filter expressions
 ^^^^^^^^^^^^^^^^^^
@@ -105,17 +105,17 @@ Generally every filter in a query string will have following syntax:
 
 Filter expressions can be combined using ``&`` separator as many times as you want, limited only by the URL size.
 
-Too many ``filter`` combinations may of course result in unwantend or meaningless results, use them with caution :)
+Too many ``filter`` combinations may of course result in unwanted or meaningless results, use them with caution :)
 
 Field filter
 ^^^^^^^^^^^^
 
-The most common and simplest filter: retrieve only resources that have a field equal to some value, or greater/less than some value.
+The simplest and most common filter: retrieve only resources that have a field equal to some value, or greater/less than some value.
 
 Examples:
 
    *  ``/users?filter[name]=Gustavo`` get users that have *Gustavo* as first ``name``
-   *  ``/objects?filter[id][gt]=100`` retrieve users with ``id`` greater than 100
+   *  ``/objects?filter[id][gt]=100`` return users with ``id`` greater than 100
 
 .. _get-query:
 
@@ -125,25 +125,25 @@ Query filter
 Simple text search may be performed with a query filter
 
    *  ``/objects?filter[query]=gustavo`` get objects that have *gustavo* in some of their textual fields
-   *  ``/users?q=gustavo`` convenience synonym for the preceeding filter query - ``filter[query]=..`` or ``q=..`` are identical
+   *  ``/objects?q=gustavo`` convience alias for the preceeding filter query - ``filter[query]=..`` or ``q=..`` are identical
 
 **Note**: currently only raw text search is performed, more sophisticated actual natural language search will be available in a future release
 
 Type filter
 ^^^^^^^^^^^
 
-Type filters are used to select some :term:`object` types, tipically used in ``/objects`` endpoint
+Type filters are used to select some :term:`object` types, typically used in ``/objects`` endpoint
 
    *  ``/objects?filter[type]=events`` select only objects of type *events*
    *  ``/objects?filter[type][ne]=documents`` all object types except *documents*
-   *  ``/objects?filter[type][]=locations&filter[type][]=profiles&`` select only *locations* and *profiles*
+   *  ``/objects?filter[type][]=locations&filter[type][]=profiles`` select only *locations* and *profiles*
 
 Geo filter
 ^^^^^^^^^^
 
 Geo filters are able to retrieve results on objects of type ``location`` or on types extending ``locations`` using geo coordinates.
 
-   *  ``/locations?filter[geo][center]=44.4944183,11.3464055`` retrieve locations ordered by proximity to a given ``center`` point expressed in terms of latitude and longitute; each item will show in ``meta.extra.distance`` the distance in meters to the ``center`` point
+   *  ``/locations?filter[geo][center]=44.4944183,11.3464055`` retrieve locations ordered by proximity to a given ``center`` point expressed in terms of latitude and longitude; each item will show in ``meta.extra.distance`` the distance in meters to the ``center`` point
    *  ``/locations?filter[geo][center]=44.4944183,11.3464055&filter[geo][radius]=5000`` same as the above filter, but results are limited in a radius of 5km
 
 **Note**: in order to work this filter **requires** that the underlying database supports geo-spatial functions like ``ST_GeomFromText``, this is true for **MySQL 5.7** or **PostGIS** for instance.
