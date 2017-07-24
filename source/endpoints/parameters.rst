@@ -85,7 +85,7 @@ Examples:
 Filters
 -------
 
-Filters are one the most powerful and versatile tools in BEdita API in order to retrieve only resources or objects you really need in  your application.
+Filters are one of the most powerful and versatile tools in BEdita API in order to retrieve only resources or objects you really need in your application.
 
 Filter expressions
 ^^^^^^^^^^^^^^^^^^
@@ -97,11 +97,11 @@ Generally every filter in a query string will have following syntax:
 
     * ``neq``, ``ne``, ``'!=`` or ``<>`` negation operator, meaning that filter item shoud not be equal to ``{{value}}``
     * ``lt`` or ``<`` less than operator, meaning that filter item shoud be less than ``{{value}}``
-    * ``lte``, ``le`` or ``<=`` less or equal operator; filter item shoud be less or equal than ``{{value}}``
+    * ``lte``, ``le`` or ``<=`` less than or equal operator; filter item shoud be less than or equal to ``{{value}}``
     * ``gt`` or ``>`` greater than operator; filter item shoud be greater than ``{{value}}``
-    * ``gte``, ``ge`` or ``>=`` greater or equal than operator; filter item shoud be greater or equal than ``{{value}}``
+    * ``gte``, ``ge`` or ``>=`` greater than or equal operator; filter item should be greater than or equal to ``{{value}}``
 
-  3. ``filter[{item}][]={value}`` array sintax: add a value to an array representig possible values of a filter item
+  3. ``filter[{item}][]={value}`` array sintax: add a value to an array representing possible values of a filter item
 
 Filter expressions can be combined using ``&`` separator as many times as you want, limited only by the URL size.
 
@@ -125,7 +125,7 @@ Query filter
 Simple text search may be performed with a query filter
 
    *  ``/objects?filter[query]=gustavo`` get objects that have *gustavo* in some of their textual fields
-   *  ``/users?q=gustavo`` convience synonym for the preceeding filter query - ``filter[query]=..`` or ``q=..`` are identical
+   *  ``/users?q=gustavo`` convenience synonym for the preceeding filter query - ``filter[query]=..`` or ``q=..`` are identical
 
 **Note**: currently only raw text search is performed, more sophisticated actual natural language search will be available in a future release
 
@@ -156,5 +156,5 @@ Date ranges are entities used in some objects like ``events`` to indicate start 
 With this filter you are able to retrieve objects using conditions on date time intervals.
 
   *  ``/events?filter[date_ranges][start_date][gt]=2017-08-01`` events starting after ``2017-08-01``
-  *  ``/events?filter[date_ranges][end_date][le]=2017-08-15`` events with end date lesser or equal than ``2017-08-15``
+  *  ``/events?filter[date_ranges][end_date][le]=2017-08-15`` events with end date lesser than or equal to ``2017-08-15``
   *  ``/events?filter[date_ranges][start_date][gt]=2017-07-01&filter[date_ranges][end_date][lt]=2017-07-30`` events starting and ending between ``2017-07-01`` and ``2017-07-30``
