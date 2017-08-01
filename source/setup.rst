@@ -33,6 +33,8 @@ There are three basic steps to install BEdita 4
 
   $ composer create-project -s dev bedita/bedita
 
+If you are using a **.zip** or **.tar.gz** release file you just need to unpack it and then run ``composer install``.
+
 **2. Create an empty database**
 
 Create an empty MySQL or Posgtres database and keep track of main connection parameters
