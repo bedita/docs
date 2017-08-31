@@ -9,6 +9,7 @@ Different actions are supported:
 * standard **login** - providing username and password and without ``Authorization`` header
 * token **renew** - with ``Authorization`` header and without username and password
 * **whoami** - get logged user profile data
+* profile **update** - logged user profile data
 * credential **change** request - request to update password
 * credential **change** update - actual password update action using secret hash
 
@@ -91,7 +92,7 @@ Login
 Who Am I?
 ---------
 
-.. http:get:: /auth
+.. http:get:: /auth/user
 
     Get logged user profile data.
 
@@ -100,14 +101,16 @@ Who Am I?
     :status 401: Unauthorized user, user not logged.
     :resjson data: User profile data
 
-    **Example request (token from previous login example)**:
+    **Example request**
+
+    `{token}` is JWT token from previuos login and renew examples:
 
     .. sourcecode:: http
 
-        GET /auth HTTP/1.1
+        GET /auth/user HTTP/1.1
         Host: example.com
         Accept: application/vnd.api+json
-        Authorization: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJiZWRpdGEiLCJibG9ja2VkIjpmYWxzZSwibGFzdF9sb2dpbiI6IjIwMTYtMDgtMDFUMTM6MTk6MzkrMDAwMCIsImxhc3RfbG9naW5fZXJyIjpudWxsLCJudW1fbG9naW5fZXJyIjowLCJjcmVhdGVkIjoiMjAxNi0wOC0wMVQxMzoxOToyOSswMDAwIiwibW9kaWZpZWQiOiIyMDE2LTA4LTAxVDEzOjE5OjI5KzAwMDAiLCJyb2xlcyI6W10sImlzcyI6Imh0dHA6XC9cLzEwLjAuODMuNDo4MDgwIiwiaWF0IjoxNDcwMDU4NTE3LCJuYmYiOjE0NzAwNTg1MTcsImV4cCI6MTQ3MDA2NTcxN30.rGcCEKiYjETnkaKVgG5-gJxIMXALVaZ4MeV5aKbWtQE
+        Authorization: Bearer {token}
 
     **Example response**:
 
@@ -131,12 +134,71 @@ Who Am I?
                 }
             },
             "links": {
-                "self": "http://example.com/auth",
+                "self": "http://example.com/auth/user",
                 "home": "http://example.com/home"
             },
         }
 
-    **Note**: some fields in previous example are missing for brevity in user *"attributes"*.
+    **Note**: some fields in `"attributes"` are missing for brevity.
+
+.. _auth-update:
+
+Update user profle
+------------------
+
+.. http:patch:: /auth/user
+
+    Update logged user profile data with some restrictions.
+    For basic security reasons some fields are not directly changeable: `username`, `email` and `password`.
+
+    :reqheader Authorization: Use token prefixed with ``Bearer``.
+    :status 200: Get operation successful.
+    :status 401: Unauthorized user, user not logged.
+    :resjson data: User profile data
+
+    **Example request**
+
+    `{token}` is JWT token from previuos login and renew examples:
+
+    .. sourcecode:: http
+
+        PATCH /auth/user HTTP/1.1
+        Host: example.com
+        Authorization: Bearer {token}
+        Accept: application/vnd.api+json
+        Content-Type: application/json
+
+        {
+            "city" : "Bologna",
+            "country" : "Italy"
+        }
+
+    **Example response**:
+
+    .. sourcecode:: http
+
+        HTTP/1.1 200 OK
+        Content-Type: application/vnd.api+json
+
+        {
+          "data": {
+                "id": "2",
+                "type": "users",
+                "attributes": {
+                    "username": "gustavo",
+                    "name": "GUstavo",
+                    "surname": "Supporto"
+                    "city" : "Bologna",
+                    "country" : "Italy"
+                }
+            },
+            "links": {
+                "self": "http://example.com/auth/user",
+                "home": "http://example.com/home"
+            },
+        }
+
+    **Note**: some fields in `"attributes"` are missing for brevity.
 
 .. _auth-change:
 
