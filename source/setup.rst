@@ -2,7 +2,7 @@
 Setup
 *****
 
-Below you will find instructions to setup BEdita4 on a tyipical server or desktop.
+Below you will find instructions to setup BEdita4 on a typical server or desktop.
 
 For a quick setup via `Docker <https://www.docker.com>`_ see :ref:`below <setup-docker>`.
 
@@ -214,7 +214,7 @@ Run a Docker image setting an initial API KEY and admin username and password li
 
 This will launch a BEdita4 instance using ``SQLite`` as its storage backend. It should become available at http://localhost:8090/home almost instantly.
 
-Replace ``bedita/bedita:latest`` with ``bedita4-local`` (or other chosen name) to lanch a local built image.
+Replace ``bedita/bedita:latest`` with ``bedita4-local`` (or other chosen name) to launch a local built image.
 
 
 Using PostgreSQL or MySQL
