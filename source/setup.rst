@@ -2,6 +2,11 @@
 Setup
 *****
 
+Below you will find instructions to setup BEdita4 on a typical server or desktop.
+
+For a quick setup via `Docker <https://www.docker.com>`_ see :ref:`below <setup-docker>`.
+
+
 Prerequisites
 =============
 
@@ -163,3 +168,87 @@ Other noteworthy fields:
  * ``port`` - populate only in case of non standard ports
  * ``driver`` - change to ``'Cake\Database\Driver\Postgres'`` or ``'Cake\Database\Driver\Sqlite'`` accordingly
  * for SQlite you need to set only an absolute local file path in ``database``
+
+.. _setup-docker:
+
+Docker
+======
+
+You need a working `Docker <https://www.docker.com>`_ setup in order to pull, build or run images.
+
+Pull official image
+-------------------
+
+You can get the latest offical image build from Docker Hub like this.
+
+.. code-block:: bash
+
+    $ docker pull bedita/bedita:latest
+
+You may also use ``:4-cactus`` tag instead of ``:latest``, they are currently synonyms.
+Release tags will be available soon.
+
+
+Build image locally
+-------------------
+
+If you want to build an image from local sources you can do it like this from BEdita root folder:
+
+.. code-block:: bash
+
+    $ docker build -t bedita4-local .
+
+You may of course choose whatever name you like for the generated image instead of ``bedita4-local``.
+
+Run
+----
+
+Run a Docker image setting an initial API KEY and admin username and password like this:
+
+.. code-block:: bash
+
+    $ docker run -p 8090:80 --env BEDITA_API_KEY=1029384756 \
+        --env BEDITA_ADMIN_USR=admin --env BEDITA_ADMIN_PWD=admin \
+        bedita/bedita:latest
+
+
+This will launch a BEdita4 instance using ``SQLite`` as its storage backend. It should become available at http://localhost:8090/home almost instantly.
+
+Replace ``bedita/bedita:latest`` with ``bedita4-local`` (or other chosen name) to launch a local built image.
+
+
+Using PostgreSQL or MySQL
+-------------------------
+
+Other database backends can be used with BEdita by launching the database server in a separate Docker container.
+You may simply pull ``mysql:5.7`` or ``postgres:latest`` official images to achieve this.
+
+A MySQL 5.7 server can then be launched in a container with this command:
+
+.. code-block:: bash
+
+    docker run -d --name mysql \
+        --env MYSQL_ROOT_PASSWORD=root \
+        --env MYSQL_DATABASE=bedita \
+        --env MYSQL_USER=bedita \
+        --env MYSQL_PASSWORD=bedita \
+        mysql:5.7
+
+Then, a BEdita instance can be configured to use MySQL as its backend launching this command:
+
+.. code-block:: bash
+
+    docker run -d --name=bedita \
+        --env DATABASE_URL=mysql://bedita:bedita@mysql:3306/bedita \
+        -p 8090:80 --link mysql:mysql \
+        bedita/bedita:latest
+
+Notice the ``DATABASE_URL`` environment variable setting.
+
+The BEdita container will automatically wait until MySQL container becomes available, then will run connect to it, launch required schema migrations, and start the Web server. The application should become available at http://localhost:8090/home in a matter of few seconds. However, depending on the responsiveness of MySQL container, this might take longer.
+
+
+Logging
+--------
+
+Logs are written to stdout and sterr, so that they can be inspected via ``docker logs``. This is considered a common practice for Docker containers, and there are tools that can collect and ingest logs written this way. However, ``LOG_ERROR_URL`` and ``LOG_DEBUG_URL`` can be overwritten at container launch via ``--env`` flag to send logs to a different destination. For instance, one might want to launch a Logstash container, link it to BEdita container, and send BEdita logs to Logstash.
