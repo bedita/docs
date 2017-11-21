@@ -65,7 +65,7 @@ Field selection
 Search
 ------
 
-  * ``q`` or ``filter[query]`` - perform a natural language search using a filter, see :ref:`get-query` below
+  * ``q`` or ``filter[query]`` - perform a natural language search using a filter, see :ref:`filter-search` below
 
 
 Sort
@@ -107,6 +107,8 @@ Filter expressions can be combined using ``&`` separator as many times as you wa
 
 Too many ``filter`` combinations may of course result in unwanted or meaningless results, use them with caution :)
 
+.. _filter-field:
+
 Field filter
 ^^^^^^^^^^^^
 
@@ -117,10 +119,10 @@ Examples:
    *  ``/users?filter[name]=Gustavo`` get users that have *Gustavo* as first ``name``
    *  ``/objects?filter[id][gt]=100`` return users with ``id`` greater than 100
 
-.. _get-query:
+.. _filter-search:
 
-Query filter
-^^^^^^^^^^^^
+Search Query filter
+^^^^^^^^^^^^^^^^^^^
 
 Simple text search may be performed with a query filter
 

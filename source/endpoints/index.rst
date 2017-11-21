@@ -1,7 +1,6 @@
 API reference
 =============
 
-
 .. toctree::
     :maxdepth: 2
 
@@ -14,10 +13,7 @@ API reference
     roles
     objects
     admin
-    object_types
-    relations
+    model/index
     signup
     status
-    posters
     trash
-
