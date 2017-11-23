@@ -224,7 +224,7 @@ This operation cannot be reversed and will not be allowed if:
 * ``core_type`` attribute flag is ``true``
 * a subtype of this type exits
 
-.. http:delete:: /model/object_types/(object type_id)
+.. http:delete:: /model/object_types/(type)
 
 * ``{type}`` can be a numeric id of the object type or its ``name``
 
