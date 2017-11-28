@@ -10,7 +10,7 @@ Main operations available on these endpoints:
 * list, create, update and (de)activate object types via ``/model/object_types``
 * define new property types using :term:`JSON SCHEMA` ``/model/property_types``
 * handle object type properties with ``/model/properties``
-* handle relations between objects with ``/model/relations``
+* define relations between objects with ``/model/relations``
 * retrieve :term:`JSON SCHEMA` of object types and resources from ``/model/schema``
 
 .. toctree::
