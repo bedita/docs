@@ -151,6 +151,7 @@ In this example we will simply disable the newly created type and chage its desc
             "id": "1",
             "type": "properties",
             "attributes": {
+                "name": "nickname",
                 "description": "A brand new property description"
             }
         }
