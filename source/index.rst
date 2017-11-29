@@ -1,7 +1,7 @@
-.. BEdita documentation index
-
 BEdita 4 documentation
 ======================
+
+.. BEdita documentation index
 
 .. toctree::
     :maxdepth: 2
@@ -17,6 +17,6 @@ BEdita 4 documentation
     glossary
 
 Indices and tables
-==================
+------------------
 
 * :ref:`genindex`

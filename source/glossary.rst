@@ -10,9 +10,19 @@ Glossary
         to access protected resources.
         This token is sent in ``Authorization`` HTTP header using a ``Bearer`` scheme on each request like this: ``Authorization: Bearer <token>``
 
+
     json api
     JSON API
         `JSON API <http://jsonapi.org/>`_ is a specification for how a client should request that resources be fetched or modified, and how a server should respond to those requests. JSON API is designed to minimize both the number of requests and the amount of data transmitted between clients and servers. This efficiency is achieved without compromising readability, flexibility, or discoverability [cit. from the specification]
+
+
+    json schema
+    JSON Schema
+        `JSON Schema <http://json-schema.org/>`_  is a JSON-based format for describing the structure of JSON data. JSON Schema asserts
+        what a JSON document must look like, ways to extract information from it, and how to interact with it, ideal for annotating
+        existing JSON APIs that would not otherwise have hypermedia controls or be machine-readable [from the `core spec
+        <http://json-schema.org/latest/json-schema-core.html>`_]
+
 
     jwt
     JWT

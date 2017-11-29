@@ -167,8 +167,8 @@ Giving a closer look at **data** key there are some important things to notice:
 
  * ``"links"`` contains a ``"self"`` link to representation of the object itself
  * ``"relationships"`` displays links to read or manipulate related resources or objects, in general we have:
-    - **core** relations between objects and resources, like the one between :term:`user` and :term:`role`
-    - **custom** semantic relations between objects dynamically created using :doc:`relations`
+    * **core** relations between objects and resources, like the one between :term:`user` and :term:`role`
+    * **custom** semantic relations between objects dynamically created using :doc:`model/relations`
 
 .. _api-http-status:
 

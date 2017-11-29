@@ -69,5 +69,5 @@ where through GET/POST/PATCH/DELETE methods you will be able to manage their dat
 The only difference will be data structure and relations between objects that will of course vary from type to type hence
 from endpoint to endpoint.
 
-Same will happen for new object types created dynamically in :ref:`api-object_types`: a new dedicated endpoint is created,
+Same will happen for new object types created dynamically in :doc:`model/object_types`: a new dedicated endpoint is created,
 so a new *cats* object type will automatically have its own ``/cats`` endpoint.
