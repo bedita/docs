@@ -13,7 +13,7 @@ This is a read-only endpoint: only `GET` method for a single object type or reso
 
 .. sourcecode:: http
 
-    GET /model/object_types/roles HTTP/1.1
+    GET /model/schema/roles HTTP/1.1
     Host: api.example.com
     Accept: application/schema+json
 

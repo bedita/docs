@@ -135,9 +135,9 @@ Remember that only ``dynamic`` properties may be modified, whereas ``static`` on
 
 * ``{id}`` dynamic property numeric ``id``
 
-**Example request: modify an object type**:
+**Example request: modify a property**:
 
-In this example we will simply disable the newly created type and chage its description
+In this example we will simply disable the newly created property and change its description
 
 .. sourcecode:: http
 
@@ -180,7 +180,7 @@ Please note that this operation cannot be reversed!
 
 Expected HTTP status response is ``204 No Content``.
 
-If property is not not found, response will be ``404 Not Found``, if delete operation is not allowed a ``403 Forbidden`` will be sent.
+If property is not found, response will be ``404 Not Found``, if delete operation is not allowed a ``403 Forbidden`` will be sent.
 
 .. sourcecode:: http
 

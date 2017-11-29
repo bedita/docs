@@ -1,13 +1,13 @@
 Relations ``/model/relations``
 ==============================
 
-``/model/relations`` endpoint manages relations between objects types.
+``/model/relations`` endpoint manages relations between object types.
 
 This is one of the most important features in BEdita: you can create dynamic semantic relations between object types, adding constraint rules and parameters without any data model or database modification.
 
 Relations in BEdita have been heavily inspired by semantic web `RDF triples <https://www.w3.org/TR/2014/NOTE-rdf11-primer-20140624/#section-triple>`_.
 
-Every relation should be espressed in a form ``{subject} {predicate} {object}`` where both ``{subject}`` and ``{object}`` are BEdita objects and ``{predicate}`` is the relation name.
+Every relation should be expressed in a form ``{subject} {predicate} {object}`` where both ``{subject}`` and ``{object}`` are BEdita objects and ``{predicate}`` is the relation name.
 In BEdita for every relation an inverse one is also created, this will be more clear in the example below.
 
 With this endpoint you can:
@@ -19,7 +19,7 @@ With this endpoint you can:
 Create a relation
 -----------------
 
-Creation of a new object type happens through ``POST /model/relations`` endpoint.
+Creation of a new relation happens through ``POST /model/relations`` endpoint.
 
 .. http:post:: /model/relations
 
@@ -54,7 +54,7 @@ Both attributes must be different and unique inside the project, should differ f
 
 They also must be in `lowered snake_case <https://en.wikipedia.org/wiki/Snake_case>`_ format as internal naming convention.
 
-Our goal in this example, altough not yet complete, is to create the relation ``[users] [owner_of] [cats]`` and its inverse ``[cats] [belong_to] [users]``.
+Our goal in this example, although not yet complete, is to create the relation ``[users] [owner_of] [cats]`` and its inverse ``[cats] [belong_to] [users]``.
 
 Other optional attributes are
 
@@ -71,7 +71,7 @@ If the relation already exists or data is not valid (i.e. lacks of required fiel
 Get a single relation
 ---------------------
 
-You can obtain a single relations by invoking ``GET /model/relations/{relation}``.
+You can obtain a single relation by invoking ``GET /model/relations/{relation}``.
 
 .. http:get:: /model/relations/{relation}
 
@@ -125,7 +125,7 @@ You can obtain a single relations by invoking ``GET /model/relations/{relation}`
         }
     }
 
-Example reponse shows us something interesting in ``"relationships"`` section:
+Example response shows us something interesting in ``"relationships"`` section:
 
 * ``"left_object_types"`` links object types to use on _the_ left side of the relation, think of the ``subject`` in the ``subject predicate object`` expression, i.e. object types that are ``owner_of`` other object types (on the _right_ side)
 * ``"right_object_types"`` links object types to use on the _right_ side of the relation, think of the ``object`` in the ``subject predicate object`` expression, i.e. object types that ``belong_to`` object types on the _left_ side
@@ -215,7 +215,7 @@ You may add object types to left side ``POST /model/relations/{{relation}}/relat
 
 In this example ``users`` (with _id_ 3) and ``profiles`` (_id_ 2) have been added as left side object types to the relation created before.
 
-Expected response is ``200 OK`` upon success, while response will be contain only a ``"links"`` section pointing to the list of left/right object types for the current relation.
+Expected response is ``200 OK`` upon success, while response will contain only a ``"links"`` section pointing to the list of left/right object types for the current relation.
 
 Get object types
 ^^^^^^^^^^^^^^^^
@@ -252,7 +252,7 @@ By invoking ``PATCH /model/relations/{{relation}}/relationships/left_object_type
         ]
     }
 
-With this method we have completed our relation putting our custom object type seen in :ref:`api-model-object-types` on the righ side.
+With this method we have completed our relation putting our custom object type seen in :ref:`api-model-object-types` on the right side.
 
 Now we have: ``{users | profiles} {owner_of} {cats}`` and inverse from right to left ``{cats} {belong_to} {users | profiles}``.
 
@@ -303,7 +303,7 @@ You can modify a relation by using ``PATCH /model/relations/{relation}`` endpoin
 
 **Example request: modify a relation**:
 
-In this example we will simply disable the newly created type and chage its description
+In this example we will just change the description for the relation 1
 
 .. sourcecode:: http
 
@@ -344,7 +344,7 @@ This operation cannot be reversed and will not be allowed if actual object relat
 
 Expected HTTP status response is ``204 No Content``.
 
-If relation is not not found, response will be ``404 Not Found``, if delete operation is not allowed a ``403 Forbidden`` will be sent.
+If relation is not found, response will be ``404 Not Found``, if delete operation is not allowed a ``403 Forbidden`` will be sent.
 
 .. sourcecode:: http
 

@@ -36,7 +36,7 @@ In its simplest form the only required attributes are:
 * ``name`` object type in plural form, this is the canonical form for this type that will activate ``/cats`` endpoint
 * ``singular`` singular form for type
 
-Both must be in `lowered snake_case <https://en.wikipedia.org/wiki/Snake_case>`_ format as internal naming convention, see :ref:`api-model-naming`, and must contain at least a letter (a-z) to avoid collusions with numeric id.
+Both must be in `lowered snake_case <https://en.wikipedia.org/wiki/Snake_case>`_ format as internal naming convention, see :ref:`api-model-naming`, and must contain at least a letter (a-z) to avoid collisions with numeric ids.
 They also must be unique in your project.
 
 * ``description`` is an optional description of your type
@@ -120,7 +120,7 @@ You can obtain a single type by using ``GET /model/object_types/{type}`` endpoin
         }
     }
 
-Example reponse shows us some additional interesting fields:
+Example response shows us some additional interesting fields:
 
 * ``"is_abstract"`` tells us if an object type is abstract or concrete; an abstract type can only have concrete subtypes but there can be no object of this type
 * ``"associations"``: list of internal entities associated with this type like ``DateRanges`` or ``Streams``, formatted as JSON array, defaults to null
@@ -162,7 +162,7 @@ You can modify an object type by using ``PATCH /model/object_types/{type}`` endp
 
 **Example request: modify an object type**:
 
-In this example we will simply disable the newly created type and chage its description
+In this example we will simply disable the newly created type and change its description
 
 .. sourcecode:: http
 
@@ -220,7 +220,7 @@ You can delete permanently an object type by using ``DELETE /model/object_types/
 
 This operation cannot be reversed and will not be allowed if:
 
-* object of this type exist
+* one or more objects of this type exist
 * ``core_type`` attribute flag is ``true``
 * a subtype of this type exits
 
@@ -237,7 +237,7 @@ This operation cannot be reversed and will not be allowed if:
 
 Expected HTTP status response is ``204 No Content``.
 
-If object type is not not found, response will be ``404 Not Found``, if delete operation is not allowed a ``403 Forbidden`` will be sent.
+If object type is not found, response will be ``404 Not Found``, if delete operation is not allowed a ``403 Forbidden`` will be sent.
 
 .. sourcecode:: http
 
