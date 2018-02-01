@@ -106,13 +106,13 @@ You can retrieve list of properties using ``GET /model/properties``. Common filt
 
 A special ``filter[object_type]`` can be used to get properties of a particular object type only.
 
-.. http:get:: /model/object_types
+.. http:get:: /model/properties
 
 **Example request get enabled object types**:
 
 .. sourcecode:: http
 
-    GET /model/object_types?filter[object_type]=documents HTTP/1.1
+    GET /model/properties?filter[object_type]=documents HTTP/1.1
     Accept: application/vnd.api+json
 
 Response will contain an array of ``properties`` in typical list format as shown in :ref:`api-responses` belonging to ``documents`` type only
