@@ -57,9 +57,20 @@ Glossary
         without send the user credentials again.
 
 
+    resource
+        A resource in BEdita is an entity with a fixed and predefined set of attributes that generally maps a single record on a table;
+        resources are used to make BEdita internals work and may not be seen or used by an application. Noteworthy examples of resources are `roles`, `applications` and `streams`.
+        Have a look at :ref:`bedita-objects` to better understand the difference between `objects` and `resources`.
+
+
     role
         A role in RBAC permission model (https://en.wikipedia.org/wiki/Role-based_access_control)
         is used to assign permissions to perform some operations
+
+
+    stream
+        A stream in BEdita is a :term:`resource` that represents a generic uploaded file;
+        it may be a local file, reachable via filesystem, or a remote one with its own URI.
 
 
     user
