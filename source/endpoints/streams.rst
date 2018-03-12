@@ -5,7 +5,7 @@ Streams ``/streams``
 
 Main responsabilities of this endpoint are:
     * file upload and new stream creation
-    * get a collection of streams, using many filters like trees navigation, search, types
+    * get a collection of streams, using usual :ref:`get-filters`
     * link a stream to a media
     * modify or remove an existing stream
 
@@ -23,7 +23,7 @@ Upload, create a stream
         POST /streams/upload/myfile.jpg HTTP/1.1
         Host: example.com
         Accept: application/vnd.api+json
-        Content-Type →application/vnd.api+json
+        Content-Type →image/jpeg
 
     **Example response**:
 
@@ -139,7 +139,7 @@ The ``/streams`` endpoint retrieve a collection of streams.
 
     **Example response**:
 
-    For readability the fields of objects are limited to "title" but they are similar to :http:get:`/streams/(streams_id)` example
+    For readability the fields of objects are limited to "title" but they are similar to :http:get:`/streams/(stream_id)` example
 
     .. sourcecode:: http
 
