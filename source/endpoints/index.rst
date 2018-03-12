@@ -12,6 +12,7 @@ API reference
     users
     roles
     objects
+    streams
     admin
     model/index
     signup
