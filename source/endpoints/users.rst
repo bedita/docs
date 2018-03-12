@@ -1,7 +1,7 @@
-.. _api-users:
-
 Users ``/users``
 =================
+
+.. _api-users:
 
 You can manage user data by using ``/users`` endpoint.
 It provides users management: creation, data retrieval, modification, removal and roles associations.

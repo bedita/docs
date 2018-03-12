@@ -22,9 +22,7 @@ Minimum required data are: ``username``, ``password`` and ``email``.
 An ``activation_url`` is also required in order to activate the user.
 An activation email is then sent to the user containing the actual activation URL that will have this form:
 
-    .. sourcecode:: http
-
-        {activation_url}?uuid={uuid}&redirect_url={redirect_url}
+    ``{activation_url}?uuid={uuid}&redirect_url={redirect_url}``
 
 Where ``{uuid}`` is a system generated hash, and ``{redirect_url}`` is an optional parameter passed in ``/signup`` request.
 
