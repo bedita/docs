@@ -1,47 +1,47 @@
 Streams ``/streams``
 ====================
 
-``/streams`` endpoint provides file upload, CRUD operations on streams and association of media (i.e. image) to a stream.
+``/streams`` endpoint provides file upload, CRUD operations on streams and association of media (i.e. image) to a :term:`stream`.
 
 Main responsabilities of this endpoint are:
-    * file upload and new stream creation
-    * get a collection of streams, using usual :ref:`get-filters`
-    * link a stream to a media
-    * modify or remove an existing stream
 
-Upload, create a stream
------------------------
+* file upload and new :term:`stream` creation
+* get a collection of streams, using usual :ref:`get-filters`
+* link a :term:`stream` to a media object
+* remove an existing stream
+
+Upload file and create stream
+-----------------------------
 
 .. http:post:: /streams/upload/{file_name}
 
     Upload a file, passing it as binary in `body`.
 
-    **Example request**:
+**Example request**:
 
-    .. sourcecode:: http
+.. sourcecode:: http
 
-        POST /streams/upload/myfile.jpg HTTP/1.1
-        Host: example.com
-        Accept: application/vnd.api+json
-        Content-Type →image/jpeg
+    POST /streams/upload/myfile.jpg HTTP/1.1
+    Host: example.com
+    Accept: application/vnd.api+json
+    Content-Type: image/jpeg
 
-    **Example response**:
+**Example response**:
 
-    .. sourcecode:: http
+.. sourcecode:: http
 
-        HTTP/1.1 201 Created
-        Content-Type: application/json
+    HTTP/1.1 201 Created
+    Content-Type: application/json
 
-        {
-            "data": {
-                "id": "991c27b0-9e3a-43ca-a9dd-6c1f831eca31",
-                "type": "streams",
-                "attributes": {
-                    "file_name": "myfile.jpg",
-                    "mime_type": "image/png"
-                },
+    {
+        "data": {
+            "id": "991c27b0-9e3a-43ca-a9dd-6c1f831eca31",
+            "type": "streams",
+            "attributes": {
+                "file_name": "myfile.jpg",
+                "mime_type": "image/png"
+            },
             "meta": {
-             ....
             },
             "relationships": {
                 "object": {
@@ -64,58 +64,56 @@ Upload, create a stream
                 }
             }
         }
-
+    }
 
 Get a single stream
 -------------------
 
 .. http:get:: /streams/(stream_id)
 
-    Get detailed data for a stream by id.
+    Get data for a stream by id.
 
-    **Example request**:
+**Example request**:
 
-    .. sourcecode:: http
+.. sourcecode:: http
 
-        GET /streams/15 HTTP/1.1
-        Host: example.com
+    GET /streams/302f6fdd-bf31-4cd7-91db-baf45fb93de0 HTTP/1.1
+    Host: example.com
 
-    **Example response**:
+**Example response**:
 
-    .. sourcecode:: http
+.. sourcecode:: http
 
-        HTTP/1.1 200 OK
-        Content-Type: application/vnd.api+json
+    HTTP/1.1 200 OK
+    Content-Type: application/vnd.api+json
 
-        {
-            "data": {
-                "id": "302f6fdd-bf31-4cd7-91db-baf45fb93de0",
-                "type": "streams",
-                "attributes": {
-                    "file_name": "myfile.jpg",
-                    "mime_type": "image/png"
-                },
-                "meta": {
-                 ....
-                },
-                "relationships": {
-                    "object": {
-                        "links": {
-                            "related": "http://example.com/streams/302f6fdd-bf31-4cd7-91db-baf45fb93de0/object",
-                            "self": "http://example.com/streams/302f6fdd-bf31-4cd7-91db-baf45fb93de0/relationships/object"
-                        }
-                    }
-                }
-            },
-            "links": {
-              ....
+    {
+        "data": {
+            "id": "302f6fdd-bf31-4cd7-91db-baf45fb93de0",
+            "type": "streams",
+            "attributes": {
+                "file_name": "myfile.jpg",
+                "mime_type": "image/png"
             },
             "meta": {
-              ....
+                "...": "..."
+            },
+            "relationships": {
+                "object": {
+                    "links": {
+                        "related": "http://example.com/streams/302f6fdd-bf31-4cd7-91db-baf45fb93de0/object",
+                        "self": "http://example.com/streams/302f6fdd-bf31-4cd7-91db-baf45fb93de0/relationships/object"
+                    }
+                }
             }
+        },
+        "links": {
+            "..." : "..."
+        },
+        "meta": {
+            "..." : "..."
         }
-
-
+    }
 
 Get a collection of streams
 ---------------------------
@@ -130,51 +128,49 @@ The ``/streams`` endpoint retrieve a collection of streams.
     * else it returns a paginated list of streams that are descendants of the
       related publication configured in ``app/config/frontend.ini.php``.
 
-    **Example request**:
+**Example request**:
 
-    .. sourcecode:: http
+.. sourcecode:: http
 
-        GET /streams HTTP/1.1
-        Host: example.com
+    GET /streams HTTP/1.1
+    Host: example.com
 
-    **Example response**:
+**Example response**:
 
     For readability the fields of objects are limited to "title" but they are similar to :http:get:`/streams/(stream_id)` example
 
-    .. sourcecode:: http
+.. sourcecode:: http
 
-        HTTP/1.1 200 OK
-        Content-Type: application/vnd.api+json
+    HTTP/1.1 200 OK
+    Content-Type: application/vnd.api+json
 
-        {
-            "data": [
-                {
-                    "id": "0dae7797-5cc8-4d63-8a11-98664dd675b0",
-                    "type": "streams",
+    {
+        "data": [
+            {
+                "id": "0dae7797-5cc8-4d63-8a11-98664dd675b0",
+                "type": "streams",
                     "attributes": {
                         "file_name": "myfile.png",
                         "mime_type": "image/png"
                     },
                     "meta": {
-                     ....
+                        "..." : "..."
                     },
                     "links": {
-                     ....
+                        "..." : "..."
                     },
                     "relationships": {
-                     ....
+                        "..." : "..."
                     }
-                },
-                 ....
-            ],
-            "links": {
-             ....
-            },
-            "meta": {
-             ....
-            },
-        }
-
+            }
+        ],
+        "links": {
+            "..." : "..."
+        },
+        "meta": {
+            "..." : "..."
+        },
+    }
 
 Create an image
 ---------------
@@ -183,59 +179,56 @@ Create an image
 
 .. http:post:: /images
 
+**Example request**:
 
-    **Example request**:
+.. sourcecode:: http
 
-    .. sourcecode:: http
+    POST /images HTTP/1.1
+    Host: example.com
+    Content-Type:application/vnd.api+json
+    Accept: application/vnd.api+json
 
-        POST /images HTTP/1.1
-        Host: example.com
-        Content-Type:application/vnd.api+json
-        Accept: application/vnd.api+json
-        Authorization: Bearer {{jwt}}
-        X-Api-Key: {{apiKey}}
+**Example body**:
 
-    **Example body**:
+.. sourcecode:: json
 
-    .. sourcecode:: json
-
-        {
-            "data": {
-                "type": "images",
-                "attributes": {
-                    "title": "My media"
-                }
+    {
+        "data": {
+            "type": "images",
+            "attributes": {
+                "title": "My media"
             }
         }
+    }
 
-    **Example response**:
+**Example response**:
 
-    .. sourcecode:: http
+.. sourcecode:: http
 
-        HTTP/1.1 201 Created
-        Content-Type: application/vnd.api+json
+    HTTP/1.1 201 Created
+    Content-Type: application/vnd.api+json
 
-        {
-            "data": {
-                "id": "6",
-                "type": "images",
-                "attributes": {
-                 ....
-                },
-                "meta": {
-                 ....
-                },
-                "relationships": {
-                 ....
-                }
-            },
-            "links": {
-             ....
+    {
+        "data": {
+            "id": "6",
+            "type": "images",
+            "attributes": {
+                        "..." : "..."
             },
             "meta": {
-             ....
+                        "..." : "..."
             },
+            "relationships": {
+                        "..." : "..."
+            }
+        },
+        "links": {
+            "..." : "..."
+        },
+        "meta": {
+            "..." : "..."
         }
+    }
 
 Link stream to media
 --------------------
@@ -244,112 +237,108 @@ Link a stream to a media using ``PATCH /streams/{stream_uuid}/relationships/obje
 
 .. http:patch:: /streams/{stream_uuid}/relationships/object
 
+**Example request**:
 
-    **Example request**:
+.. sourcecode:: http
 
-    .. sourcecode:: http
+    PATCH /streams/302f6fdd-bf31-4cd7-91db-baf45fb93de0/relationships/object HTTP/1.1
+    Host: example.com
+    Content-Type: application/vnd.api+json
+    Accept: application/vnd.api+json
 
-        PATCH /streams/302f6fdd-bf31-4cd7-91db-baf45fb93de0/relationships/object HTTP/1.1
-        Host: example.com
-        Content-Type: application/vnd.api+json
-        Accept: application/vnd.api+json
-        Authorization: Bearer {{jwt}}
-        X-Api-Key: {{apiKey}}
+**Example body**:
 
-    **Example body**:
+.. sourcecode:: json
 
-    .. sourcecode:: json
-
-        {
-            "data": {
-                "id": "6",
-                "type": "images"
-            }
+    {
+        "data": {
+            "id": "6",
+            "type": "images"
         }
+    }
 
-    **Example response**:
+**Example response**:
 
-    .. sourcecode:: http
+.. sourcecode:: http
 
-        HTTP/1.1 200 OK
-        Content-Type: application/vnd.api+json
+    HTTP/1.1 200 OK
+    Content-Type: application/vnd.api+json
 
-        {
-            "links": {
-                "self": "http://example.com/streams/302f6fdd-bf31-4cd7-91db-baf45fb93de0/relationships/object",
-                "home": "http://example.com/home"
-            }
+    {
+        "links": {
+            "self": "http://example.com/streams/302f6fdd-bf31-4cd7-91db-baf45fb93de0/relationships/object",
+            "home": "http://example.com/home"
         }
-
+    }
 
 Get an image
 ------------
 
-.. http:get:: /images/(image_id)
+.. http:get:: /images/{image_id}
 
     Get detailed data for an image by id.
 
-    **Example request**:
+**Example request**:
 
-    .. sourcecode:: http
+.. sourcecode:: http
 
-        GET /images/9 HTTP/1.1
-        Host: example.com
+    GET /images/6 HTTP/1.1
+    Host: example.com
 
-    **Example response**:
+**Example response**:
 
-    .. sourcecode:: http
+.. sourcecode:: http
 
-        HTTP/1.1 200 OK
-        Content-Type: application/vnd.api+json
+    HTTP/1.1 200 OK
+    Content-Type: application/vnd.api+json
 
-        {
-            "data": {
-                "id": "8",
-                "type": "images",
-                "attributes": {
-                 ....
-                },
-                "meta": {
-                 ....
-                },
-                "relationships": {
-                    "streams": {
-                        "data": [
-                            {
-                                "id": "302f6fdd-bf31-4cd7-91db-baf45fb93de0",
-                                "type": "streams"
-                            }
-                        ],
-                        "links": {
-                            "related": "http://localhost:8090/images/8/streams",
-                            "self": "http://localhost:8090/images/8/relationships/streams"
-                        }
-                    }
-                }
-            },
-            "links": {
-                 ....
+    {
+        "data": {
+            "id": "6",
+            "type": "images",
+            "attributes": {
+                "..." : "..."
             },
             "meta": {
-                 ....
+                "..." : "..."
             },
-            "included": [
-                {
-                    "id": "302f6fdd-bf31-4cd7-91db-baf45fb93de0",
-                    "type": "streams",
-                    "attributes": {
-                     ....
-                    },
-                    "meta": {
-                     ....
-                    },
+            "relationships": {
+                "streams": {
+                    "data": [
+                        {
+                            "id": "302f6fdd-bf31-4cd7-91db-baf45fb93de0",
+                            "type": "streams"
+                        }
+                    ],
                     "links": {
-                     ....
-                    },
-                    "relationships": {
-                     ....
+                        "related": "http://example.com/images/6/streams",
+                        "self": "http://example.com/images/6/relationships/streams"
                     }
                 }
-            ]
-        }
+            }
+        },
+        "links": {
+            "..." : "..."
+        },
+        "meta": {
+            "..." : "..."
+        },
+        "included": [
+            {
+                "id": "302f6fdd-bf31-4cd7-91db-baf45fb93de0",
+                "type": "streams",
+                "attributes": {
+                    "..." : "..."
+                },
+                "meta": {
+                    "..." : "..."
+                },
+                "links": {
+                    "..." : "..."
+                },
+                "relationships": {
+                    "..." : "..."
+                }
+            }
+        ]
+    }
