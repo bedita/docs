@@ -242,7 +242,7 @@ Link stream to media
 
 Link a stream to a media using ``PATCH /streams/{stream_uuid}/relationships/object``.
 
-.. http:post:: /images
+.. http:patch:: /streams/{stream_uuid}/relationships/object
 
 
     **Example request**:
