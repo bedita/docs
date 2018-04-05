@@ -11,7 +11,7 @@ API reference
     auth
     users
     roles
-    objects
+    objects/index
     streams
     admin
     model/index
