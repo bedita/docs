@@ -61,19 +61,19 @@ You can request a thumbnail with specified options (width, height), using option
 
 .. sourcecode:: http
 
-    GET /media/thumbs/{{id}}?width=100 HTTP/1.1
+    GET /media/thumbs/{{id}}?options[w]=100 HTTP/1.1
     Host: api.example.com
     Accept: application/vnd.api+json
 
 .. sourcecode:: http
 
-    GET /media/thumbs/{{id}}?height=100 HTTP/1.1
+    GET /media/thumbs/{{id}}?options[h]=100 HTTP/1.1
     Host: api.example.com
     Accept: application/vnd.api+json
 
 .. sourcecode:: http
 
-    GET /media/thumbs/{{id}}?width=100&height=100 HTTP/1.1
+    GET /media/thumbs/{{id}}?options[w]=100&options[h]=100 HTTP/1.1
     Host: api.example.com
     Accept: application/vnd.api+json
 
