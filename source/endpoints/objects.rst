@@ -926,6 +926,7 @@ Update child position
     :reqheader Authorization: (**required**) :term:`access token`
 
     :reqjson string priority: (**required**) the position of child object id
+    :reqjson string move_siblings: (**optional**) boolean flag indicating whether other siblings priority should be updated accordingly. By default, this is ``false``.
 
     :resheader Content-Type: application/json
     :status 200: Success. Children position (``priority``) updated.
