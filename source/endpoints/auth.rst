@@ -150,6 +150,7 @@ Update user profle
 
     Update logged user profile data with some restrictions.
     For basic security reasons some fields are not directly changeable: `username`, `email` and `password`.
+    Only exception: `password` may be changed if current valid password is provided in `old_password` field.
 
     :reqheader Authorization: Use token prefixed with ``Bearer``.
     :status 200: Get operation successful.
@@ -200,14 +201,30 @@ Update user profle
 
     **Note**: some fields in `"attributes"` are missing for brevity.
 
+    **Example of a password change request**
+
+    .. sourcecode:: http
+
+        PATCH /auth/user HTTP/1.1
+        Host: example.com
+        Authorization: Bearer {token}
+        Accept: application/vnd.api+json
+        Content-Type: application/json
+
+        {
+            "password" : "a new super strong password",
+            "old_password" : "my current password"
+        }
+
 .. _auth-change:
 
 Credentials change
 ------------------
 
 Authentications credential change works in two steps:
- * a credential change request action
- * an actual credential change using a secret hash
+
+* a credential change request action
+* an actual credential change using a secret hash
 
 Only use case currently supported is ``password`` change.
 
@@ -236,17 +253,10 @@ After a request action an email is sent to requesting user containing a URL with
             "change_url": "{change url}"
         }
 
-
-A ``change_url`` is required in order to create the URL that will be sent to the user in this form:
-
-    .. sourcecode:: http
-
-        {change_url}?uuid={uuid}
-
-Where ``{uuid}`` is a system generated hash that will expire after 24h.
+A ``change_url`` is required in order to create the URL that will be sent to the user in the form
+``{change_url}?uuid={uuid}`` where ``{uuid}`` is a system generated hash that will expire after 24h.
 
 In your ``change_url`` page you will have to read the ``uuid`` query parameter and proceed to actual change performing the following request.
-
 
 .. http:patch:: /auth/change
 
