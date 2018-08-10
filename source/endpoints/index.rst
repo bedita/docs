@@ -13,6 +13,7 @@ API reference
     roles
     objects/index
     streams
+    media/thumbs
     admin
     model/index
     signup
