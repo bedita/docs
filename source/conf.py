@@ -71,9 +71,10 @@ templates_path = ['_templates']
 # The master toctree document.
 master_doc = 'index'
 
+from datetime import datetime
 # General information about the project.
 project = u'BEdita'
-copyright = u'2017, Channelweb Srl, Chialab Srl'
+copyright = u"2017-%s, Channelweb Srl, Chialab Srl" % (datetime.today().year)
 author = u'Channelweb Srl, Chialab Srl'
 
 # The version info for the project you're documenting, acts as replacement for
