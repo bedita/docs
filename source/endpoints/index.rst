@@ -13,6 +13,7 @@ API reference
     roles
     objects
     streams
+    folders
     media/thumbs
     admin
     model/index
