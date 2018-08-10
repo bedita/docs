@@ -78,28 +78,91 @@ Successful response example follows:
             "relationships": {
                 "children": {
                     "links": {
-                        "related": "http://example.com/folders/5593/children",
-                        "self": "http://example.com/folders/5593/relationships/children"
+                        "related": "https://example.com/folders/5593/children",
+                        "self": "https://example.com/folders/5593/relationships/children"
                     }
                 },
                 "parent": {
                     "links": {
-                        "related": "http://example.com/folders/5593/parent",
-                        "self": "http://example.com/folders/5593/relationships/parent"
+                        "related": "https://example.com/folders/5593/parent",
+                        "self": "https://example.com/folders/5593/relationships/parent"
                     }
                 }
             }
         },
         "links": {
-            "self": "http://example.com/folders",
-            "home": "http://example.com/home"
+            "self": "https://example.com/folders",
+            "home": "https://example.com/home"
         },
         "meta": {
             "schema": {
                 "folders": {
-                    "$id": "http://example.com/model/schema/folders",
+                    "$id": "https://example.com/model/schema/folders",
                     "revision": "1169288309"
                 }
             }
         }
     }
+
+Get a folder
+------------
+
+.. http:get:: /folders/(folder_id)
+
+Retrieve folder details.
+
+    **Example request**:
+
+    .. sourcecode:: http
+
+        GET /folders/5593 HTTP/1.1
+        Host: example.com
+        Accept: application/vnd.api+json
+
+    **Example response**:
+
+    .. sourcecode:: http
+
+        HTTP/1.1 200 OK
+        Content-Type: application/json
+
+        {
+            "data": {
+                "id": "5593",
+                "type": "folders",
+                "attributes": {
+                    "title": "Root Folder"
+                },
+                "meta": {
+                    "created": "2018-08-10T10:19:00+00:00",
+                    "modified": "2018-08-10T10:19:00+00:00",
+                    "path": "/5593"
+                },
+                "relationships": {
+                    "children": {
+                        "links": {
+                            "related": "https://example.com/folders/5593/children",
+                            "self": "https://example.com/folders/5593/relationships/children"
+                        }
+                    },
+                    "parent": {
+                        "links": {
+                            "related": "https://example.com/folders/5593/parent",
+                            "self": "https://example.com/folders/5593/relationships/parent"
+                        }
+                    }
+                }
+            },
+            "links": {
+                "self": "https://example.com/folders/5593",
+                "home": "https://example.com/home"
+            },
+            "meta": {
+                "schema": {
+                    "folders": {
+                        "$id": "https://example.com/model/schema/folders",
+                        "revision": "1169288309"
+                    }
+                }
+            }
+        }
