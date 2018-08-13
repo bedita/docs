@@ -14,6 +14,7 @@ API reference
     objects
     streams
     media/thumbs
+    translations
     admin
     model/index
     signup
