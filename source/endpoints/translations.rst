@@ -15,10 +15,14 @@ It provides:
 Get translation data
 --------------------
 
+Get translations
+................
+
 .. http:GET:: /translations
 .. http:GET:: /translations/(translation_id)
 
 Retrieve all translations using ``GET /translations``, or a single one using ``GET /translations/(translation_id)``.
+Usual filters, like :ref:`filter-field` or :ref:`filter-search`, are available.
 
 **Example request (get all translations)**:
 
@@ -85,6 +89,107 @@ Retrieve all translations using ``GET /translations``, or a single one using ``G
                 "page_size": 20
             }
         }
+    }
+
+Get main object from translation
+................................
+
+.. http:GET:: /translations/(translation_id)/object
+
+To retrieve details of master object (the translated object), use ``GET /translations/(translation_id)/object``.
+
+** Example request (get the translated object) **
+
+.. sourcecode:: http
+
+    GET /translations/{translationId}/object HTTP/1.1
+    Host: example.com
+    Accept: application/vnd.api+json
+
+** Example response **
+
+.. sourcecode:: http
+
+    HTTP/1.1 200 OK
+    Content-Type: application/vnd.api+json
+
+    {
+        "data": {
+            "id": "{objectId}",
+            "type": "documents",
+            "attributes": {
+                "status": "on",
+                "uname": "this-is-a-test-object",
+                "title": "this is a test object"
+            },
+            "meta": {
+                "created": "2018-04-09T07:10:03+00:00",
+                "modified": "2018-08-03T08:26:34+00:00"
+            },
+            "relationships": {
+                "translations": {
+                    "links": {
+                        "related": "https://example.com/documents/{objectId}/translations",
+                        "self": "https://example.com/documents/{objectId}/relationships/translations"
+                    }
+                }
+            }
+        },
+        "links": {
+            "available": "https://example.com/objects",
+            "self": "https://example.com/translations/{translationId}/object",
+            "home": "https://example.com/home"
+        },
+        "meta": {
+            "schema": {
+                "documents": {
+                    "$id": "https://example.com/model/schema/documents",
+                    "revision": "3954685133"
+                }
+            }
+        }
+    }
+
+Get relationship object
+.......................
+
+.. http:GET:: /translations/(translation_id)/relationships/object
+
+To retrieve basic relationship info of master object (the translated object), use ``GET /translations/(translation_id)/relationships/object``.
+
+** Example request (get the translated object relationships) **
+
+.. sourcecode:: http
+
+    GET /translations/{translationId}/relationships/object HTTP/1.1
+    Host: example.com
+    Accept: application/vnd.api+json
+
+** Example response **
+
+.. sourcecode:: http
+
+    HTTP/1.1 200 OK
+    Content-Type: application/vnd.api+json
+
+    {
+        "data": {
+            "id": "{objectId}",
+            "type": "documents",
+            "relationships": {
+                "translations": {
+                    "links": {
+                        "related": "https://example.com/documents/{objectId}/translations",
+                        "self": "https://example.com/documents/{objectId}/relationships/translations"
+                    }
+                }
+            }
+        },
+        "links": {
+            "available": "https://example.com/objects",
+            "self": "https://example.com/translations/{translationId}/object",
+            "home": "https://example.com/home"
+        },
     }
 
 Add a translation
