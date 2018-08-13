@@ -18,19 +18,19 @@ Get data
 
 .. http:get:: /folders
 
-All folders retrieval is performed through `GET /folders`.
+All folders retrieval is performed through ``GET /folders``.
 Folders endpoint provides several filters to obtain data.
-Usual filters, like :ref:`filter-field` or :ref:`filter-search`, are available; extra filters are `roots` and `parent`.
+Usual filters, like :ref:`filter-field` or :ref:`filter-search`, are available; extra filters are ``roots`` and ``parent``.
 
-Filter `roots` provides a method to fetch only root folders.
-Usage: `GET /folders?filter[roots]`.
+Filter ``roots`` provides a method to fetch only root folders.
+Usage: ``GET /folders?filter[roots]``.
 
-Filter `parent` allows you to obtain folders whose parent is a specific folder, by ID.
-Usage: `GET /folders?filter[parent]={rootFolderId}`.
+Filter ``parent`` allows you to obtain folders whose parent is a specific folder, by ID.
+Usage: ``GET /folders?filter[parent]={parentId}``.
 
-When the api call is successfull, response with `200 OK` http status code is returned.
+When the api call is successfull, response with ``200 OK`` http status code is returned.
 
-**Example request**:
+**Example request (get root folders)**:
 
 .. sourcecode:: http
 
@@ -138,7 +138,7 @@ Get data for a single folder
 
 Retrieve folder details by folder unique identifier.
 
-**Example request**:
+**Example request (get a folder by ID)**:
 
 .. sourcecode:: http
 
@@ -289,6 +289,10 @@ Modify a folder
 
 .. http:patch:: /folders/(folder_id)
 
+A folder can be modified by calling a ``PATCH /folders/(folder_id)`` with proper payload.
+Necessary fields in payload are ``data.id``, ``data.type`` and ``data.attributes`` (not empty).
+
+**Example request (modify a folder title)**:
 
 .. sourcecode:: http
 
@@ -298,7 +302,7 @@ Modify a folder
 
     {
         "data": {
-            "id": "{{folderId}}",
+            "id": "{folderId}",
             "type": "folders",
             "attributes": {
                 "title": "My new folder"
@@ -315,7 +319,7 @@ Move a folder to trash (*soft delete*) using `DELETE /folders/{folderId}`.
 
 Expected HTTP status response is ``204 No Content`` and an empty body is returned.
 
-**Example request**:
+**Example request (delete a folder)**:
 
 .. sourcecode:: http
 
@@ -339,7 +343,7 @@ Get the parent
 When a folder is not a root folder (it's a subfolder), parent folder data can be retrieved.
 You can obtain data of parent folder, for a specified subfolder, using `GET` with `folder id` followed by `parent`, as in following example.
 
-**Example request**:
+**Example request (get a parent folder)**:
 
 .. sourcecode:: http
 
@@ -418,7 +422,7 @@ Set the parent
 
 When you want to set a parent for a folder, you need to call a `PATCH`, specifying the folder identifier in the url and the parent identifier in body payload.
 
-**Example request**:
+**Example request (set a parent folder)**:
 
 .. sourcecode:: http
 
@@ -453,12 +457,12 @@ Remove the parent
 .. http:delete:: /folders/(folder_id)/relationships/parent
 
 When you want a folder be a *root*, you remove its association with the parent.
-Removing folder parent association is performed through `DELETE /folders/{folderId}/relationships/parent`,
+Removing folder parent association is performed through ``DELETE /folders/{folderId}/relationships/parent``,
 specifying parent id in the body payload body, like in the :ref:`folder-set-parent`.
 
 Expected HTTP status response is ``204 No Content`` and an empty body is returned.
 
-**Example request**:
+**Example request (remove a parent)**:
 
 .. sourcecode:: http
 
@@ -487,7 +491,8 @@ Get contents
 
 .. http:get:: /folders/(folder_id)/children
 
-Contents inside a folder are retrieved through `GET /folders/(folder_id)/children`; usual filters, like :ref:`filter-field` or :ref:`filter-search`, are available.
+Contents inside a folder are retrieved through ``GET /folders/(folder_id)/children``;
+usual filters, like :ref:`filter-field` or :ref:`filter-search`, are available.
 
 .. _folder-add-content:
 
@@ -496,10 +501,10 @@ Add content
 
 .. http:post:: /folders/{folderId}/relationships/children
 
-You can save contents inside a folder using properly `POST /folders/{folderId}/relationships/children`.
-Payload body must contain content object `type` and content identifier `id`, like in the following example.
+You can save contents inside a folder using properly ``POST /folders/{folderId}/relationships/children``.
+Payload body must contain content object ``type`` and content identifier ``id``, like in the following example.
 
-**Example request**:
+**Example request (add a content to a folder)**:
 
 .. sourcecode:: http
 
@@ -528,12 +533,12 @@ Remove content
 
 .. http:delete:: /folders/{folderId}/relationships/children
 
-Removing contents is performed through `DELETE /folders/{folderId}/relationships/children`.
-Payload body must contain content object `type` and content identifier `id`, like in the :ref:`folder-add-content`.
+Removing contents is performed through ``DELETE /folders/{folderId}/relationships/children``.
+Payload body must contain content object ``type`` and content identifier ``id``, like in the :ref:`folder-add-content`.
 
 Expected HTTP status response is ``204 No Content`` and an empty body is returned.
 
-**Example request**:
+**Example request (remove a content from a folder)**:
 
 .. sourcecode:: http
 
