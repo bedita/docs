@@ -1,7 +1,7 @@
 Folders ``/folders``
 ====================
 
-``/folders`` endpoint provide folders data, structure and contents management: search, create, modify folders,
+Folders endpoint provides folders data, structure and contents management: search, create, modify folders,
 add or remove contents, reorder data, organize folders tree, etc.
 
 Mainly it provides:
