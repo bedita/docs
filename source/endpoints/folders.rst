@@ -315,7 +315,7 @@ Remove a folder
 
 .. http:delete:: /folders/(folder_id)
 
-Move a folder to trash (*soft delete*) using `DELETE /folders/{folderId}`.
+Move a folder to trash (*soft delete*) using ``DELETE /folders/{folderId}``.
 
 Expected HTTP status response is ``204 No Content`` and an empty body is returned.
 
@@ -341,7 +341,7 @@ Get the parent
 .. http:get:: /folders/(folder_id)/parent
 
 When a folder is not a root folder (it's a subfolder), parent folder data can be retrieved.
-You can obtain data of parent folder, for a specified subfolder, using `GET` with `folder id` followed by `parent`, as in following example.
+You can obtain data of parent folder, for a specified subfolder, using ``GET /folders/(folder_id)/parent``, as in following example.
 
 **Example request (get a parent folder)**:
 
@@ -411,7 +411,7 @@ You can obtain data of parent folder, for a specified subfolder, using `GET` wit
         }
     }
 
-`data.meta.relations` contains the tree details for the folder (*nested set model* has been used to store folders tree data).
+``data.meta.relations`` contains the tree details for the folder (*nested set model* has been used to store folders tree data).
 
 .. _folder-set-parent:
 
@@ -420,7 +420,7 @@ Set the parent
 
 .. http:patch:: /folders/(folder_id)/relationships/parent
 
-When you want to set a parent for a folder, you need to call a `PATCH`, specifying the folder identifier in the url and the parent identifier in body payload.
+When you want to set a parent for a folder, you need to call a ``PATCH``, specifying the folder identifier in the url and the parent identifier in body payload.
 
 **Example request (set a parent folder)**:
 
