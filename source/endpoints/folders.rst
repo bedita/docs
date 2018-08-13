@@ -483,7 +483,7 @@ Folders contents
 ----------------
 
 Get contents
-...................
+............
 
 .. http:get:: /folders/(folder_id)/children
 
@@ -524,7 +524,7 @@ Payload body must contain content object `type` and content identifier `id`, lik
     Content-Type: application/vnd.api+json
 
 Remove content
-..........................
+..............
 
 .. http:delete:: /folders/{folderId}/relationships/children
 
