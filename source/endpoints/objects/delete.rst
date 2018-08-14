@@ -1,2 +1,0 @@
-Delete objects ``DELETE /objects``
-==================================

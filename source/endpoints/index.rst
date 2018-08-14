@@ -11,7 +11,7 @@ API reference
     auth
     users
     roles
-    objects/index
+    objects
     streams
     media/thumbs
     admin
