@@ -374,9 +374,9 @@ You can obtain data of parent folder, for a specified subfolder, using ``GET /fo
                     "object_id": {relatedId},
                     "parent_id": {folderId},
                     "root_id": {folderId},
-                    "parent_node_id": 12,
-                    "tree_left": 14,
-                    "tree_right": 15,
+                    "parent_node_id": {parentId},
+                    "tree_left": {leftId},
+                    "tree_right": {rightId},
                     "depth_level": 1,
                     "menu": true
                 }
