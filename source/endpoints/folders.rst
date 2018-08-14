@@ -10,6 +10,9 @@ Mainly it provides:
     * manage tree: retrieve parent folder data, set or remove a parent folder association
     * manage contents: add, remove, search/get, reorder folders contents
 
+**Note**: in the following paragraphs, ``(folder_id)`` and ``{folderId}`` are sample placeholders for the unique identifier of the folder, typically an integer number;
+other placeholders used in this page are ``{parentId}``, ``{relatedId}``, ``{rightId}``, ``{leftId}``, ``{createdDate}``, ``{modifiedDate}`` and ``{revisionNumber}``.
+
 Folders data
 ------------
 
