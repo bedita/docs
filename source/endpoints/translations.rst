@@ -11,6 +11,7 @@ It provides:
 
 **Note**: in the following sections, ``(translation_id)`` and ``{translationId}`` are sample placeholders for the unique identifier of the translation, typically an integer number;
 ``{objectId}`` is a sample placeholder for the unique identifier of the object translated.
+Other placeholders used in this page are ``{createdDate}``, ``{modifiedDate}``, ``{createdBy}``, ``{modifiedBy}``, ``{status}`` and ``{revisionNumber}``.
 
 Get translation data
 --------------------
@@ -47,17 +48,17 @@ Usual filters, like :ref:`filter-field` or :ref:`filter-search`, are available.
                 "attributes": {
                     "object_id": "{objectId}",
                     "lang": "sp",
-                    "status": "draft",
+                    "status": "{status}",
                     "translated_fields": {
                         "title": "nuevo título",
                         "description": "nueva descripción"
                     }
                 },
                 "meta": {
-                    "created": "2018-08-13T14:13:46+00:00",
-                    "modified": "2018-08-13T14:13:52+00:00",
-                    "created_by": 1,
-                    "modified_by": 1
+                    "created": "{createdDate}",
+                    "modified": "{modifiedDate}",
+                    "created_by": "{createdBy}",
+                    "modified_by": "{modifiedBy}"
                 },
                 "links": {
                     "self": "https://example.com/translations/{translationId}"
@@ -123,8 +124,8 @@ To retrieve details of master object (the translated object), use ``GET /transla
                 "title": "this is a test object"
             },
             "meta": {
-                "created": "2018-04-09T07:10:03+00:00",
-                "modified": "2018-08-03T08:26:34+00:00"
+                "created": "{createdDate}",
+                "modified": "{modifiedDate}"
             },
             "relationships": {
                 "translations": {
@@ -144,7 +145,7 @@ To retrieve details of master object (the translated object), use ``GET /transla
             "schema": {
                 "documents": {
                     "$id": "https://example.com/model/schema/documents",
-                    "revision": "3954685133"
+                    "revision": "{revisionNumber}"
                 }
             }
         }
@@ -201,7 +202,7 @@ You create a translation with a ``POST /translations``, specifying in payload bo
 
  - ``type``: "translations". The endpoint.
  - ``object_id``: the identifier of the object you want to translate
- - ``status`` of translation; it can be:"on", "off" or "draft"
+ - ``status`` of translation; it can be:"on", "off" or "{status}"
  - ``lang``: the 2 chars code for the lang of the translation
  - ``translated_fields``: the field-value pairs representing the translation per field
 
@@ -222,7 +223,7 @@ You can see all together in the following example.
             "type": "translations",
             "attributes": {
                 "object_id": "{objectId}",
-                "status": "draft",
+                "status": "{status}",
                 "lang": "sp",
                 "translated_fields": {
                     "title": "título uno",
@@ -246,17 +247,17 @@ You can see all together in the following example.
             "attributes": {
                 "object_id": "{objectId}",
                 "lang": "sp",
-                "status": "draft",
+                "status": "{status}",
                 "translated_fields": {
                     "title": "título uno",
                     "description": "descripción uno"
                 }
             },
             "meta": {
-                "created": "2018-08-13T11:01:49+00:00",
-                "modified": "2018-08-13T11:01:49+00:00",
-                "created_by": 1,
-                "modified_by": 1
+                "created": "{createdDate}",
+                "modified": "{modifiedDate}",
+                "created_by": "{createdBy}",
+                "modified_by": "{modifiedBy}"
             },
             "relationships": {
                 "object": {
@@ -322,17 +323,17 @@ When patch succeeds, ``200 OK`` response is returned.
             "attributes": {
                 "object_id": "{objectId}",
                 "lang": "sp",
-                "status": "draft",
+                "status": "{status}",
                 "translated_fields": {
                     "title": "nuevo título",
                     "description": "nueva descripción"
                 }
             },
             "meta": {
-                "created": "2018-08-13T14:13:46+00:00",
-                "modified": "2018-08-13T14:13:52+00:00",
-                "created_by": 1,
-                "modified_by": 1
+                "created": "{createdDate}",
+                "modified": "{modifiedDate}",
+                "created_by": "{createdBy}",
+                "modified_by": "{modifiedBy}"
             },
             "relationships": {
                 "object": {
