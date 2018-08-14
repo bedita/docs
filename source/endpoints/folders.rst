@@ -54,8 +54,8 @@ When the api call is successfull, response with ``200 OK`` http status code is r
                     "title": "Sample root",
                 },
                 "meta": {
-                    "created": "2018-04-09T15:03:27+00:00",
-                    "modified": "2018-04-09T15:03:27+00:00",
+                    "created": "{createdDate}",
+                    "modified": "{modifiedDate}",
                     "path": "/{folderId}"
                 },
                 "links": {
@@ -83,8 +83,8 @@ When the api call is successfull, response with ``200 OK`` http status code is r
                     "title": "Root Folder",
                 },
                 "meta": {
-                    "created": "2018-08-10T10:19:00+00:00",
-                    "modified": "2018-08-10T10:19:00+00:00",
+                    "created": "{createdDate}",
+                    "modified": "{modifiedDate}",
                     "path": "/{folderId2}"
                 },
                 "links": {
@@ -125,7 +125,7 @@ When the api call is successfull, response with ``200 OK`` http status code is r
             "schema": {
                 "folders": {
                     "$id": "https://example.com/model/schema/folders",
-                    "revision": "1169288309"
+                    "revision": "{revisionNumber}"
                 }
             }
         }
@@ -161,8 +161,8 @@ Retrieve folder details by folder unique identifier.
                 "title": "Root Folder"
             },
             "meta": {
-                "created": "2018-08-10T10:19:00+00:00",
-                "modified": "2018-08-10T10:19:00+00:00",
+                "created": "{createdDate}",
+                "modified": "{modifiedDate}",
                 "path": "/{folderId}"
             },
             "relationships": {
@@ -188,7 +188,7 @@ Retrieve folder details by folder unique identifier.
             "schema": {
                 "folders": {
                     "$id": "https://example.com/model/schema/folders",
-                    "revision": "1169288309"
+                    "revision": "{revisionNumber}"
                 }
             }
         }
@@ -251,8 +251,8 @@ Successful response example follows:
                 "title": "Root Folder"
             },
             "meta": {
-                "created": "2018-08-10T10:19:00+00:00",
-                "modified": "2018-08-10T10:19:00+00:00",
+                "created": "{createdDate}",
+                "modified": "{modifiedDate}",
                 "path": "/{folderId}"
             },
             "relationships": {
@@ -278,7 +278,7 @@ Successful response example follows:
             "schema": {
                 "folders": {
                     "$id": "https://example.com/model/schema/folders",
-                    "revision": "1169288309"
+                    "revision": "{revisionNumber}"
                 }
             }
         }
@@ -366,8 +366,8 @@ You can obtain data of parent folder, for a specified subfolder, using ``GET /fo
                 "title": "Root Folder"
             },
             "meta": {
-                "created": "2018-08-10T10:19:00+00:00",
-                "modified": "2018-08-10T12:27:12+00:00",
+                "created": "{createdDate}",
+                "modified": "{modifiedDate}",
                 "path": "/{folderId}",
                 "relation": {
                     "id": {relationId},
@@ -384,14 +384,14 @@ You can obtain data of parent folder, for a specified subfolder, using ``GET /fo
             "relationships": {
                 "children": {
                     "links": {
-                        "related": "https://example.com/folders/5593/children",
-                        "self": "https://example.com/folders/5593/relationships/children"
+                        "related": "https://example.com/folders/{folderId}/children",
+                        "self": "https://example.com/folders/{folderId}/relationships/children"
                     }
                 },
                 "parent": {
                     "links": {
-                        "related": "https://example.com/folders/5593/parent",
-                        "self": "https://example.com/folders/5593/relationships/parent"
+                        "related": "https://example.com/folders/{folderId}/parent",
+                        "self": "https://example.com/folders/{folderId}/relationships/parent"
                     }
                 }
             }
@@ -405,7 +405,7 @@ You can obtain data of parent folder, for a specified subfolder, using ``GET /fo
             "schema": {
                 "folders": {
                     "$id": "https://example.com/model/schema/folders",
-                    "revision": "1169288309"
+                    "revision": "{revisionNumber}"
                 }
             }
         }
