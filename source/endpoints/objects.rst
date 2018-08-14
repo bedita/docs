@@ -16,8 +16,8 @@ To create, modify or delete data for objects whose types extend ``objects``, you
 
  - ``POST /{objectTypeName}``: create data
  - ``PATCH /{objectTypeName}/{objectId}``: update data
- - ``DELETE /{objectTypeName}/{objectId}``: move to trash
- - ``DELETE /trash/{objectId}``: remove from trash
+ - ``DELETE /{objectTypeName}/{objectId}``: move to trashcan
+ - ``DELETE /trash/{objectId}``: remove from trashcan
 
 **Note**: in the following sections, ``{objectId}`` and ``(object_id)`` are sample placeholders for the unique identifier of the object, typically an integer number.
 Other placeholders used in this page are ``{objectTypeName}``, ``{status}``, ``{uname}``, ``{title}``, ``{createdDate}``, ``{modifiedDate}``, ``{createdBy}``, ``{modifiedBy}``, ``{status}``, ``{revisionNumber}`` etc.
