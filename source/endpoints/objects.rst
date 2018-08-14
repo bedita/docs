@@ -11,7 +11,8 @@ This endpoint provides:
  - retrieve data of a single object by unique identifier (allowed, but you can also use ``GET /{objectTypeName}/{objectId}``)
  - remove an object (allowed, but discouraged: use ``DELETE /{objectTypeName}/{objectId}`` instead)
 
-To create, modify or delete data for objects whose types extend ``objects``, you use dedicated endpoint ``/{objectTypeName}``, created through modelling (for more details, see :ref:`api-modelling`):
+To create, modify or delete data for objects whose types extend ``objects``, you use dedicated endpoint ``/{objectTypeName}``, created through modelling (for more details, see :ref:`api-modelling`),
+(``{objectTypeName}`` is a placeholder for a non-abstract object type):
 
  - ``POST /{objectTypeName}``: create data
  - ``PATCH /{objectTypeName}/{objectId}``: update data
@@ -211,7 +212,7 @@ Remove objects
 .. http:DELETE:: /objects/(object_id)
 
 You can move object to trashcan (*soft delete*) using ``DELETE /objects/{objectId}``, with empty body.
-You can either do the same task using ``DELETE /(object_type_name)/{objectId}``, with empty body.
+You can either do the same task using ``DELETE /{objectTypeName}/{objectId}``, with empty body.
 
 When delete succeeds, ``204 No Content`` response is returned.
 
