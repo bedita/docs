@@ -937,7 +937,7 @@ Update child position
 
     .. sourcecode:: http
 
-        POST /objects/1/children/2 HTTP/1.1
+        PUT /objects/1/children/2 HTTP/1.1
         Host: example.com
         Accept: application/json, text/javascript
         Content-Type: application/json
