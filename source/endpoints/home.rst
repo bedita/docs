@@ -12,7 +12,7 @@ This information depends on user permissions and endpoint configuration.
 
     .. sourcecode:: http
 
-      GET /home HTTP/2
+      GET /home HTTP/1.1
       Host: example.org
       Accept: application/json
 
@@ -20,7 +20,7 @@ This information depends on user permissions and endpoint configuration.
 
     .. sourcecode:: http
 
-      HTTP/2 200 Success
+      HTTP/1.1 200 Success
       Host: example.org
       Content-Type: application/json
 

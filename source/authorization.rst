@@ -2,7 +2,6 @@
 Authentication & Authorization
 ******************************
 
-
 BEdita4 is a multi-application system: it is designed to handle different client applications requests performed by multiple users on the same :term:`project`.
 
 For every request application and user roles should be identified: each application may have its own grants, and each user also depending on :term:`role` assignement.
@@ -29,7 +28,6 @@ Once the token is retrieved it can be used on every request in the ``Authorizati
 .. sourcecode:: http
 
     Authorization: Bearer <token>
-
 
 Application identification
 --------------------------

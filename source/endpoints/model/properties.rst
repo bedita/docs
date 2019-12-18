@@ -25,7 +25,7 @@ To add a new _dynamic_ object property you can use ``POST /model/properties`` en
 
 .. sourcecode:: http
 
-    POST /model/properties HTTP/2
+    POST /model/properties HTTP/1.1
     Host: api.example.com
     Accept: application/vnd.api+json
     Content-Type: application/vnd.api+json
@@ -48,7 +48,7 @@ Required attributes in properties creation are:
 * ``property_type_name`` selected property type, must be a valid name avilable among :doc:`property_types`
 * ``object_type_name`` object type that will have this property
 
-Expected response is ``HTTP/2 201 OK``, with ``application/vnd.api+json`` body data representing the property just created.
+Expected response is ``HTTP/1.1 201 OK``, with ``application/vnd.api+json`` body data representing the property just created.
 
 If property ``name`` already exists or data is not valid (i.e. lacks of required fields or inconsistent input), POST fails and response will be ``400 Bad Request - Invalid data``.
 
@@ -65,7 +65,7 @@ You can obtain a single property by using ``GET /model/properties/{id}`` endpoin
 
 .. sourcecode:: http
 
-    GET /model/properties/1 HTTP/2
+    GET /model/properties/1 HTTP/1.1
     Host: api.example.com
     Accept:id/vnd.api+json
 
@@ -73,7 +73,7 @@ You can obtain a single property by using ``GET /model/properties/{id}`` endpoin
 
 .. sourcecode:: http
 
-    HTTP/2 200 OK
+    HTTP/1.1 200 OK
     Content-Type: application/vnd.api+json
 
     {
@@ -112,7 +112,7 @@ A special ``filter[object_type]`` can be used to get properties of a particular 
 
 .. sourcecode:: http
 
-    GET /model/properties?filter[object_type]=documents HTTP/2
+    GET /model/properties?filter[object_type]=documents HTTP/1.1
     Accept: application/vnd.api+json
 
 Response will contain an array of ``properties`` in typical list format as shown in :ref:`api-responses` belonging to ``documents`` type only
@@ -141,7 +141,7 @@ In this example we will simply disable the newly created property and change its
 
 .. sourcecode:: http
 
-    PATCH /model/properties/1 HTTP/2
+    PATCH /model/properties/1 HTTP/1.1
     Content-Type: application/json
 
     Accept: application/vnd.api+json
@@ -176,7 +176,7 @@ Please note that this operation cannot be reversed!
 
 .. sourcecode:: http
 
-    DELETE /model/properties/1 HTTP/2
+    DELETE /model/properties/1 HTTP/1.1
 
 Expected HTTP status response is ``204 No Content``.
 
@@ -184,4 +184,4 @@ If property is not found, response will be ``404 Not Found``, if delete operatio
 
 .. sourcecode:: http
 
-    HTTP/2 204 No Content
+    HTTP/1.1 204 No Content

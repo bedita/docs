@@ -27,7 +27,7 @@ Creation of a new relation happens through ``POST /model/relations`` endpoint.
 
 .. sourcecode:: http
 
-    POST /model/relations HTTP/2
+    POST /model/relations HTTP/1.1
     Host: api.example.com
     Accept: application/vnd.api+json
     Content-Type: application/vnd.api+json
@@ -62,7 +62,7 @@ Other optional attributes are
 * ``inverse_label`` alternative text to show instead of ``inverse_name``
 * ``description`` optional description of the relation
 
-Expected response is ``HTTP/2 201 OK``, with ``application/vnd.api+json`` body data representing relation just created.
+Expected response is ``HTTP/1.1 201 OK``, with ``application/vnd.api+json`` body data representing relation just created.
 
 If the relation already exists or data is not valid (i.e. lacks of required fields or inconsistent input), POST fails and response will be ``400 Bad Request - Invalid data``.
 
@@ -81,7 +81,7 @@ You can obtain a single relation by invoking ``GET /model/relations/{relation}``
 
 .. sourcecode:: http
 
-    GET /model/relations/owner_of HTTP/2
+    GET /model/relations/owner_of HTTP/1.1
     Host: api.example.com
     Accept: application/vnd.api+json
 
@@ -89,7 +89,7 @@ You can obtain a single relation by invoking ``GET /model/relations/{relation}``
 
 .. sourcecode:: http
 
-    HTTP/2 200 OK
+    HTTP/1.1 200 OK
     Content-Type: application/vnd.api+json
 
     {
@@ -141,7 +141,7 @@ To retrieve a list of relations you can simply invoke ``GET /model/relations`` a
 
 .. sourcecode:: http
 
-    GET /model/relations?filter[name]=owner_of HTTP/2
+    GET /model/relations?filter[name]=owner_of HTTP/1.1
     Accept: application/vnd.api+json
 
 Response will contain an array of ``relations`` in typical list format as shown in :ref:`api-responses`.
@@ -151,7 +151,7 @@ In this particular case response content in ``"data"`` section will be the same 
 
 .. sourcecode:: http
 
-    HTTP/2 200 OK
+    HTTP/1.1 200 OK
     Content-Type: application/vnd.api+json
 
     {
@@ -195,7 +195,7 @@ You may add object types to left side ``POST /model/relations/{{relation}}/relat
 
 .. sourcecode:: http
 
-    POST /model/relations/owner_of/relationships/left_object_types HTTP/2
+    POST /model/relations/owner_of/relationships/left_object_types HTTP/1.1
     Host: api.example.com
     Accept: application/vnd.api+json
     Content-Type: application/vnd.api+json
@@ -238,7 +238,7 @@ By invoking ``PATCH /model/relations/{{relation}}/relationships/left_object_type
 
 .. sourcecode:: http
 
-    PATCH /model/relations/owner_of/relationships/left_object_types HTTP/2
+    PATCH /model/relations/owner_of/relationships/left_object_types HTTP/1.1
     Host: api.example.com
     Accept: application/vnd.api+json
     Content-Type: application/vnd.api+json
@@ -272,7 +272,7 @@ To remove an object type from a relation you can call ``DELETE /model/relations/
 
 .. sourcecode:: http
 
-    DELETE /model/relations/owner_of/relationships/left_object_types HTTP/2
+    DELETE /model/relations/owner_of/relationships/left_object_types HTTP/1.1
     Host: api.example.com
     Accept: application/vnd.api+json
     Content-Type: application/vnd.api+json
@@ -307,7 +307,7 @@ In this example we will just change the description for the relation 1
 
 .. sourcecode:: http
 
-    PATCH /model/relations/owner_of HTTP/2
+    PATCH /model/relations/owner_of HTTP/1.1
     Host: api.example.com
     Accept: application/vnd.api+json
     Content-Type: application/vnd.api+json
@@ -339,7 +339,7 @@ This operation cannot be reversed and will not be allowed if actual object relat
 
 .. sourcecode:: http
 
-    DELETE /model/relations/owner_of HTTP/2
+    DELETE /model/relations/owner_of HTTP/1.1
     Host: api.example.com
 
 Expected HTTP status response is ``204 No Content``.
@@ -348,4 +348,4 @@ If relation is not found, response will be ``404 Not Found``, if delete operatio
 
 .. sourcecode:: http
 
-    HTTP/2 204 No Content
+    HTTP/1.1 204 No Content

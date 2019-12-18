@@ -22,7 +22,7 @@ You can obtain trash contents by using ``GET /trash`` and ``GET /trash/(object_i
 
     .. sourcecode:: http
 
-        GET /trash HTTP/2
+        GET /trash HTTP/1.1
         Host: example.com
         Accept: application/json, text/javascript
 
@@ -30,7 +30,7 @@ You can obtain trash contents by using ``GET /trash`` and ``GET /trash/(object_i
 
     .. sourcecode:: http
 
-        HTTP/2 200 OK
+        HTTP/1.1 200 OK
         Content-Type: application/json
 
         {
@@ -48,7 +48,7 @@ You can obtain trash contents by using ``GET /trash`` and ``GET /trash/(object_i
 
     .. sourcecode:: http
 
-        GET /trash/154 HTTP/2
+        GET /trash/154 HTTP/1.1
         Host: example.com
         Accept: application/json, text/javascript
 
@@ -56,7 +56,7 @@ You can obtain trash contents by using ``GET /trash`` and ``GET /trash/(object_i
 
     .. sourcecode:: http
 
-        HTTP/2 200 OK
+        HTTP/1.1 200 OK
         Content-Type: application/json
 
         {
@@ -79,7 +79,7 @@ In this example, purpose is restoring object 55920.
 
 .. sourcecode:: http
 
-    PATCH /trash/55920 HTTP/2
+    PATCH /trash/55920 HTTP/1.1
     Host: example.com
     Accept: application/vnd.api+json
     Content-Type: application/vnd.api+json
@@ -95,7 +95,7 @@ Response ``204 No Content`` is expected. When object is not found in trashcan, r
 
 .. sourcecode:: http
 
-    HTTP/2 204 No Content
+    HTTP/1.1 204 No Content
     Content-Type: application/vnd.api+json
 
 
@@ -110,11 +110,11 @@ You can completely remove contents from system by using ``DELETE /trash/(object_
 
 .. sourcecode:: http
 
-    DELETE /trash/55920 HTTP/2
+    DELETE /trash/55920 HTTP/1.1
     Host: example.com
 
 Expected response is ``204 No Content``. When object is not found in trashcan, response is ``404 Not Found``.
 
 .. sourcecode:: http
 
-    HTTP/2 204 No Content
+    HTTP/1.1 204 No Content

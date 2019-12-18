@@ -1,10 +1,10 @@
 Users ``/users``
 =================
 
-.. _api-users:
-
 You can manage user data by using ``/users`` endpoint.
 It provides users management: creation, data retrieval, modification, removal and roles associations.
+
+.. _api-users:
 
 Create a user
 -------------
@@ -29,7 +29,7 @@ Request body structure is:
 
 .. sourcecode:: http
 
-    POST /users HTTP/2
+    POST /users HTTP/1.1
     Host: example.com
     Accept: application/vnd.api+json
     Content-Type: application/vnd.api+json
@@ -47,7 +47,7 @@ Request body structure is:
 
 Example above show all required attributes.
 
-Expected response is ``HTTP/2 201 OK``, with ``application/vnd.api+json`` body data representing the user just created.
+Expected response is ``HTTP/1.1 201 OK``, with ``application/vnd.api+json`` body data representing the user just created.
 
 When user already exists or data is not valid (i.e. data lacks of required fields), POST fails and response is ``400 Bad Request - Invalid data``.
 
@@ -55,7 +55,7 @@ Successful response example follows:
 
 .. sourcecode:: http
 
-    HTTP/2 201 OK
+    HTTP/1.1 201 OK
     Content-Type: application/vnd.api+json
 
     {
@@ -106,7 +106,7 @@ It returns a collection of users:
 
 .. sourcecode:: http
 
-    GET /users HTTP/2
+    GET /users HTTP/1.1
     Host: example.com
     Accept: application/vnd.api+json
 
@@ -114,7 +114,7 @@ It returns a collection of users:
 
 .. sourcecode:: http
 
-    HTTP/2 200 OK
+    HTTP/1.1 200 OK
     Content-Type: application/vnd.api+json
 
     {
@@ -159,7 +159,7 @@ You can obtain user roles by using ``GET /users/(user_id)/roles`` endpoint.
 
 .. sourcecode:: http
 
-    GET /users/19283/roles HTTP/2
+    GET /users/19283/roles HTTP/1.1
     Host: example.com
     Accept: application/vnd.api+json
 
@@ -167,7 +167,7 @@ You can obtain user roles by using ``GET /users/(user_id)/roles`` endpoint.
 
 .. sourcecode:: http
 
-    HTTP/2 200 OK
+    HTTP/1.1 200 OK
     Content-Type: application/vnd.api+json
 
     {
@@ -227,7 +227,7 @@ In this example, purpose is modifying 'johndoe' user's name and surname from 'jo
 
 .. sourcecode:: http
 
-    PATCH /users/19283 HTTP/2
+    PATCH /users/19283 HTTP/1.1
     Host: example.com
     Accept: application/vnd.api+json
     Content-Type: application/vnd.api+json
@@ -247,7 +247,7 @@ Response 200 OK is expected.
 
 .. sourcecode:: http
 
-    HTTP/2 200 OK
+    HTTP/1.1 200 OK
     Content-Type: application/vnd.api+json
 
     {
@@ -289,14 +289,14 @@ Note: in this example user id is 19283.
 
 .. sourcecode:: http
 
-    DELETE /users/19283 HTTP/2
+    DELETE /users/19283 HTTP/1.1
     Host: example.com
 
 Expected response is ``204 No Content``. When user is not found, response is ``404 Not Found``.
 
 .. sourcecode:: http
 
-    HTTP/2 204 No Content
+    HTTP/1.1 204 No Content
 
 Add a role
 ----------
@@ -313,7 +313,7 @@ In this example, purpose is adding a role (id 7) to 'johndoe' user (id 19283).
 
 .. sourcecode:: http
 
-    POST /users/19283/relationships/roles HTTP/2
+    POST /users/19283/relationships/roles HTTP/1.1
     Host: example.com
     Accept: application/vnd.api+json
     Content-Type: application/vnd.api+json
@@ -329,7 +329,7 @@ Response 200 OK is expected.
 
 .. sourcecode:: http
 
-    HTTP/2 200 OK
+    HTTP/1.1 200 OK
     Content-Type: application/vnd.api+json
 
     {
@@ -354,7 +354,7 @@ In this example, purpose is removing a role (id 7) from 'johndoe' user (id 19283
 
 .. sourcecode:: http
 
-    DELETE /users/19283/relationships/roles HTTP/2
+    DELETE /users/19283/relationships/roles HTTP/1.1
     Host: example.com
     Accept: application/vnd.api+json
     Content-Type: application/vnd.api+json
@@ -370,7 +370,7 @@ Response 200 OK is expected.
 
 .. sourcecode:: http
 
-    HTTP/2 200 OK
+    HTTP/1.1 200 OK
     Content-Type: application/vnd.api+json
 
     {

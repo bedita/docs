@@ -20,7 +20,7 @@ Get a single object
 
     .. sourcecode:: http
 
-        GET /objects/15 HTTP/2
+        GET /objects/15 HTTP/1.1
         Host: example.com
         Accept: application/json, text/javascript
 
@@ -28,7 +28,7 @@ Get a single object
 
     .. sourcecode:: http
 
-        HTTP/2 200 OK
+        HTTP/1.1 200 OK
         Content-Type: application/json
 
         {
@@ -60,7 +60,7 @@ The ``/objects`` endpoint can be used to retrieve a collection of objects.
 
     .. sourcecode:: http
 
-        GET /objects HTTP/2
+        GET /objects HTTP/1.1
         Host: example.com
         Accept: application/json, text/javascript
 
@@ -70,7 +70,7 @@ The ``/objects`` endpoint can be used to retrieve a collection of objects.
 
     .. sourcecode:: http
 
-        HTTP/2 200 OK
+        HTTP/1.1 200 OK
         Content-Type: application/json
 
         {

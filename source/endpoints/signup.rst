@@ -47,7 +47,7 @@ In this first step a user with status ``draft`` will be created, user verificati
 
     .. sourcecode:: http
 
-        POST /signup HTTP/2
+        POST /signup HTTP/1.1
         Host: api.example.com
         Accept: application/vnd.api+json
         Content-Type: application/json
@@ -66,7 +66,7 @@ In this first step a user with status ``draft`` will be created, user verificati
 
     .. sourcecode:: http
 
-        HTTP/2 200 OK
+        HTTP/1.1 200 OK
         Content-Type: application/vnd.api+json
 
         {
@@ -133,7 +133,7 @@ On success an HTTP 202 status code is returned with an empty body.
 
     .. sourcecode:: http
 
-        POST /signup/activation HTTP/2
+        POST /signup/activation HTTP/1.1
         Content-Type: application/json
 
         {

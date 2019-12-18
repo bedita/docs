@@ -36,7 +36,7 @@ Login
 
     .. sourcecode:: http
 
-        POST /auth HTTP/2
+        POST /auth HTTP/1.1
         Host: example.com
         Accept: application/vnd.api+json
         Content-Type: application/json
@@ -50,7 +50,7 @@ Login
 
     .. sourcecode:: http
 
-        POST /auth HTTP/2
+        POST /auth HTTP/1.1
         Host: example.com
         Accept: application/vnd.api+json
         Content-Type: application/x-www-form-urlencoded
@@ -62,7 +62,7 @@ Login
 
     .. sourcecode:: http
 
-        HTTP/2 200 OK
+        HTTP/1.1 200 OK
         Content-Type: application/vnd.api+json
 
         {
@@ -80,7 +80,7 @@ Login
 
     .. sourcecode:: http
 
-        POST /auth HTTP/2
+        POST /auth HTTP/1.1
         Host: example.com
         Accept: application/vnd.api+json
         Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC8xMC4wLjgzLjQ6ODA4MCIsImlhdCI6MTQ3MDA1ODUxNywibmJmIjoxNDcwMDU4NTE3LCJzdWIiOjEsImF1ZCI6Imh0dHA6XC9cLzEwLjAuODMuNDo4MDgwXC9hdXRoIn0.mU3QToPvc0uY-XQRhDA1F2hfpRjjT2ljSerKQygk2T8
@@ -107,7 +107,7 @@ Who Am I?
 
     .. sourcecode:: http
 
-        GET /auth/user HTTP/2
+        GET /auth/user HTTP/1.1
         Host: example.com
         Accept: application/vnd.api+json
         Authorization: Bearer {token}
@@ -116,7 +116,7 @@ Who Am I?
 
     .. sourcecode:: http
 
-        HTTP/2 200 OK
+        HTTP/1.1 200 OK
         Content-Type: application/vnd.api+json
 
         {
@@ -163,7 +163,7 @@ Update user profle
 
     .. sourcecode:: http
 
-        PATCH /auth/user HTTP/2
+        PATCH /auth/user HTTP/1.1
         Host: example.com
         Authorization: Bearer {token}
         Accept: application/vnd.api+json
@@ -178,7 +178,7 @@ Update user profle
 
     .. sourcecode:: http
 
-        HTTP/2 200 OK
+        HTTP/1.1 200 OK
         Content-Type: application/vnd.api+json
 
         {
@@ -205,7 +205,7 @@ Update user profle
 
     .. sourcecode:: http
 
-        PATCH /auth/user HTTP/2
+        PATCH /auth/user HTTP/1.1
         Host: example.com
         Authorization: Bearer {token}
         Accept: application/vnd.api+json
@@ -245,7 +245,7 @@ After a request action an email is sent to requesting user containing a URL with
 
     .. sourcecode:: http
 
-        POST /auth/change HTTP/2
+        POST /auth/change HTTP/1.1
         Content-Type: application/json
 
         {
@@ -274,7 +274,7 @@ In your ``change_url`` page you will have to read the ``uuid`` query parameter a
 
     .. sourcecode:: http
 
-        PATCH /auth/change HTTP/2
+        PATCH /auth/change HTTP/1.1
         Content-Type: application/json
 
         {

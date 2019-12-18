@@ -16,7 +16,7 @@ Creation of a new object type happens through ``POST /model/object_types`` endpo
 
 .. sourcecode:: http
 
-    POST /model/object_types HTTP/2
+    POST /model/object_types HTTP/1.1
     Host: api.example.com
     Accept: application/vnd.api+json
     Content-Type: application/vnd.api+json
@@ -41,7 +41,7 @@ They also must be unique in your project.
 
 * ``description`` is an optional description of your type
 
-Expected response is ``HTTP/2 201 OK``, with ``application/vnd.api+json`` body data representing object type just created.
+Expected response is ``HTTP/1.1 201 OK``, with ``application/vnd.api+json`` body data representing object type just created.
 
 If the object type already exists or data is not valid (i.e. lacks of required fields or inconsistent input), POST fails and response will be ``400 Bad Request - Invalid data``.
 
@@ -58,7 +58,7 @@ You can obtain a single type by using ``GET /model/object_types/{type}`` endpoin
 
 .. sourcecode:: http
 
-    GET /model/object_types/cats HTTP/2
+    GET /model/object_types/cats HTTP/1.1
     Host: api.example.com
     Accept: application/vnd.api+json
 
@@ -66,7 +66,7 @@ You can obtain a single type by using ``GET /model/object_types/{type}`` endpoin
 
 .. sourcecode:: http
 
-    HTTP/2 200 OK
+    HTTP/1.1 200 OK
     Content-Type: application/vnd.api+json
 
     {
@@ -146,7 +146,7 @@ To retrieve a list of object types you can simply use ``GET /model/object_types`
 
 .. sourcecode:: http
 
-    GET /model/object_types?filter[enabled]=true HTTP/2
+    GET /model/object_types?filter[enabled]=true HTTP/1.1
     Accept: application/vnd.api+json
 
 Response will contain an array of ``object_types`` in typical list format as shown in :ref:`api-responses`.
@@ -166,7 +166,7 @@ In this example we will simply disable the newly created type and change its des
 
 .. sourcecode:: http
 
-    PATCH /model/object_types/13 HTTP/2
+    PATCH /model/object_types/13 HTTP/1.1
     Host: api.example.com
     Accept: application/vnd.api+json
     Content-Type: application/vnd.api+json
@@ -186,7 +186,7 @@ Response 200 OK is expected.
 
 .. sourcecode:: http
 
-    HTTP/2 200 OK
+    HTTP/1.1 200 OK
     Content-Type: application/vnd.api+json
 
     {
@@ -232,7 +232,7 @@ This operation cannot be reversed and will not be allowed if:
 
 .. sourcecode:: http
 
-    DELETE /model/object_types/cats HTTP/2
+    DELETE /model/object_types/cats HTTP/1.1
     Host: api.example.com
 
 Expected HTTP status response is ``204 No Content``.
@@ -241,4 +241,4 @@ If object type is not found, response will be ``404 Not Found``, if delete opera
 
 .. sourcecode:: http
 
-    HTTP/2 204 No Content
+    HTTP/1.1 204 No Content

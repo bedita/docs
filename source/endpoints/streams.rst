@@ -21,7 +21,7 @@ Upload file and create stream
 
 .. sourcecode:: http
 
-    POST /streams/upload/myfile.jpg HTTP/2
+    POST /streams/upload/myfile.jpg HTTP/1.1
     Host: example.com
     Accept: application/vnd.api+json
     Content-Type: image/jpeg
@@ -30,7 +30,7 @@ Upload file and create stream
 
 .. sourcecode:: http
 
-    HTTP/2 201 Created
+    HTTP/1.1 201 Created
     Content-Type: application/json
 
     {
@@ -77,14 +77,14 @@ Get a single stream
 
 .. sourcecode:: http
 
-    GET /streams/302f6fdd-bf31-4cd7-91db-baf45fb93de0 HTTP/2
+    GET /streams/302f6fdd-bf31-4cd7-91db-baf45fb93de0 HTTP/1.1
     Host: example.com
 
 **Example response**:
 
 .. sourcecode:: http
 
-    HTTP/2 200 OK
+    HTTP/1.1 200 OK
     Content-Type: application/vnd.api+json
 
     {
@@ -132,7 +132,7 @@ The ``/streams`` endpoint retrieve a collection of streams.
 
 .. sourcecode:: http
 
-    GET /streams HTTP/2
+    GET /streams HTTP/1.1
     Host: example.com
 
 **Example response**:
@@ -141,7 +141,7 @@ The ``/streams`` endpoint retrieve a collection of streams.
 
 .. sourcecode:: http
 
-    HTTP/2 200 OK
+    HTTP/1.1 200 OK
     Content-Type: application/vnd.api+json
 
     {
@@ -183,7 +183,7 @@ Create an image
 
 .. sourcecode:: http
 
-    POST /images HTTP/2
+    POST /images HTTP/1.1
     Host: example.com
     Content-Type:application/vnd.api+json
     Accept: application/vnd.api+json
@@ -205,7 +205,7 @@ Create an image
 
 .. sourcecode:: http
 
-    HTTP/2 201 Created
+    HTTP/1.1 201 Created
     Content-Type: application/vnd.api+json
 
     {
@@ -241,7 +241,7 @@ Link a stream to a media using ``PATCH /streams/{stream_uuid}/relationships/obje
 
 .. sourcecode:: http
 
-    PATCH /streams/302f6fdd-bf31-4cd7-91db-baf45fb93de0/relationships/object HTTP/2
+    PATCH /streams/302f6fdd-bf31-4cd7-91db-baf45fb93de0/relationships/object HTTP/1.1
     Host: example.com
     Content-Type: application/vnd.api+json
     Accept: application/vnd.api+json
@@ -261,7 +261,7 @@ Link a stream to a media using ``PATCH /streams/{stream_uuid}/relationships/obje
 
 .. sourcecode:: http
 
-    HTTP/2 200 OK
+    HTTP/1.1 200 OK
     Content-Type: application/vnd.api+json
 
     {
@@ -282,14 +282,14 @@ Get an image
 
 .. sourcecode:: http
 
-    GET /images/6 HTTP/2
+    GET /images/6 HTTP/1.1
     Host: example.com
 
 **Example response**:
 
 .. sourcecode:: http
 
-    HTTP/2 200 OK
+    HTTP/1.1 200 OK
     Content-Type: application/vnd.api+json
 
     {
