@@ -13,14 +13,14 @@ Only **GET** method is available
 
     .. sourcecode:: http
 
-      GET /status HTTP/1.1
+      GET /status HTTP/2
       Accept: application/json
 
     **Expected response**:
 
     .. sourcecode:: http
 
-      HTTP/1.1 200 Success
+      HTTP/2 200 Success
       Content-Type: application/json
 
         {
@@ -42,7 +42,7 @@ In debug mode more informations will be displayed, including software versions a
 
     .. sourcecode:: http
 
-      HTTP/1.1 200 Success
+      HTTP/2 200 Success
       Content-Type: application/json
 
         {

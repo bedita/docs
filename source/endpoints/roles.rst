@@ -27,7 +27,7 @@ Request body structure is:
 
 .. sourcecode:: http
 
-    POST /users HTTP/1.1
+    POST /users HTTP/2
     Host: example.com
     Accept: application/vnd.api+json
     Content-Type: application/vnd.api+json
@@ -41,7 +41,7 @@ Request body structure is:
         }
     }
 
-Expected response is ``HTTP/1.1 201 OK``, with ``application/vnd.api+json`` body data representing the role just created.
+Expected response is ``HTTP/2 201 OK``, with ``application/vnd.api+json`` body data representing the role just created.
 
 When role already exists or data is not valid (i.e. data lacks of required fields), POST fails and response is ``400 Bad Request - Invalid data``.
 
@@ -49,7 +49,7 @@ Successful response example follows:
 
 .. sourcecode:: http
 
-    HTTP/1.1 201 OK
+    HTTP/2 201 OK
     Content-Type: application/vnd.api+json
 
     {
@@ -94,7 +94,7 @@ It returns a collection of roles:
 
 .. sourcecode:: http
 
-    GET /roles HTTP/1.1
+    GET /roles HTTP/2
     Host: example.com
     Accept: application/vnd.api+json
 
@@ -102,7 +102,7 @@ It returns a collection of roles:
 
 .. sourcecode:: http
 
-    HTTP/1.1 200 OK
+    HTTP/2 200 OK
     Content-Type: application/vnd.api+json
 
     {
@@ -157,7 +157,7 @@ You can obtain role users by using ``GET /roles/(role_id)/users`` endpoint.
 
 .. sourcecode:: http
 
-    GET /roles/7/users HTTP/1.1
+    GET /roles/7/users HTTP/2
     Host: example.com
     Accept: application/vnd.api+json
 
@@ -165,7 +165,7 @@ You can obtain role users by using ``GET /roles/(role_id)/users`` endpoint.
 
 .. sourcecode:: http
 
-    HTTP/1.1 200 OK
+    HTTP/2 200 OK
     Content-Type: application/vnd.api+json
 
     {
@@ -221,7 +221,7 @@ In this example, purpose is modifying 'sample role' name to 'Dummy Role'.
 
 .. sourcecode:: http
 
-    PATCH /roles/7 HTTP/1.1
+    PATCH /roles/7 HTTP/2
     Host: example.com
     Accept: application/vnd.api+json
     Content-Type: application/vnd.api+json
@@ -240,7 +240,7 @@ Response 200 OK is expected.
 
 .. sourcecode:: http
 
-    HTTP/1.1 200 OK
+    HTTP/2 200 OK
     Content-Type: application/vnd.api+json
 
     {
@@ -280,14 +280,14 @@ You can delete a role by using ``DEL /roles/(role_id)`` endpoint.
 
 .. sourcecode:: http
 
-    DELETE /roles/7 HTTP/1.1
+    DELETE /roles/7 HTTP/2
     Host: example.com
 
 Expected response is ``204 No Content``. When role is not found, response is ``404 Not Found``.
 
 .. sourcecode:: http
 
-    HTTP/1.1 204 No Content
+    HTTP/2 204 No Content
 
 Add a user role
 ---------------
@@ -304,7 +304,7 @@ In this example, purpose is adding a role (id 7) to 'johndoe' user (id 19283).
 
 .. sourcecode:: http
 
-    POST /roles/7/relationships/users HTTP/1.1
+    POST /roles/7/relationships/users HTTP/2
     Host: example.com
     Accept: application/vnd.api+json
     Content-Type: application/vnd.api+json
@@ -320,7 +320,7 @@ Response 200 OK is expected.
 
 .. sourcecode:: http
 
-    HTTP/1.1 200 OK
+    HTTP/2 200 OK
     Content-Type: application/vnd.api+json
 
     {
@@ -345,7 +345,7 @@ In this example, purpose is removing a role (id 7) from 'johndoe' user (id 19283
 
 .. sourcecode:: http
 
-    DELETE /roles/7/relationships/users HTTP/1.1
+    DELETE /roles/7/relationships/users HTTP/2
     Host: example.com
     Accept: application/vnd.api+json
     Content-Type: application/vnd.api+json
@@ -361,7 +361,7 @@ Response 200 OK is expected.
 
 .. sourcecode:: http
 
-    HTTP/1.1 200 OK
+    HTTP/2 200 OK
     Content-Type: application/vnd.api+json
 
     {

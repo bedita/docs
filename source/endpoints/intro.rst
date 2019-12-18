@@ -42,14 +42,14 @@ Typical requests will then be like:
 
     .. sourcecode:: http
 
-        POST /users HTTP/1.1
+        POST /users HTTP/2
         Accept: application/vnd.api+json
         Content-Type: application/vnd.api+json
         Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9......
 
     .. sourcecode:: http
 
-        GET /users/123 HTTP/1.1
+        GET /users/123 HTTP/2
         Accept: application/json
         X-Api-Key: WF0IjoxNDk1MTgzMjgzLCJuYmYiOjE0OTUxODMyODMsInN1
 

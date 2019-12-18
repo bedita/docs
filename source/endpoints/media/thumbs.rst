@@ -13,7 +13,7 @@ or (if explicitly allowed via configuration) a whole set of options — width, h
 
 .. sourcecode:: http
 
-    GET /media/thumbs?ids=1,2,3&preset=async HTTP/1.1
+    GET /media/thumbs?ids=1,2,3&preset=async HTTP/2
     Host: api.example.com
     Accept: application/vnd.api+json
 
@@ -21,7 +21,7 @@ or (if explicitly allowed via configuration) a whole set of options — width, h
 
 .. sourcecode:: http
 
-    HTTP/1.1 200 OK
+    HTTP/2 200 OK
     Content-Type: application/vnd.api+json
 
     {
@@ -61,19 +61,19 @@ You can request a thumbnail with specified options (width, height), using option
 
 .. sourcecode:: http
 
-    GET /media/thumbs/{{id}}?options[w]=100 HTTP/1.1
+    GET /media/thumbs/{{id}}?options[w]=100 HTTP/2
     Host: api.example.com
     Accept: application/vnd.api+json
 
 .. sourcecode:: http
 
-    GET /media/thumbs/{{id}}?options[h]=100 HTTP/1.1
+    GET /media/thumbs/{{id}}?options[h]=100 HTTP/2
     Host: api.example.com
     Accept: application/vnd.api+json
 
 .. sourcecode:: http
 
-    GET /media/thumbs/{{id}}?options[w]=100&options[h]=100 HTTP/1.1
+    GET /media/thumbs/{{id}}?options[w]=100&options[h]=100 HTTP/2
     Host: api.example.com
     Accept: application/vnd.api+json
 
@@ -127,36 +127,36 @@ In this example, you could use the presets as follows:
 
 .. sourcecode:: http
 
-    GET /media/thumbs/{{id}}?preset=small HTTP/1.1
+    GET /media/thumbs/{{id}}?preset=small HTTP/2
     Host: api.example.com
     Accept: application/vnd.api+json
 
 .. sourcecode:: http
 
-    GET /media/thumbs?ids=1,2,3&preset=small HTTP/1.1
+    GET /media/thumbs?ids=1,2,3&preset=small HTTP/2
     Host: api.example.com
     Accept: application/vnd.api+json
 
 .. sourcecode:: http
 
-    GET /media/thumbs/{{id}}?preset=medium HTTP/1.1
+    GET /media/thumbs/{{id}}?preset=medium HTTP/2
     Host: api.example.com
     Accept: application/vnd.api+json
 
 .. sourcecode:: http
 
-    GET /media/thumbs?ids=1,2,3&preset=medium HTTP/1.1
+    GET /media/thumbs?ids=1,2,3&preset=medium HTTP/2
     Host: api.example.com
     Accept: application/vnd.api+json
 
 .. sourcecode:: http
 
-    GET /media/thumbs/{{id}}?preset=async HTTP/1.1
+    GET /media/thumbs/{{id}}?preset=async HTTP/2
     Host: api.example.com
     Accept: application/vnd.api+json
 
 .. sourcecode:: http
 
-    GET /media/thumbs?ids=1,2,3&preset=async HTTP/1.1
+    GET /media/thumbs?ids=1,2,3&preset=async HTTP/2
     Host: api.example.com
     Accept: application/vnd.api+json
