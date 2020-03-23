@@ -12,7 +12,7 @@ Glossary
 
 
     folder
-        Folders are special :ref:`bedita-objects` used to create tree structures. The concept is similar to folders in computer filesystems. In a :term:`project` you may have multiple folder trees, hence multiple root folders. Each folder, that is not a root folder, has one and only one parent folder. Other object types can instead have more than one parent folder (multifiling).
+        A folder is a special :term:`object` used to create tree structures. The concept is similar to folders in computer filesystems. In a :term:`project` you may have multiple folder trees, hence multiple root folders. Each folder, that is not a root folder, has one and only one parent folder. Other object types can instead have more than one parent folder (multifiling).
 
 
     json api

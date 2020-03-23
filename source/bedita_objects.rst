@@ -3,8 +3,8 @@ Objects in BEdita
 
 .. _bedita-objects:
 
-Definition
-----------
+Objects definition
+------------------
 
 Brief definition: BEdita ``objects`` (see :term:`object`) are the contents of your application,
 the atoms of the information asset you are building.
@@ -48,13 +48,10 @@ An object in BEdita is identified with these capabilities:
 Other entities in BEdita are called `resources` (see :term:`resource`).
 Resources have a fixed and predefined structure and can be classified in four basic groups:
 
-* entities like tags, categories, permissions or annotations are special entities
-   that we assign to objects: they are not objects itself, they rather define object properties
+* entities like tags, categories, permissions or annotations are special entities that we assign to objects: they are not objects itself, they rather define object properties
 * entities like object types, relations, properties are used to design our object model
-* other entities like endpoints, configurations, applications, auth providers will be rarely seen directy
-   by API client developers or applications users: they handle API and project internal behaviors
-* roles are special entities used only to give users permissions on objects, endpoints or object types -
-   they are not objects
+* other entities like endpoints, configurations, applications, auth providers will be rarely seen directy by API client developers or applications users: they handle API and project internal behaviors
+* roles are special entities used only to give users permissions on objects, endpoints or object types - they are not objects
 
 ``Users`` (see :term:`user`) instead are a special object type: you may add properties and relations
 to other objects, but you may not extend it with a new type.
