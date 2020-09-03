@@ -74,16 +74,22 @@ Instead ``permission type`` may have four different values for read operations (
  * **mine** ``(0b01)``: permissions granted only on **my** resources, i.e. resources belonging to the autenticated user
  * **block** ``(0b10)``: no permissions granted, and override all other permissions
 
+The first two bit are for the read operations (GET) and the other two for the write operations (POST, PATCH, DELETE):
+
+ * ``(0b0000)``: **false** for read and **false** for write
+
+The relative integer number is used on the ``permission type`` column.
+
 To better understand how these rules work an example is given below:
 
-===========  ==========  =============  ============================
-  endpoint      role      application        permission
-===========  ==========  =============  ============================
- documents     NULL         ios-app       read: mine - write: mine
- documents     manager      backend       read: true - write: true
- payments       app          NULL         read: block - write: block
- events        reader       web-app       read: true - write: false
-===========  ==========  =============  ============================
+===========  ==========  =============  ===============================================
+  endpoint      role      application                      permission
+===========  ==========  =============  ===============================================
+ documents     NULL         ios-app      ``int 5  (0b0101)`` read: mine - write: mine
+ documents     manager      backend      ``int 15 (0b1111)`` read: true - write: true
+ payments       app          NULL        ``int 10 (0b1010)`` read: block - write: block
+ events        reader       web-app      ``int 12 (0b1100)`` read: true - write: false
+===========  ==========  =============  ===============================================
 
  * for every role (NULL) on ``/documents`` endpoint through ``ios-app`` application only resources belonging to authenticated user may be read and written
  * users with ``manager`` role accessing ``/documents`` with ``backend`` application are able to read and modify write every resource
