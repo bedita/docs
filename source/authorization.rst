@@ -74,9 +74,9 @@ Instead ``permission type`` may have four different values for read operations (
  * **mine** ``(0b01)``: permissions granted only on **my** resources, i.e. resources belonging to the autenticated user
  * **block** ``(0b10)``: no permissions granted, and override all other permissions
 
-The first two bit are for the read operations (GET) and the other two for the write operations (POST, PATCH, DELETE):
+The first two bit, starting from right, are for the read operations (GET) and the other two for the write operations (POST, PATCH, DELETE):
 
- * ``(0b0000)``: **false** for read and **false** for write
+ * ``(0b0000)``: **false** for read [characters `00` on the right] and **false** for write [characters `00` in the middle, shifting by 2 positions]
 
 The relative integer number is used on the ``permission type`` column.
 
@@ -85,10 +85,10 @@ To better understand how these rules work an example is given below:
 ===========  ==========  =============  ===============================================
   endpoint      role      application                      permission
 ===========  ==========  =============  ===============================================
- documents     NULL         ios-app      ``int 5  (0b0101)`` read: mine - write: mine
- documents     manager      backend      ``int 15 (0b1111)`` read: true - write: true
- payments       app          NULL        ``int 10 (0b1010)`` read: block - write: block
- events        reader       web-app      ``int 12 (0b1100)`` read: true - write: false
+ documents     NULL         ios-app      ``int 5  (0b0101)`` write: mine - read: mine
+ documents     manager      backend      ``int 15 (0b1111)`` write: true - read: true
+ payments       app          NULL        ``int 10 (0b1010)`` write: block - read: block
+ events        reader       web-app      ``int 12 (0b1100)`` write: true - read: false
 ===========  ==========  =============  ===============================================
 
  * for every role (NULL) on ``/documents`` endpoint through ``ios-app`` application only resources belonging to authenticated user may be read and written
