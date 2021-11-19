@@ -27,7 +27,7 @@ primary_domain = 'php'
 
 # read the docs theme support
 def setup(app):
-    app.add_stylesheet('api_methods.css')
+    app.add_css_file('api_methods.css')
 
 on_rtd = os.environ.get('READTHEDOCS', None) == 'True'
 if not on_rtd:  # only import and set the theme if we're building docs locally
