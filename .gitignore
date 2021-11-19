@@ -1,4 +1,5 @@
 /build
+/docs
 /.project
 /*.settings
 /*.cache
