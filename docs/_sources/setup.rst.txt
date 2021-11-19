@@ -14,8 +14,7 @@ Prerequisites
  * MySQL 5.7 (recommended) or MySQL 5.6, Postgres 9.5/9.6 or SQLite 3
  * `Composer <https://getcomposer.org/doc/00-intro.md#installation-linux-unix-osx>`_
 
-A web server like Apache or Nginx also recommended in general, but not strictly necessary
-on a development enviroment.
+A web server like Apache or Nginx also recommended in general, but not strictly necessary on a development enviroment.
 
 OS: there are no virtually constraints or limitations, but a recent Linux distribution
 is recommended for a server setup and Linux is the only officially supported server platform.
