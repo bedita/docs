@@ -1,7 +1,12 @@
 name: "Pull Request Docs Check"
 
 on:
-- pull_request
+  pull_request:
+    paths:
+      - '**/*.md'
+  push:
+    paths:
+      - '**/*.md'
 
 jobs:
   docs:
