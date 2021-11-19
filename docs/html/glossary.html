@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Glossary &mdash; BEdita 4.1.0 documentation</title><link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/api_methods.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Trash /trash" href="endpoints/trash.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> BEdita
+          </a>
+              <div class="version">
+                4.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="setup.html">Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="configuration.html">Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="database.html">Database</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bedita_objects.html">Objects in BEdita</a></li>
+<li class="toctree-l1"><a class="reference internal" href="authorization.html">Authentication &amp; Authorization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="shell.html">Shell commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="endpoints/index.html">API reference</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Glossary</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">BEdita</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Glossary</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/glossary.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="section" id="glossary">
+<h1>Glossary<a class="headerlink" href="#glossary" title="Permalink to this headline">¶</a></h1>
+<dl class="glossary">
+<dt id="term-access-token">access token</dt><dd><p>A string granted by the authorization server used to identify the issuer of a request.
+The access token has to be sent to the resource server every time that the client wants
+to access protected resources.
+This token is sent in <code class="docutils literal notranslate"><span class="pre">Authorization</span></code> HTTP header using a <code class="docutils literal notranslate"><span class="pre">Bearer</span></code> scheme on each request like this: <code class="docutils literal notranslate"><span class="pre">Authorization:</span> <span class="pre">Bearer</span> <span class="pre">&lt;token&gt;</span></code></p>
+</dd>
+<dt id="term-folder">folder</dt><dd><p>A folder is a special <a class="reference internal" href="#term-object"><span class="xref std std-term">object</span></a> used to create tree structures. The concept is similar to folders in computer filesystems. In a <a class="reference internal" href="#term-project"><span class="xref std std-term">project</span></a> you may have multiple folder trees, hence multiple root folders. Each folder, that is not a root folder, has one and only one parent folder. Other object types can instead have more than one parent folder (multifiling).</p>
+</dd>
+<dt id="term-json-api">json api</dt><dt id="term-0">JSON API</dt><dd><p><a class="reference external" href="http://jsonapi.org/">JSON API</a> is a specification for how a client should request that resources be fetched or modified, and how a server should respond to those requests. JSON API is designed to minimize both the number of requests and the amount of data transmitted between clients and servers. This efficiency is achieved without compromising readability, flexibility, or discoverability [cit. from the specification]</p>
+</dd>
+<dt id="term-json-schema">json schema</dt><dt id="term-1">JSON Schema</dt><dd><p><a class="reference external" href="http://json-schema.org/">JSON Schema</a>  is a JSON-based format for describing the structure of JSON data. JSON Schema asserts
+what a JSON document must look like, ways to extract information from it, and how to interact with it, ideal for annotating
+existing JSON APIs that would not otherwise have hypermedia controls or be machine-readable [from the <a class="reference external" href="http://json-schema.org/latest/json-schema-core.html">core spec</a>]</p>
+</dd>
+<dt id="term-jwt">jwt</dt><dt id="term-2">JWT</dt><dd><p>JSON Web Tokens are an open, industry standard <a class="reference external" href="https://tools.ietf.org/html/rfc7519">RFC 7519</a>
+method for representing claims securely between two parties.</p>
+<p>A JWT is composed by three parts:</p>
+<ul class="simple">
+<li><p>an <strong>header</strong> containing informations about the token type and algorithm used. It is Base64URL encoded.</p></li>
+<li><p>a <strong>payload</strong> containing informations in the form of claims (informations we want to transmit).
+It is Base64URL encoded.</p></li>
+<li><p>a <strong>signature</strong> used to verify the authenticity of the JWT using a valid algorithm defined by
+<a class="reference external" href="https://tools.ietf.org/html/rfc7515">JSON Web Signature (JWS)</a>
+specification (for example a shared secret <a class="reference external" href="https://tools.ietf.org/html/rfc7515#page-36">HMAC</a>).</p></li>
+</ul>
+<p>More info <a class="reference external" href="http://jwt.io">here</a>.</p>
+</dd>
+<dt id="term-object">object</dt><dd><p>An object in BEdita is the atomic content of your project’s data, it could be a core types like a document, an event, an image,
+a video or it could be a custom type defined specifically in your project. Have a look at <a class="reference internal" href="bedita_objects.html#bedita-objects"><span class="std std-ref">Objects definition</span></a> for
+a detailed overview.</p>
+</dd>
+<dt id="term-project">project</dt><dd><p>A project in BEdita is an independent data set consisting mainly of objects, resources and media files; you may think of a
+database with a set of related resources like media files and configurations; each project will expose its own endpoint to applications</p>
+</dd>
+<dt id="term-refresh-token">refresh token</dt><dd><p>An opaque token issued by the authorization server. It is useful to renew an expired <a class="reference internal" href="#term-access-token"><span class="xref std std-term">access token</span></a>
+without send the user credentials again.</p>
+</dd>
+<dt id="term-resource">resource</dt><dd><p>A resource in BEdita is an entity with a fixed and predefined set of attributes that generally maps a single record on a table;
+resources are used to make BEdita internals work and may not be seen or used by an application. Noteworthy examples of resources are <cite>roles</cite>, <cite>applications</cite> and <cite>streams</cite>.
+Have a look at <a class="reference internal" href="bedita_objects.html#bedita-objects"><span class="std std-ref">Objects definition</span></a> to better understand the difference between <cite>objects</cite> and <cite>resources</cite>.</p>
+</dd>
+<dt id="term-role">role</dt><dd><p>A role in RBAC permission model (<a class="reference external" href="https://en.wikipedia.org/wiki/Role-based_access_control">https://en.wikipedia.org/wiki/Role-based_access_control</a>)
+is used to assign permissions to perform some operations</p>
+</dd>
+<dt id="term-stream">stream</dt><dd><p>A stream in BEdita is a <a class="reference internal" href="#term-resource"><span class="xref std std-term">resource</span></a> that represents a generic uploaded file;
+it may be a local file, reachable via filesystem, or a remote one with its own URI.</p>
+</dd>
+<dt id="term-user">user</dt><dd><p>Project users accessing resources with credentials to login; main attributes are username and password or some external
+auth provider identifiers and other profile data like first name, surname, and other contact information;
+each user has usually at least one role, used to grant access on endpoint operations;
+user authentication is not always mandatory, some endpoints may respond to GET anonymous requests,
+but to perform <strong>write</strong> operations a user has to be identified</p>
+</dd>
+</dl>
+</div>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="endpoints/trash.html" class="btn btn-neutral float-left" title="Trash /trash" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2020, Channelweb Srl, Chialab Srl.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,19 @@
+/* overrdie API methods color */
+
+/* green */
+dl.post dt {
+    background: #DBFAF4 !important;
+    border-top-color: #1ABC9C !important;
+}
+
+/* orange */
+dl.put dt {
+    background: #FBE1B8 !important;
+    border-top-color: #F39C12 !important;
+}
+
+/* red */
+dl.delete dt {
+    background: #F8CAC5 !important;
+    border-top-color: #E74C3C !important;
+}

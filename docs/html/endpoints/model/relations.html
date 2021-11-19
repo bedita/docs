@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Relations /model/relations &mdash; BEdita 4.1.0 documentation</title><link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/api_methods.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/language_data.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Schema /model/schema" href="schema.html" />
+    <link rel="prev" title="Properties /model/properties" href="properties.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../index.html" class="icon icon-home"> BEdita
+          </a>
+              <div class="version">
+                4.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../setup.html">Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../configuration.html">Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../database.html">Database</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../bedita_objects.html">Objects in BEdita</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../authorization.html">Authentication &amp; Authorization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../shell.html">Shell commands</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">API reference</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../intro.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../request_response.html">Request and Response</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../parameters.html">Common GET parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../home.html">Home Document <code class="docutils literal notranslate"><span class="pre">/home</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../auth.html">Authentication <code class="docutils literal notranslate"><span class="pre">/auth</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users.html">Users <code class="docutils literal notranslate"><span class="pre">/users</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../roles.html">Roles <code class="docutils literal notranslate"><span class="pre">/roles</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../objects.html">Objects <code class="docutils literal notranslate"><span class="pre">/objects</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../streams.html">Streams <code class="docutils literal notranslate"><span class="pre">/streams</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../media/thumbs.html">Media thumbs <code class="docutils literal notranslate"><span class="pre">/media/thumbs</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../admin.html">Administration <code class="docutils literal notranslate"><span class="pre">/admin</span></code></a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Model <code class="docutils literal notranslate"><span class="pre">/model</span></code></a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="object_types.html">Object Types <code class="docutils literal notranslate"><span class="pre">/model/object_types</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="property_types.html">Property Types <code class="docutils literal notranslate"><span class="pre">/model/property_types</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="properties.html">Properties <code class="docutils literal notranslate"><span class="pre">/model/properties</span></code></a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Relations <code class="docutils literal notranslate"><span class="pre">/model/relations</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#create-a-relation">Create a relation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#get-a-single-relation">Get a single relation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#relations-list">Relations list</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#handle-left-and-right-object-types">Handle left and right object types</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#modify-a-relation">Modify a relation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#remove-a-relation">Remove a relation</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="schema.html">Schema <code class="docutils literal notranslate"><span class="pre">/model/schema</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="index.html#naming-convention">Naming convention</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../signup.html">Signup <code class="docutils literal notranslate"><span class="pre">/signup</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../status.html">Status <code class="docutils literal notranslate"><span class="pre">/status</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../trash.html">Trash <code class="docutils literal notranslate"><span class="pre">/trash</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../glossary.html">Glossary</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">BEdita</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../index.html">API reference</a> &raquo;</li>
+          <li><a href="index.html">Model <code class="docutils literal notranslate"><span class="pre">/model</span></code></a> &raquo;</li>
+      <li>Relations <code class="docutils literal notranslate"><span class="pre">/model/relations</span></code></li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/endpoints/model/relations.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="section" id="relations-model-relations">
+<h1>Relations <code class="docutils literal notranslate"><span class="pre">/model/relations</span></code><a class="headerlink" href="#relations-model-relations" title="Permalink to this headline">¶</a></h1>
+<p><code class="docutils literal notranslate"><span class="pre">/model/relations</span></code> endpoint manages relations between object types.</p>
+<p>This is one of the most important features in BEdita: you can create dynamic semantic relations between object types, adding constraint rules and parameters without any data model or database modification.</p>
+<p>Relations in BEdita have been heavily inspired by semantic web <a class="reference external" href="https://www.w3.org/TR/2014/NOTE-rdf11-primer-20140624/#section-triple">RDF triples</a>.</p>
+<p>Every relation should be expressed in a form <code class="docutils literal notranslate"><span class="pre">{subject}</span> <span class="pre">{predicate}</span> <span class="pre">{object}</span></code> where both <code class="docutils literal notranslate"><span class="pre">{subject}</span></code> and <code class="docutils literal notranslate"><span class="pre">{object}</span></code> are BEdita objects and <code class="docutils literal notranslate"><span class="pre">{predicate}</span></code> is the relation name.
+In BEdita for every relation an inverse one is also created, this will be more clear in the example below.</p>
+<p>With this endpoint you can:</p>
+<ul class="simple">
+<li><p>create, update/remove an object relation</p></li>
+<li><p>list available relations</p></li>
+<li><p>handle which object types are involved in a relation</p></li>
+</ul>
+<div class="section" id="create-a-relation">
+<h2>Create a relation<a class="headerlink" href="#create-a-relation" title="Permalink to this headline">¶</a></h2>
+<p>Creation of a new relation happens through <code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/model/relations</span></code> endpoint.</p>
+<dl class="post">
+<dt id="post--model-relations">
+<code class="sig-name descname">POST </code><code class="sig-name descname">/model/relations</code><a class="headerlink" href="#post--model-relations" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p><strong>Example request - create relation</strong>:</p>
+<div class="highlight-http notranslate"><div class="highlight"><pre><span></span><span class="nf">POST</span> <span class="nn">/model/relations</span> <span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Host</span><span class="o">:</span> <span class="l">api.example.com</span>
+<span class="na">Accept</span><span class="o">:</span> <span class="l">application/vnd.api+json</span>
+<span class="na">Content-Type</span><span class="o">:</span> <span class="l">application/vnd.api+json</span>
+
+<span class="p">{</span>
+    <span class="nt">&quot;data&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;relations&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;attributes&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;owner_of&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;label&quot;</span><span class="p">:</span> <span class="s2">&quot;Owner of&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;inverse_name&quot;</span><span class="p">:</span> <span class="s2">&quot;belong_to&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;inverse_label&quot;</span><span class="p">:</span> <span class="s2">&quot;Belong to&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;Cat owner relation&quot;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Required attributes creating a new relation are:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">name</span></code> principal relation name</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">inverse_name</span></code> inverse relation name</p></li>
+</ul>
+<p>Both attributes must be different and unique inside the project, should differ from property names of object types involved in this relation and as naming convention should also be expressed as a _predicate_ linking object types together.</p>
+<p>They also must be in <a class="reference external" href="https://en.wikipedia.org/wiki/Snake_case">lowered snake_case</a> format as internal naming convention.</p>
+<p>Our goal in this example, although not yet complete, is to create the relation <code class="docutils literal notranslate"><span class="pre">[users]</span> <span class="pre">[owner_of]</span> <span class="pre">[cats]</span></code> and its inverse <code class="docutils literal notranslate"><span class="pre">[cats]</span> <span class="pre">[belong_to]</span> <span class="pre">[users]</span></code>.</p>
+<p>Other optional attributes are</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">label</span></code> alternative text to show instead of <code class="docutils literal notranslate"><span class="pre">name</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">inverse_label</span></code> alternative text to show instead of <code class="docutils literal notranslate"><span class="pre">inverse_name</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">description</span></code> optional description of the relation</p></li>
+</ul>
+<p>Expected response is <code class="docutils literal notranslate"><span class="pre">HTTP/1.1</span> <span class="pre">201</span> <span class="pre">OK</span></code>, with <code class="docutils literal notranslate"><span class="pre">application/vnd.api+json</span></code> body data representing relation just created.</p>
+<p>If the relation already exists or data is not valid (i.e. lacks of required fields or inconsistent input), POST fails and response will be <code class="docutils literal notranslate"><span class="pre">400</span> <span class="pre">Bad</span> <span class="pre">Request</span> <span class="pre">-</span> <span class="pre">Invalid</span> <span class="pre">data</span></code>.</p>
+</div>
+<div class="section" id="get-a-single-relation">
+<span id="api-model-relations-get"></span><h2>Get a single relation<a class="headerlink" href="#get-a-single-relation" title="Permalink to this headline">¶</a></h2>
+<p>You can obtain a single relation by invoking <code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/model/relations/{relation}</span></code>.</p>
+<dl class="get">
+<dt id="get--model-relations-relation">
+<code class="sig-name descname">GET </code><code class="sig-name descname">/model/relations/{relation}</code><a class="headerlink" href="#get--model-relations-relation" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">{relation}</span></code> can be a numeric id of the relation, its <code class="docutils literal notranslate"><span class="pre">name</span></code> or <code class="docutils literal notranslate"><span class="pre">inverse_name</span></code></p></li>
+</ul>
+<p><strong>Example request (get a relation)</strong>:</p>
+<div class="highlight-http notranslate"><div class="highlight"><pre><span></span><span class="nf">GET</span> <span class="nn">/model/relations/owner_of</span> <span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Host</span><span class="o">:</span> <span class="l">api.example.com</span>
+<span class="na">Accept</span><span class="o">:</span> <span class="l">application/vnd.api+json</span>
+</pre></div>
+</div>
+<p><strong>Example response</strong>:</p>
+<div class="highlight-http notranslate"><div class="highlight"><pre><span></span><span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Content-Type</span><span class="o">:</span> <span class="l">application/vnd.api+json</span>
+
+<span class="p">{</span>
+    <span class="nt">&quot;data&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;relations&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;attributes&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;owner_of&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;label&quot;</span><span class="p">:</span> <span class="s2">&quot;Owner of&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;inverse_name&quot;</span><span class="p">:</span> <span class="s2">&quot;belong_to&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;inverse_label&quot;</span><span class="p">:</span> <span class="s2">&quot;Belong to&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;Cat owner relation&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;params&quot;</span><span class="p">:</span> <span class="p">{}</span>
+        <span class="p">},</span>
+        <span class="nt">&quot;relationships&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="nt">&quot;left_object_types&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="nt">&quot;links&quot;</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="nt">&quot;related&quot;</span><span class="p">:</span> <span class="s2">&quot;http://api.example.com/model/relations/1/left_object_types&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;self&quot;</span><span class="p">:</span> <span class="s2">&quot;http://api.example.com/model/relations/1/relationships/left_object_types&quot;</span>
+                <span class="p">}</span>
+            <span class="p">},</span>
+            <span class="nt">&quot;right_object_types&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="nt">&quot;links&quot;</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="nt">&quot;related&quot;</span><span class="p">:</span> <span class="s2">&quot;http://api.example.com/model/relations/1/right_object_types&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;self&quot;</span><span class="p">:</span> <span class="s2">&quot;http://api.example.com/model/relations/1/relationships/right_object_types&quot;</span>
+                <span class="p">}</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;links&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;self&quot;</span><span class="p">:</span> <span class="s2">&quot;http://api.example.com/model/relations/owner_of&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;home&quot;</span><span class="p">:</span> <span class="s2">&quot;http://api.example.com/home&quot;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Example response shows us something interesting in <code class="docutils literal notranslate"><span class="pre">&quot;relationships&quot;</span></code> section:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;left_object_types&quot;</span></code> links object types to use on _the_ left side of the relation, think of the <code class="docutils literal notranslate"><span class="pre">subject</span></code> in the <code class="docutils literal notranslate"><span class="pre">subject</span> <span class="pre">predicate</span> <span class="pre">object</span></code> expression, i.e. object types that are <code class="docutils literal notranslate"><span class="pre">owner_of</span></code> other object types (on the _right_ side)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;right_object_types&quot;</span></code> links object types to use on the _right_ side of the relation, think of the <code class="docutils literal notranslate"><span class="pre">object</span></code> in the <code class="docutils literal notranslate"><span class="pre">subject</span> <span class="pre">predicate</span> <span class="pre">object</span></code> expression, i.e. object types that <code class="docutils literal notranslate"><span class="pre">belong_to</span></code> object types on the _left_ side</p></li>
+</ul>
+</div>
+<div class="section" id="relations-list">
+<h2>Relations list<a class="headerlink" href="#relations-list" title="Permalink to this headline">¶</a></h2>
+<p>To retrieve a list of relations you can simply invoke <code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/model/relations</span></code> and use common filters like <a class="reference internal" href="../parameters.html#filter-field"><span class="std std-ref">Field filter</span></a> or <a class="reference internal" href="../parameters.html#filter-search"><span class="std std-ref">Search Query filter</span></a></p>
+<dl class="get">
+<dt id="get--model-relations">
+<code class="sig-name descname">GET </code><code class="sig-name descname">/model/relations</code><a class="headerlink" href="#get--model-relations" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p><strong>Example request: get relations</strong>:</p>
+<div class="highlight-http notranslate"><div class="highlight"><pre><span></span><span class="nf">GET</span> <span class="nn">/model/relations?filter[name]=owner_of</span> <span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Accept</span><span class="o">:</span> <span class="l">application/vnd.api+json</span>
+</pre></div>
+</div>
+<p>Response will contain an array of <code class="docutils literal notranslate"><span class="pre">relations</span></code> in typical list format as shown in <a class="reference internal" href="../request_response.html#api-responses"><span class="std std-ref">Response</span></a>.
+In this particular case response content in <code class="docutils literal notranslate"><span class="pre">&quot;data&quot;</span></code> section will be the same as in the previous example, here below a reduced version of it for brevity.</p>
+<p><strong>Example response: get relations</strong>:</p>
+<div class="highlight-http notranslate"><div class="highlight"><pre><span></span><span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Content-Type</span><span class="o">:</span> <span class="l">application/vnd.api+json</span>
+
+<span class="p">{</span>
+    <span class="nt">&quot;data&quot;</span><span class="p">:</span> <span class="p">[{</span>
+        <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;relations&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;attributes&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;owner_of&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;...&quot;</span> <span class="p">:</span> <span class="s2">&quot;...&quot;</span>
+        <span class="p">},</span>
+        <span class="nt">&quot;relationships&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="nt">&quot;...&quot;</span> <span class="p">:</span> <span class="s2">&quot;...&quot;</span>
+        <span class="p">}</span>
+    <span class="p">}],</span>
+    <span class="nt">&quot;links&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;...&quot;</span> <span class="p">:</span> <span class="s2">&quot;...&quot;</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;meta&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;...&quot;</span> <span class="p">:</span> <span class="s2">&quot;...&quot;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="handle-left-and-right-object-types">
+<h2>Handle left and right object types<a class="headerlink" href="#handle-left-and-right-object-types" title="Permalink to this headline">¶</a></h2>
+<p>Relation modeling in BEdita is expressed, as seen before, in <code class="docutils literal notranslate"><span class="pre">{subject}</span> <span class="pre">{predicate}</span> <span class="pre">{object}</span></code> form wich is translated to <code class="docutils literal notranslate"><span class="pre">{left</span> <span class="pre">object</span> <span class="pre">types}</span> <span class="pre">{relation</span> <span class="pre">name}</span> <span class="pre">{right</span> <span class="pre">object</span> <span class="pre">types}</span></code> on a left to right expression flow.</p>
+<p>To achieve this we need to manipulate <cite>left</cite> and <cite>right</cite> side of the expression: both may contain a list of object types involved in the relation.</p>
+<div class="section" id="add-object-types">
+<h3>Add object types<a class="headerlink" href="#add-object-types" title="Permalink to this headline">¶</a></h3>
+<p>You may add object types to left side <code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/model/relations/{{relation}}/relationships/left_object_types</span></code> and right side with
+<code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/model/relations/{{relation}}/relationships/right_object_types</span></code></p>
+<dl class="post">
+<dt id="post--model-relations-relation-relationships-left_object_types">
+<code class="sig-name descname">POST </code><code class="sig-name descname">/model/relations/{{relation}}/relationships/left_object_types</code><a class="headerlink" href="#post--model-relations-relation-relationships-left_object_types" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">{relation}</span></code> can be a numeric id of the relation, its <code class="docutils literal notranslate"><span class="pre">name</span></code> or <code class="docutils literal notranslate"><span class="pre">inverse_name</span></code></p></li>
+</ul>
+<p><strong>Example request: add left object types</strong>:</p>
+<div class="highlight-http notranslate"><div class="highlight"><pre><span></span><span class="nf">POST</span> <span class="nn">/model/relations/owner_of/relationships/left_object_types</span> <span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Host</span><span class="o">:</span> <span class="l">api.example.com</span>
+<span class="na">Accept</span><span class="o">:</span> <span class="l">application/vnd.api+json</span>
+<span class="na">Content-Type</span><span class="o">:</span> <span class="l">application/vnd.api+json</span>
+
+<span class="p">{</span>
+    <span class="nt">&quot;data&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;object_types&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;3&quot;</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;object_types&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;2&quot;</span>
+        <span class="p">}</span>
+    <span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>In this example <code class="docutils literal notranslate"><span class="pre">users</span></code> (with _id_ 3) and <code class="docutils literal notranslate"><span class="pre">profiles</span></code> (_id_ 2) have been added as left side object types to the relation created before.</p>
+<p>Expected response is <code class="docutils literal notranslate"><span class="pre">200</span> <span class="pre">OK</span></code> upon success, while response will contain only a <code class="docutils literal notranslate"><span class="pre">&quot;links&quot;</span></code> section pointing to the list of left/right object types for the current relation.</p>
+</div>
+<div class="section" id="get-object-types">
+<h3>Get object types<a class="headerlink" href="#get-object-types" title="Permalink to this headline">¶</a></h3>
+<p>To retrieve object types involved in a relation you can invoke <code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/model/relations/{{relation}}/left_object_types</span></code> for the left side and
+<code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/model/relations/{{relation}}/right_object_types</span></code> for the right side.</p>
+<p><code class="docutils literal notranslate"><span class="pre">{relation}</span></code> as usual can be a numeric id of the relation, its <code class="docutils literal notranslate"><span class="pre">name</span></code> or <code class="docutils literal notranslate"><span class="pre">inverse_name</span></code> and response will present a list of object types in <code class="docutils literal notranslate"><span class="pre">&quot;data&quot;</span></code> section.</p>
+</div>
+<div class="section" id="replace-object-types">
+<h3>Replace object types<a class="headerlink" href="#replace-object-types" title="Permalink to this headline">¶</a></h3>
+<p>By invoking <code class="docutils literal notranslate"><span class="pre">PATCH</span> <span class="pre">/model/relations/{{relation}}/relationships/left_object_types</span></code> you will replace <strong>all</strong> object types on the left side with a provided list. Same thing will happen with <code class="docutils literal notranslate"><span class="pre">PATCH</span> <span class="pre">/model/relations/{{relation}}/relationships/right_object_types</span></code>.</p>
+<dl class="patch">
+<dt id="patch--model-relations-relation-relationships-right_object_types">
+<code class="sig-name descname">PATCH </code><code class="sig-name descname">/model/relations/{{relation}}/relationships/right_object_types</code><a class="headerlink" href="#patch--model-relations-relation-relationships-right_object_types" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">{relation}</span></code> can be a numeric id of the relation, its <code class="docutils literal notranslate"><span class="pre">name</span></code> or <code class="docutils literal notranslate"><span class="pre">inverse_name</span></code></p></li>
+</ul>
+<p><strong>Example request: replace right object types</strong>:</p>
+<div class="highlight-http notranslate"><div class="highlight"><pre><span></span><span class="nf">PATCH</span> <span class="nn">/model/relations/owner_of/relationships/left_object_types</span> <span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Host</span><span class="o">:</span> <span class="l">api.example.com</span>
+<span class="na">Accept</span><span class="o">:</span> <span class="l">application/vnd.api+json</span>
+<span class="na">Content-Type</span><span class="o">:</span> <span class="l">application/vnd.api+json</span>
+
+<span class="p">{</span>
+    <span class="nt">&quot;data&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;object_types&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;13&quot;</span>
+        <span class="p">}</span>
+    <span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>With this method we have completed our relation putting our custom object type seen in <a class="reference internal" href="object_types.html#api-model-object-types"><span class="std std-ref">Create an object type</span></a> on the right side.</p>
+<p>Now we have: <code class="docutils literal notranslate"><span class="pre">{users</span> <span class="pre">|</span> <span class="pre">profiles}</span> <span class="pre">{owner_of}</span> <span class="pre">{cats}</span></code> and inverse from right to left <code class="docutils literal notranslate"><span class="pre">{cats}</span> <span class="pre">{belong_to}</span> <span class="pre">{users</span> <span class="pre">|</span> <span class="pre">profiles}</span></code>.</p>
+<p>Expected response is <code class="docutils literal notranslate"><span class="pre">200</span> <span class="pre">OK</span></code> upon success, while response will be contain only a <code class="docutils literal notranslate"><span class="pre">&quot;links&quot;</span></code> section pointing to the list of left/right object types for the current relation.</p>
+</div>
+<div class="section" id="remove-object-types">
+<h3>Remove object types<a class="headerlink" href="#remove-object-types" title="Permalink to this headline">¶</a></h3>
+<p>To remove an object type from a relation you can call <code class="docutils literal notranslate"><span class="pre">DELETE</span> <span class="pre">/model/relations/{{relation}}/relationships/left_object_types</span></code> (left side) or
+<code class="docutils literal notranslate"><span class="pre">DELETE</span> <span class="pre">/model/relations/{{relation}}/relationships/right_object_types</span></code> (right side) specifying an object type id in the request body.</p>
+<dl class="delete">
+<dt id="delete--model-relations-relation-relationships-left_object_types">
+<code class="sig-name descname">DELETE </code><code class="sig-name descname">/model/relations/{{relation}}/relationships/left_object_types</code><a class="headerlink" href="#delete--model-relations-relation-relationships-left_object_types" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">{relation}</span></code> can be a numeric id of the relation, its <code class="docutils literal notranslate"><span class="pre">name</span></code> or <code class="docutils literal notranslate"><span class="pre">inverse_name</span></code></p></li>
+</ul>
+<p><strong>Example request: remove left object types</strong>:</p>
+<div class="highlight-http notranslate"><div class="highlight"><pre><span></span><span class="nf">DELETE</span> <span class="nn">/model/relations/owner_of/relationships/left_object_types</span> <span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Host</span><span class="o">:</span> <span class="l">api.example.com</span>
+<span class="na">Accept</span><span class="o">:</span> <span class="l">application/vnd.api+json</span>
+<span class="na">Content-Type</span><span class="o">:</span> <span class="l">application/vnd.api+json</span>
+
+<span class="p">{</span>
+    <span class="nt">&quot;data&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;object_types&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;2&quot;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Here we have removed <code class="docutils literal notranslate"><span class="pre">profiles</span></code> (_id_ 2) from the left side. Now our relation will look like <code class="docutils literal notranslate"><span class="pre">{users}</span> <span class="pre">{owner_of}</span> <span class="pre">{cats}</span></code>.</p>
+<p>Expected HTTP status response is <code class="docutils literal notranslate"><span class="pre">204</span> <span class="pre">No</span> <span class="pre">Content</span></code> and an empty body is returned.</p>
+<p>If object type is not a valid left/right type response will be <code class="docutils literal notranslate"><span class="pre">400</span> <span class="pre">Bad</span> <span class="pre">Request</span></code>.</p>
+<p>Operation is not allowed if an object of the type you want to remove is already used in the relation. A <code class="docutils literal notranslate"><span class="pre">403</span> <span class="pre">Forbidden</span></code> error will be sent in this case.</p>
+</div>
+</div>
+<div class="section" id="modify-a-relation">
+<h2>Modify a relation<a class="headerlink" href="#modify-a-relation" title="Permalink to this headline">¶</a></h2>
+<p>You can modify a relation by using <code class="docutils literal notranslate"><span class="pre">PATCH</span> <span class="pre">/model/relations/{relation}</span></code> endpoint.</p>
+<dl class="patch">
+<dt id="patch--model-relations-relation">
+<code class="sig-name descname">PATCH </code><code class="sig-name descname">/model/relations/{relation}</code><a class="headerlink" href="#patch--model-relations-relation" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">{relation}</span></code> can be a numeric id of the relation, its <code class="docutils literal notranslate"><span class="pre">name</span></code> or <code class="docutils literal notranslate"><span class="pre">inverse_name</span></code></p></li>
+</ul>
+<p><strong>Example request: modify a relation</strong>:</p>
+<p>In this example we will just change the description for the relation 1</p>
+<div class="highlight-http notranslate"><div class="highlight"><pre><span></span><span class="nf">PATCH</span> <span class="nn">/model/relations/owner_of</span> <span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Host</span><span class="o">:</span> <span class="l">api.example.com</span>
+<span class="na">Accept</span><span class="o">:</span> <span class="l">application/vnd.api+json</span>
+<span class="na">Content-Type</span><span class="o">:</span> <span class="l">application/vnd.api+json</span>
+
+<span class="p">{</span>
+    <span class="nt">&quot;data&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+        <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;relations&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;attributes&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="nt">&quot;description&quot;</span> <span class="p">:</span> <span class="s2">&quot;Link users owning cats&quot;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Response status <code class="docutils literal notranslate"><span class="pre">200</span> <span class="pre">OK</span></code> expected upon success and complete modified relation is returned like in <a class="reference internal" href="#api-model-relations-get"><span class="std std-ref">Get a single relation</span></a>.</p>
+</div>
+<div class="section" id="remove-a-relation">
+<h2>Remove a relation<a class="headerlink" href="#remove-a-relation" title="Permalink to this headline">¶</a></h2>
+<p>You can permanently delete a relation by invoking <code class="docutils literal notranslate"><span class="pre">DELETE</span> <span class="pre">/model/relations/{relation}</span></code>.</p>
+<p>This operation cannot be reversed and will not be allowed if actual object relations of this kind exist.</p>
+<dl class="delete">
+<dt id="delete--model-relations-(relation)">
+<code class="sig-name descname">DELETE </code><code class="sig-name descname">/model/relations/</code><span class="sig-paren">(</span><em class="sig-param">relation</em><span class="sig-paren">)</span><a class="headerlink" href="#delete--model-relations-(relation)" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">{relation}</span></code> can be a numeric id of the relation, its <code class="docutils literal notranslate"><span class="pre">name</span></code> or <code class="docutils literal notranslate"><span class="pre">inverse_name</span></code></p></li>
+</ul>
+<p><strong>Example request: delete relation</strong>:</p>
+<div class="highlight-http notranslate"><div class="highlight"><pre><span></span><span class="nf">DELETE</span> <span class="nn">/model/relations/owner_of</span> <span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Host</span><span class="o">:</span> <span class="l">api.example.com</span>
+</pre></div>
+</div>
+<p>Expected HTTP status response is <code class="docutils literal notranslate"><span class="pre">204</span> <span class="pre">No</span> <span class="pre">Content</span></code>.</p>
+<p>If relation is not found, response will be <code class="docutils literal notranslate"><span class="pre">404</span> <span class="pre">Not</span> <span class="pre">Found</span></code>, if delete operation is not allowed a <code class="docutils literal notranslate"><span class="pre">403</span> <span class="pre">Forbidden</span></code> will be sent.</p>
+<div class="highlight-http notranslate"><div class="highlight"><pre><span></span><span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">204</span> <span class="ne">No Content</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="properties.html" class="btn btn-neutral float-left" title="Properties /model/properties" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="schema.html" class="btn btn-neutral float-right" title="Schema /model/schema" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2020, Channelweb Srl, Chialab Srl.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

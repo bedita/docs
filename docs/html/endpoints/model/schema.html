@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Schema /model/schema &mdash; BEdita 4.1.0 documentation</title><link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/api_methods.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/language_data.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Signup /signup" href="../signup.html" />
+    <link rel="prev" title="Relations /model/relations" href="relations.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../index.html" class="icon icon-home"> BEdita
+          </a>
+              <div class="version">
+                4.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../setup.html">Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../configuration.html">Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../database.html">Database</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../bedita_objects.html">Objects in BEdita</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../authorization.html">Authentication &amp; Authorization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../shell.html">Shell commands</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">API reference</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../intro.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../request_response.html">Request and Response</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../parameters.html">Common GET parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../home.html">Home Document <code class="docutils literal notranslate"><span class="pre">/home</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../auth.html">Authentication <code class="docutils literal notranslate"><span class="pre">/auth</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users.html">Users <code class="docutils literal notranslate"><span class="pre">/users</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../roles.html">Roles <code class="docutils literal notranslate"><span class="pre">/roles</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../objects.html">Objects <code class="docutils literal notranslate"><span class="pre">/objects</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../streams.html">Streams <code class="docutils literal notranslate"><span class="pre">/streams</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../media/thumbs.html">Media thumbs <code class="docutils literal notranslate"><span class="pre">/media/thumbs</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../admin.html">Administration <code class="docutils literal notranslate"><span class="pre">/admin</span></code></a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Model <code class="docutils literal notranslate"><span class="pre">/model</span></code></a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="object_types.html">Object Types <code class="docutils literal notranslate"><span class="pre">/model/object_types</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="property_types.html">Property Types <code class="docutils literal notranslate"><span class="pre">/model/property_types</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="properties.html">Properties <code class="docutils literal notranslate"><span class="pre">/model/properties</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="relations.html">Relations <code class="docutils literal notranslate"><span class="pre">/model/relations</span></code></a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Schema <code class="docutils literal notranslate"><span class="pre">/model/schema</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="index.html#naming-convention">Naming convention</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../signup.html">Signup <code class="docutils literal notranslate"><span class="pre">/signup</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../status.html">Status <code class="docutils literal notranslate"><span class="pre">/status</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../trash.html">Trash <code class="docutils literal notranslate"><span class="pre">/trash</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../glossary.html">Glossary</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">BEdita</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../index.html">API reference</a> &raquo;</li>
+          <li><a href="index.html">Model <code class="docutils literal notranslate"><span class="pre">/model</span></code></a> &raquo;</li>
+      <li>Schema <code class="docutils literal notranslate"><span class="pre">/model/schema</span></code></li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/endpoints/model/schema.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="section" id="schema-model-schema">
+<h1>Schema <code class="docutils literal notranslate"><span class="pre">/model/schema</span></code><a class="headerlink" href="#schema-model-schema" title="Permalink to this headline">¶</a></h1>
+<p>A <a class="reference internal" href="../../glossary.html#term-1"><span class="xref std std-term">JSON SCHEMA</span></a> (draft 06) representation for each object and resource type can be retrieved with <code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/model/schema/{type}</span></code>.</p>
+<p>This is a read-only endpoint: only <cite>GET</cite> method for a single object type or resource is available.</p>
+<dl class="get">
+<dt id="get--model-schema-type">
+<code class="sig-name descname">GET </code><code class="sig-name descname">/model/schema/{type}</code><a class="headerlink" href="#get--model-schema-type" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">{type}</span></code> object type or resource <code class="docutils literal notranslate"><span class="pre">name</span></code></p></li>
+</ul>
+<p><strong>Example request: role schema</strong>:</p>
+<div class="highlight-http notranslate"><div class="highlight"><pre><span></span><span class="nf">GET</span> <span class="nn">/model/schema/roles</span> <span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Host</span><span class="o">:</span> <span class="l">api.example.com</span>
+<span class="na">Accept</span><span class="o">:</span> <span class="l">application/schema+json</span>
+</pre></div>
+</div>
+<p><strong>Example response</strong>:</p>
+<div class="highlight-http notranslate"><div class="highlight"><pre><span></span><span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Content-Type</span><span class="o">:</span> <span class="l">application/schema+json</span>
+
+<span class="p">{</span>
+    <span class="nt">&quot;definitions&quot;</span><span class="p">:</span> <span class="p">{},</span>
+    <span class="nt">&quot;$id&quot;</span><span class="p">:</span> <span class="s2">&quot;http://api.example.com/model/schema/roles&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;$schema&quot;</span><span class="p">:</span> <span class="s2">&quot;http://json-schema.org/draft-06/schema#&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;object&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;properties&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="nt">&quot;$id&quot;</span><span class="p">:</span> <span class="s2">&quot;/properties/name&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;maxLength&quot;</span><span class="p">:</span> <span class="mi">32</span><span class="p">,</span>
+            <span class="nt">&quot;default&quot;</span><span class="p">:</span> <span class="kc">null</span>
+        <span class="p">},</span>
+        <span class="nt">&quot;description&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="nt">&quot;$id&quot;</span><span class="p">:</span> <span class="s2">&quot;/properties/description&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;default&quot;</span><span class="p">:</span> <span class="kc">null</span>
+        <span class="p">},</span>
+        <span class="nt">&quot;unchangeable&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="nt">&quot;$id&quot;</span><span class="p">:</span> <span class="s2">&quot;/properties/unchangeable&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;boolean&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;default&quot;</span><span class="p">:</span> <span class="s2">&quot;0&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;isMeta&quot;</span><span class="p">:</span> <span class="kc">true</span>
+        <span class="p">},</span>
+        <span class="nt">&quot;created&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="nt">&quot;$id&quot;</span><span class="p">:</span> <span class="s2">&quot;/properties/created&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;format&quot;</span><span class="p">:</span> <span class="s2">&quot;date-time&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;default&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+            <span class="nt">&quot;isMeta&quot;</span><span class="p">:</span> <span class="kc">true</span>
+        <span class="p">},</span>
+        <span class="nt">&quot;modified&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="nt">&quot;$id&quot;</span><span class="p">:</span> <span class="s2">&quot;/properties/modified&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;format&quot;</span><span class="p">:</span> <span class="s2">&quot;date-time&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;default&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+            <span class="nt">&quot;isMeta&quot;</span><span class="p">:</span> <span class="kc">true</span>
+        <span class="p">}</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;required&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="s2">&quot;name&quot;</span>
+    <span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Valid input values for <code class="docutils literal notranslate"><span class="pre">{type}</span></code> are:</p>
+<ul class="simple">
+<li><p>every object type <code class="docutils literal notranslate"><span class="pre">name</span></code> in its canonical plural form, i.e. <code class="docutils literal notranslate"><span class="pre">documents</span></code>, <code class="docutils literal notranslate"><span class="pre">profiles</span></code>, <code class="docutils literal notranslate"><span class="pre">users</span></code>…</p></li>
+<li><p>some selected resource names: <code class="docutils literal notranslate"><span class="pre">roles</span></code>, <code class="docutils literal notranslate"><span class="pre">streams</span></code>, <code class="docutils literal notranslate"><span class="pre">applications</span></code></p></li>
+</ul>
+<p>This representation defines the data structure of each object and resource available in terms of their properties. Relations between objects and resources are not (yet) displayed here.</p>
+<p>For an in-depth explanation please have a look at the excellent <a class="reference external" href="http://json-schema.org/documentation.html">JSON Schema documentation</a>.</p>
+<p>Please note that this representation is agnostic of the actual JSON data format used, whether it’s <a class="reference internal" href="../../glossary.html#term-0"><span class="xref std std-term">JSON API</span></a> or <code class="docutils literal notranslate"><span class="pre">JSON-LD</span></code> or <code class="docutils literal notranslate"><span class="pre">GraphQL</span></code>.</p>
+<p>Hence it will not match against the <a class="reference internal" href="../../glossary.html#term-0"><span class="xref std std-term">JSON API</span></a> response you will get, but there is only a simple rule to follow in this case.</p>
+<p>The custom keyword <code class="docutils literal notranslate"><span class="pre">&quot;isMeta&quot;</span></code> identifies <cite>meta</cite> properties, when its value is <strong>true</strong>,  that will appear in the <cite>“meta”</cite> section of a typical JSON API response. All other properties will instead be found in the <cite>“attributes”</cite> section.</p>
+</div>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="relations.html" class="btn btn-neutral float-left" title="Relations /model/relations" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../signup.html" class="btn btn-neutral float-right" title="Signup /signup" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2020, Channelweb Srl, Chialab Srl.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

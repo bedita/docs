@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HTTP Routing Table &mdash; BEdita 4.1.0 documentation</title><link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/api_methods.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+ 
+
+    <script>
+      DOCUMENTATION_OPTIONS.COLLAPSE_INDEX = true;
+    </script>
+
+
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> BEdita
+          </a>
+              <div class="version">
+                4.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="setup.html">Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="configuration.html">Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="database.html">Database</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bedita_objects.html">Objects in BEdita</a></li>
+<li class="toctree-l1"><a class="reference internal" href="authorization.html">Authentication &amp; Authorization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="shell.html">Shell commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="endpoints/index.html">API reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="glossary.html">Glossary</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">BEdita</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>HTTP Routing Table</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+
+   <h1>HTTP Routing Table</h1>
+
+   <div class="modindex-jumpbox">
+   <a href="#cap-/auth"><strong>/auth</strong></a> | 
+   <a href="#cap-/images"><strong>/images</strong></a> | 
+   <a href="#cap-/model"><strong>/model</strong></a> | 
+   <a href="#cap-/objects"><strong>/objects</strong></a> | 
+   <a href="#cap-/roles"><strong>/roles</strong></a> | 
+   <a href="#cap-/signup"><strong>/signup</strong></a> | 
+   <a href="#cap-/streams"><strong>/streams</strong></a> | 
+   <a href="#cap-/trash"><strong>/trash</strong></a> | 
+   <a href="#cap-/users"><strong>/users</strong></a>
+   </div>
+
+   <table class="indextable modindextable">
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-/auth"><td></td><td>
+       <strong>/auth</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="endpoints/auth.html#get--auth-user"><code class="xref">GET /auth/user</code></a></td><td>
+       <em></em></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="endpoints/auth.html#post--auth"><code class="xref">POST /auth</code></a></td><td>
+       <em></em></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="endpoints/auth.html#post--auth-change"><code class="xref">POST /auth/change</code></a></td><td>
+       <em></em></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="endpoints/auth.html#patch--auth-change"><code class="xref">PATCH /auth/change</code></a></td><td>
+       <em></em></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="endpoints/auth.html#patch--auth-user"><code class="xref">PATCH /auth/user</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-/images"><td></td><td>
+       <strong>/images</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="endpoints/streams.html#get--images-image_id"><code class="xref">GET /images/{image_id}</code></a></td><td>
+       <em></em></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="endpoints/streams.html#post--images"><code class="xref">POST /images</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-/model"><td></td><td>
+       <strong>/model</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="endpoints/model/object_types.html#get--model-object_types"><code class="xref">GET /model/object_types</code></a></td><td>
+       <em></em></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="endpoints/model/object_types.html#get--model-object_types-type"><code class="xref">GET /model/object_types/{type}</code></a></td><td>
+       <em></em></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="endpoints/model/properties.html#get--model-properties"><code class="xref">GET /model/properties</code></a></td><td>
+       <em></em></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="endpoints/model/properties.html#get--model-properties-id"><code class="xref">GET /model/properties/{id}</code></a></td><td>
+       <em></em></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="endpoints/model/relations.html#get--model-relations"><code class="xref">GET /model/relations</code></a></td><td>
+       <em></em></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="endpoints/model/relations.html#get--model-relations-relation"><code class="xref">GET /model/relations/{relation}</code></a></td><td>
+       <em></em></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="endpoints/model/schema.html#get--model-schema-type"><code class="xref">GET /model/schema/{type}</code></a></td><td>
+       <em></em></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="endpoints/model/object_types.html#post--model-object_types"><code class="xref">POST /model/object_types</code></a></td><td>
+       <em></em></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="endpoints/model/properties.html#post--model-properties"><code class="xref">POST /model/properties</code></a></td><td>
+       <em></em></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="endpoints/model/relations.html#post--model-relations"><code class="xref">POST /model/relations</code></a></td><td>
+       <em></em></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="endpoints/model/relations.html#post--model-relations-relation-relationships-left_object_types"><code class="xref">POST /model/relations/{{relation}}/relationships/left_object_types</code></a></td><td>
+       <em></em></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="endpoints/model/object_types.html#delete--model-object_types-(type)"><code class="xref">DELETE /model/object_types/(type)</code></a></td><td>
+       <em></em></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="endpoints/model/properties.html#delete--model-properties-(id)"><code class="xref">DELETE /model/properties/(id)</code></a></td><td>
+       <em></em></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="endpoints/model/relations.html#delete--model-relations-(relation)"><code class="xref">DELETE /model/relations/(relation)</code></a></td><td>
+       <em></em></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="endpoints/model/relations.html#delete--model-relations-relation-relationships-left_object_types"><code class="xref">DELETE /model/relations/{{relation}}/relationships/left_object_types</code></a></td><td>
+       <em></em></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="endpoints/model/object_types.html#patch--model-object_types-type"><code class="xref">PATCH /model/object_types/{type}</code></a></td><td>
+       <em></em></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="endpoints/model/properties.html#patch--model-properties-id"><code class="xref">PATCH /model/properties/{{id}}</code></a></td><td>
+       <em></em></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="endpoints/model/relations.html#patch--model-relations-relation"><code class="xref">PATCH /model/relations/{relation}</code></a></td><td>
+       <em></em></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="endpoints/model/relations.html#patch--model-relations-relation-relationships-right_object_types"><code class="xref">PATCH /model/relations/{{relation}}/relationships/right_object_types</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-/objects"><td></td><td>
+       <strong>/objects</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="endpoints/objects.html#get--objects"><code class="xref">GET /objects</code></a></td><td>
+       <em></em></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="endpoints/objects.html#get--objects-(object_id)"><code class="xref">GET /objects/(object_id)</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-/roles"><td></td><td>
+       <strong>/roles</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="endpoints/roles.html#get--roles"><code class="xref">GET /roles</code></a></td><td>
+       <em></em></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="endpoints/roles.html#get--roles-(role_id)"><code class="xref">GET /roles/(role_id)</code></a></td><td>
+       <em></em></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="endpoints/roles.html#get--roles-(role_id)-users"><code class="xref">GET /roles/(role_id)/users</code></a></td><td>
+       <em></em></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="endpoints/roles.html#post--roles"><code class="xref">POST /roles</code></a></td><td>
+       <em></em></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="endpoints/roles.html#post--roles-(role_id)-relationships-users"><code class="xref">POST /roles/(role_id)/relationships/users</code></a></td><td>
+       <em></em></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="endpoints/roles.html#delete--roles"><code class="xref">DELETE /roles</code></a></td><td>
+       <em></em></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="endpoints/roles.html#delete--roles-(role_id)-relationships-users"><code class="xref">DELETE /roles/(role_id)/relationships/users</code></a></td><td>
+       <em></em></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="endpoints/roles.html#patch--roles"><code class="xref">PATCH /roles</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-/signup"><td></td><td>
+       <strong>/signup</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="endpoints/signup.html#post--signup"><code class="xref">POST /signup</code></a></td><td>
+       <em></em></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="endpoints/signup.html#post--signup-activation"><code class="xref">POST /signup/activation</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-/streams"><td></td><td>
+       <strong>/streams</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="endpoints/streams.html#get--streams"><code class="xref">GET /streams</code></a></td><td>
+       <em></em></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="endpoints/streams.html#get--streams-(stream_id)"><code class="xref">GET /streams/(stream_id)</code></a></td><td>
+       <em></em></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="endpoints/streams.html#post--streams-upload-file_name"><code class="xref">POST /streams/upload/{file_name}</code></a></td><td>
+       <em></em></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="endpoints/streams.html#patch--streams-stream_uuid-relationships-object"><code class="xref">PATCH /streams/{stream_uuid}/relationships/object</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-/trash"><td></td><td>
+       <strong>/trash</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="endpoints/trash.html#get--trash-"><code class="xref">GET /trash/</code></a></td><td>
+       <em></em></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="endpoints/trash.html#get--trash-(object_id)"><code class="xref">GET /trash/(object_id)</code></a></td><td>
+       <em></em></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="endpoints/trash.html#delete--trash-(object_id)"><code class="xref">DELETE /trash/(object_id)</code></a></td><td>
+       <em></em></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="endpoints/trash.html#patch--trash-(object_id)"><code class="xref">PATCH /trash/(object_id)</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-/users"><td></td><td>
+       <strong>/users</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="endpoints/users.html#get--users"><code class="xref">GET /users</code></a></td><td>
+       <em></em></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="endpoints/users.html#get--users-(user_id)"><code class="xref">GET /users/(user_id)</code></a></td><td>
+       <em></em></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="endpoints/users.html#get--users-(user_id)-roles"><code class="xref">GET /users/(user_id)/roles</code></a></td><td>
+       <em></em></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="endpoints/users.html#post--users"><code class="xref">POST /users</code></a></td><td>
+       <em></em></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="endpoints/users.html#post--users-(user_id)-relationships-roles"><code class="xref">POST /users/(user_id)/relationships/roles</code></a></td><td>
+       <em></em></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="endpoints/users.html#delete--users-(user_id)"><code class="xref">DELETE /users/(user_id)</code></a></td><td>
+       <em></em></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="endpoints/users.html#delete--users-(user_id)-relationships-roles"><code class="xref">DELETE /users/(user_id)/relationships/roles</code></a></td><td>
+       <em></em></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="endpoints/users.html#patch--users-(user_id)"><code class="xref">PATCH /users/(user_id)</code></a></td><td>
+       <em></em></td></tr>
+   </table>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2020, Channelweb Srl, Chialab Srl.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

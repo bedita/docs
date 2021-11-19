@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Common GET parameters &mdash; BEdita 4.1.0 documentation</title><link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/api_methods.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Home Document /home" href="home.html" />
+    <link rel="prev" title="Request and Response" href="request_response.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> BEdita
+          </a>
+              <div class="version">
+                4.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../setup.html">Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../configuration.html">Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../database.html">Database</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../bedita_objects.html">Objects in BEdita</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../authorization.html">Authentication &amp; Authorization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../shell.html">Shell commands</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">API reference</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="intro.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="request_response.html">Request and Response</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Common GET parameters</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#pagination">Pagination</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#field-selection">Field selection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#search">Search</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#sort">Sort</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#filters">Filters</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#filter-expressions">Filter expressions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#field-filter">Field filter</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#search-query-filter">Search Query filter</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#type-filter">Type filter</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#geo-filter">Geo filter</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#date-ranges-filter">Date ranges filter</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="home.html">Home Document <code class="docutils literal notranslate"><span class="pre">/home</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="auth.html">Authentication <code class="docutils literal notranslate"><span class="pre">/auth</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="users.html">Users <code class="docutils literal notranslate"><span class="pre">/users</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="roles.html">Roles <code class="docutils literal notranslate"><span class="pre">/roles</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="objects.html">Objects <code class="docutils literal notranslate"><span class="pre">/objects</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="streams.html">Streams <code class="docutils literal notranslate"><span class="pre">/streams</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="media/thumbs.html">Media thumbs <code class="docutils literal notranslate"><span class="pre">/media/thumbs</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="admin.html">Administration <code class="docutils literal notranslate"><span class="pre">/admin</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="model/index.html">Model <code class="docutils literal notranslate"><span class="pre">/model</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="signup.html">Signup <code class="docutils literal notranslate"><span class="pre">/signup</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="status.html">Status <code class="docutils literal notranslate"><span class="pre">/status</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="trash.html">Trash <code class="docutils literal notranslate"><span class="pre">/trash</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../glossary.html">Glossary</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">BEdita</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="index.html">API reference</a> &raquo;</li>
+      <li>Common GET parameters</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/endpoints/parameters.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="section" id="common-get-parameters">
+<h1>Common GET parameters<a class="headerlink" href="#common-get-parameters" title="Permalink to this headline">¶</a></h1>
+<p>Many HTTP query parameters in BEdita4 API GET method calls are common and may be used to manipulate API response and get only the data you need in your application.</p>
+<p>Common parameters described here may be used in all API endpoints that handle entities/objects directly.</p>
+<p>They are available in all endpoints except few special ones like: <code class="docutils literal notranslate"><span class="pre">/auth</span></code>, <code class="docutils literal notranslate"><span class="pre">/home</span></code>, <code class="docutils literal notranslate"><span class="pre">/signup</span></code> and <code class="docutils literal notranslate"><span class="pre">/status</span></code>. These endpoints are designed to handle particular use cases where lists of resources or objects are not directly handled.</p>
+<div class="section" id="pagination">
+<span id="get-pagination"></span><h2>Pagination<a class="headerlink" href="#pagination" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">page</span></code> - select page number to retrieve</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">page_size</span></code> - define page size; default page size and maximum possible size are defined via configuration parameter (defaults are 20 and 100) see <a class="reference internal" href="../configuration.html#configuration-pagination"><span class="std std-ref">Pagination</span></a></p></li>
+</ul>
+</div></blockquote>
+<p>Examples:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">/objects?page=2</span></code> - get page number 2</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">/objects?page_size=42</span></code> - impose 42 as page size in response</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">/objects?page_size=42&amp;page=3</span></code> - get page number 3 using 42 as page size</p></li>
+</ul>
+</div></blockquote>
+<p>In every GET response containing lists pagination data is available in a special section under <code class="docutils literal notranslate"><span class="pre">meta</span> <span class="pre">/</span> <span class="pre">pagination</span></code></p>
+<blockquote>
+<div><p><strong>Example response</strong>:</p>
+<p>Suppose we have 125 items available for our request, using 20 as <code class="docutils literal notranslate"><span class="pre">page_size</span></code>, selecting page number 7 we get</p>
+<blockquote>
+<div><div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;links&quot;</span><span class="o">:</span> <span class="p">{</span>
+        <span class="p">...</span>
+    <span class="p">},</span>
+    <span class="s2">&quot;data&quot;</span><span class="o">:</span> <span class="p">{</span>
+        <span class="p">...</span>
+    <span class="p">},</span>
+    <span class="s2">&quot;meta&quot;</span><span class="o">:</span> <span class="p">{</span>
+        <span class="s2">&quot;pagination&quot;</span><span class="o">:</span> <span class="p">{</span>
+            <span class="s2">&quot;count&quot;</span><span class="o">:</span> <span class="mi">125</span><span class="p">,</span>
+            <span class="s2">&quot;page&quot;</span><span class="o">:</span> <span class="mi">7</span><span class="p">,</span>
+            <span class="s2">&quot;page_count&quot;</span><span class="o">:</span> <span class="mi">7</span><span class="p">,</span>
+            <span class="s2">&quot;page_items&quot;</span><span class="o">:</span> <span class="mi">5</span><span class="p">,</span>
+            <span class="s2">&quot;page_size&quot;</span><span class="o">:</span> <span class="mi">20</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div></blockquote>
+</div></blockquote>
+<p>Where, as you may easily guess:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">count</span></code> is the total number of items in response</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">page</span></code> is the current page number</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">page_count</span></code> is the total number of pages</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">page_items</span></code> is the numer of items displayed in this page (maximum is <code class="docutils literal notranslate"><span class="pre">page_size</span></code>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">page_size</span></code> is the page size, max number of items for each page</p></li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="field-selection">
+<h2>Field selection<a class="headerlink" href="#field-selection" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">fields</span></code> - decide which fields are displayed in a response, comma separeted list</p></li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="search">
+<h2>Search<a class="headerlink" href="#search" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">q</span></code> or <code class="docutils literal notranslate"><span class="pre">filter[query]</span></code> - perform a natural language search using a filter, see <a class="reference internal" href="#filter-search"><span class="std std-ref">Search Query filter</span></a> below</p></li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="sort">
+<h2>Sort<a class="headerlink" href="#sort" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">sort</span></code> - sort items using a field in ascending or descending order, descending order is obtained prepending minus <code class="docutils literal notranslate"><span class="pre">-</span></code> to field name</p></li>
+</ul>
+</div></blockquote>
+<p>Examples:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">/users?sort=username</span></code> return users alphabetically by username</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">/users?sort=-username</span></code> return users alphabetically from last to first by username (reverse order)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">/roles?sort=-id</span></code> roles from last to first id</p></li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="filters">
+<span id="get-filters"></span><h2>Filters<a class="headerlink" href="#filters" title="Permalink to this headline">¶</a></h2>
+<p>Filters are one the most powerful and versatile tools in <strong>BEdita API</strong> in order to retrieve only resources or objects you really need in  your application.</p>
+<div class="section" id="filter-expressions">
+<h3>Filter expressions<a class="headerlink" href="#filter-expressions" title="Permalink to this headline">¶</a></h3>
+<p>Generally every filter in a query string will have following syntax:</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">filter[{item}]={value}</span></code> the simplest form, a filter item should be equal to some value</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">filter[{item}][{op}]={value}</span></code> is a logical operation on filter value, where <code class="docutils literal notranslate"><span class="pre">{op}</span></code> can have following values:</p></li>
+</ol>
+<blockquote>
+<div><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">neq</span></code>, <code class="docutils literal notranslate"><span class="pre">ne</span></code>, <code class="docutils literal notranslate"><span class="pre">'!=</span></code> or <code class="docutils literal notranslate"><span class="pre">&lt;&gt;</span></code> negation operator, meaning that filter item shoud not be equal to <code class="docutils literal notranslate"><span class="pre">{{value}}</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">lt</span></code> or <code class="docutils literal notranslate"><span class="pre">&lt;</span></code> less than operator, meaning that filter item shoud be less than <code class="docutils literal notranslate"><span class="pre">{{value}}</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">lte</span></code>, <code class="docutils literal notranslate"><span class="pre">le</span></code> or <code class="docutils literal notranslate"><span class="pre">&lt;=</span></code> less than or equal operator; filter item shoud be less than or equal to <code class="docutils literal notranslate"><span class="pre">{{value}}</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">gt</span></code> or <code class="docutils literal notranslate"><span class="pre">&gt;</span></code> greater than operator; filter item shoud be greater than <code class="docutils literal notranslate"><span class="pre">{{value}}</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">gte</span></code>, <code class="docutils literal notranslate"><span class="pre">ge</span></code> or <code class="docutils literal notranslate"><span class="pre">&gt;=</span></code> greater than or equal operator; filter item should be greater than or equal to <code class="docutils literal notranslate"><span class="pre">{{value}}</span></code></p></li>
+</ul>
+</div></blockquote>
+<ol class="arabic simple" start="3">
+<li><p><code class="docutils literal notranslate"><span class="pre">filter[{item}][]={value}</span></code> array sintax: add a value to an array representing possible values of a filter item</p></li>
+</ol>
+</div></blockquote>
+<p>Filter expressions can be combined using <code class="docutils literal notranslate"><span class="pre">&amp;</span></code> separator as many times as you want, limited only by the URL size.</p>
+<p>Too many <code class="docutils literal notranslate"><span class="pre">filter</span></code> combinations may of course result in unwanted or meaningless results, use them with caution :)</p>
+</div>
+<div class="section" id="field-filter">
+<span id="filter-field"></span><h3>Field filter<a class="headerlink" href="#field-filter" title="Permalink to this headline">¶</a></h3>
+<p>The simplest and most common filter: retrieve only resources that have a field equal to some value, or greater/less than some value.</p>
+<p>Examples:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">/users?filter[name]=Gustavo</span></code> get users that have <em>Gustavo</em> as first <code class="docutils literal notranslate"><span class="pre">name</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">/objects?filter[id][gt]=100</span></code> return users with <code class="docutils literal notranslate"><span class="pre">id</span></code> greater than 100</p></li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="search-query-filter">
+<span id="filter-search"></span><h3>Search Query filter<a class="headerlink" href="#search-query-filter" title="Permalink to this headline">¶</a></h3>
+<p>Simple text search may be performed with a query filter</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">/objects?filter[query]=gustavo</span></code> get objects that have <em>gustavo</em> in some of their textual fields</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">/objects?q=gustavo</span></code> convience alias for the preceeding filter query - <code class="docutils literal notranslate"><span class="pre">filter[query]=..</span></code> or <code class="docutils literal notranslate"><span class="pre">q=..</span></code> are identical</p></li>
+</ul>
+</div></blockquote>
+<p><strong>Note</strong>: currently only raw text search is performed, more sophisticated actual natural language search will be available in a future release</p>
+</div>
+<div class="section" id="type-filter">
+<h3>Type filter<a class="headerlink" href="#type-filter" title="Permalink to this headline">¶</a></h3>
+<p>Type filters are used to select some <a class="reference internal" href="../glossary.html#term-object"><span class="xref std std-term">object</span></a> types, typically used in <code class="docutils literal notranslate"><span class="pre">/objects</span></code> endpoint</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">/objects?filter[type]=events</span></code> select only objects of type <em>events</em></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">/objects?filter[type][ne]=documents</span></code> all object types except <em>documents</em></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">/objects?filter[type][]=locations&amp;filter[type][]=profiles</span></code> select only <em>locations</em> and <em>profiles</em></p></li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="geo-filter">
+<h3>Geo filter<a class="headerlink" href="#geo-filter" title="Permalink to this headline">¶</a></h3>
+<p>Geo filters are able to retrieve results on objects of type <code class="docutils literal notranslate"><span class="pre">location</span></code> or on types extending <code class="docutils literal notranslate"><span class="pre">locations</span></code> using geo coordinates.</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">/locations?filter[geo][center]=44.4944183,11.3464055</span></code> retrieve locations ordered by proximity to a given <code class="docutils literal notranslate"><span class="pre">center</span></code> point expressed in terms of latitude and longitude; each item will show in <code class="docutils literal notranslate"><span class="pre">meta.extra.distance</span></code> the distance in meters to the <code class="docutils literal notranslate"><span class="pre">center</span></code> point</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">/locations?filter[geo][center]=44.4944183,11.3464055&amp;filter[geo][radius]=5000</span></code> same as the above filter, but results are limited in a radius of 5km</p></li>
+</ul>
+</div></blockquote>
+<p><strong>Note</strong>: in order to work this filter <strong>requires</strong> that the underlying database supports geo-spatial functions like <code class="docutils literal notranslate"><span class="pre">ST_GeomFromText</span></code>, this is true for <strong>MySQL 5.7</strong> or <strong>PostGIS</strong> for instance.</p>
+</div>
+<div class="section" id="date-ranges-filter">
+<h3>Date ranges filter<a class="headerlink" href="#date-ranges-filter" title="Permalink to this headline">¶</a></h3>
+<p>Date ranges are entities used in some objects like <code class="docutils literal notranslate"><span class="pre">events</span></code> to indicate start and end dates.</p>
+<p>With this filter you are able to retrieve objects using conditions on date time intervals.</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">/events?filter[date_ranges][start_date][gt]=2017-08-01</span></code> events starting after <code class="docutils literal notranslate"><span class="pre">2017-08-01</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">/events?filter[date_ranges][end_date][le]=2017-08-15</span></code> events with end date lesser than or equal to <code class="docutils literal notranslate"><span class="pre">2017-08-15</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">/events?filter[date_ranges][start_date][gt]=2017-07-01&amp;filter[date_ranges][end_date][lt]=2017-07-30</span></code> events starting and ending between <code class="docutils literal notranslate"><span class="pre">2017-07-01</span></code> and <code class="docutils literal notranslate"><span class="pre">2017-07-30</span></code></p></li>
+</ul>
+</div></blockquote>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="request_response.html" class="btn btn-neutral float-left" title="Request and Response" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="home.html" class="btn btn-neutral float-right" title="Home Document /home" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2020, Channelweb Srl, Chialab Srl.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

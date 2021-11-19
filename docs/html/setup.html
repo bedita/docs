@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Setup &mdash; BEdita 4.1.0 documentation</title><link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/api_methods.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Configuration" href="configuration.html" />
+    <link rel="prev" title="Overview" href="overview.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> BEdita
+          </a>
+              <div class="version">
+                4.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="overview.html">Overview</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Setup</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#prerequisites">Prerequisites</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#install">Install</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#web-server">Web Server</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#apache2">Apache2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#nginx">Nginx</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#manual-setup">Manual Setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#setup-docker">Docker</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#pull-official-image">Pull official image</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#build-image-locally">Build image locally</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#run">Run</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#using-postgresql-or-mysql">Using PostgreSQL or MySQL</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#logging">Logging</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="configuration.html">Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="database.html">Database</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bedita_objects.html">Objects in BEdita</a></li>
+<li class="toctree-l1"><a class="reference internal" href="authorization.html">Authentication &amp; Authorization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="shell.html">Shell commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="endpoints/index.html">API reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="glossary.html">Glossary</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">BEdita</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Setup</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/setup.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="section" id="setup">
+<h1>Setup<a class="headerlink" href="#setup" title="Permalink to this headline">¶</a></h1>
+<p>Below you will find instructions to setup BEdita4 on a typical server or desktop.</p>
+<p>For a quick setup via <a class="reference external" href="https://www.docker.com">Docker</a> see <a class="reference internal" href="#setup-docker"><span class="std std-ref">below</span></a>.</p>
+<div class="section" id="prerequisites">
+<h2>Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><ul class="simple">
+<li><p>PHP 7.x (recommended) or PHP &gt;= 5.6, with extensions <em>mbstring</em>, <em>intl</em></p></li>
+<li><p>MySQL 5.7 (recommended) or MySQL 5.6, Postgres 9.5/9.6 or SQLite 3</p></li>
+<li><p><a class="reference external" href="https://getcomposer.org/doc/00-intro.md#installation-linux-unix-osx">Composer</a></p></li>
+</ul>
+</div></blockquote>
+<p>A web server like Apache or Nginx also recommended in general, but not strictly necessary
+on a development enviroment.</p>
+<p>OS: there are no virtually constraints or limitations, but a recent Linux distribution
+is recommended for a server setup and Linux is the only officially supported server platform.</p>
+<p>For a development/test setup you may choose any modern desktop/server OS.
+BEdita dev team uses mainly Linux and MacOSX so some strange things may happen using other systems :)</p>
+<p>But let us know if you have any OS specific troubles, we will be happy to help.</p>
+</div>
+<div class="section" id="install">
+<h2>Install<a class="headerlink" href="#install" title="Permalink to this headline">¶</a></h2>
+<p>There are three basic steps to install BEdita 4</p>
+<p><strong>1. Create project via composer</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ composer create-project -s dev bedita/bedita
+</pre></div>
+</div>
+<p>If you are using a <strong>.zip</strong> or <strong>.tar.gz</strong> release file you just need to unpack it and then run <code class="docutils literal notranslate"><span class="pre">composer</span> <span class="pre">install</span></code>.</p>
+<p><strong>2. Create an empty database</strong></p>
+<p>Create an empty MySQL or Posgtres database and keep track of main connection parameters
+like <code class="docutils literal notranslate"><span class="pre">host</span></code>, <code class="docutils literal notranslate"><span class="pre">username</span></code>, <code class="docutils literal notranslate"><span class="pre">password</span></code> and <code class="docutils literal notranslate"><span class="pre">database</span></code>.
+Do nothing for SQLite since a new local file will be created.</p>
+<p><strong>3. Run shell script to initialize the database and create first admin user</strong></p>
+<p>Open a shell prompt on root installation folder and write</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ bin/cake bedita setup
+</pre></div>
+</div>
+<dl class="simple">
+<dt>An interactive shell script will guide you through missing installation steps:</dt><dd><ul class="simple">
+<li><p>database setup &amp; schema check</p></li>
+<li><p>filesystem check</p></li>
+<li><p>admin user creation</p></li>
+</ul>
+</dd>
+</dl>
+<p>You may see the first admin user created like a root user on Linux or MySQL: it has <strong>administrator</strong>
+<a class="reference internal" href="glossary.html#term-role"><span class="xref std std-term">role</span></a> privileges and cannot be removed.</p>
+<p>To setup a database connection you may also edit the main configuration file, see <a class="reference internal" href="#manual-setup">Manual Setup</a>.</p>
+</div>
+<div class="section" id="web-server">
+<h2>Web Server<a class="headerlink" href="#web-server" title="Permalink to this headline">¶</a></h2>
+<p>On a development setup it’s possible to use PHP builtin webserver, have a look
+at <a class="reference external" href="http://book.cakephp.org/3.0/en/installation.html#development-server">CakePHP Development Server</a>
+Using this simple command</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ bin/cake server
+</pre></div>
+</div>
+<p>This will serve the backend application at <a class="reference external" href="http://localhost:8765/">http://localhost:8765/</a>.</p>
+<p>This setup should be used <strong>ONLY</strong> in development and <strong>NEVER</strong> as a production setup.</p>
+<p>For test and production setups is always advisable to use a <strong>real</strong> web server like Apache2 or Nginx.</p>
+<div class="section" id="apache2">
+<h3>Apache2<a class="headerlink" href="#apache2" title="Permalink to this headline">¶</a></h3>
+<p>Below some instructions for <strong>Apache 2.4</strong>, but also other versions of Apache, like 2.2, will work.</p>
+<p>Please make sure that <strong>mod_rewrite</strong> is enabled. On Ubuntu 14.04 or 16.04 or on Debian 8 you may verify it like this</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ more /etc/apache2/mods-enabled/rewrite.load
+LoadModule rewrite_module /usr/lib/apache2/modules/mod_rewrite.so
+</pre></div>
+</div>
+<p>On other systems with different Apache configurations this check should be similar.</p>
+<p>A simple minimal working virtualhost configuration can look like this:</p>
+<div class="highlight-apache notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;VirtualHost</span> <span class="s">*:80</span><span class="nt">&gt;</span>
+    <span class="nb">ServerName</span> api.example.com
+
+    <span class="nb">DocumentRoot</span> <span class="sx">/path/to/bedita/webroot</span>
+    <span class="nt">&lt;Directory</span> <span class="s">/path/to/bedita/webroot</span><span class="nt">&gt;</span>
+        <span class="nb">Options</span> FollowSymLinks
+        <span class="nb">AllowOverride</span> <span class="k">All</span>
+        <span class="nb">Require</span> <span class="k">all</span> granted
+    <span class="nt">&lt;/Directory&gt;</span>
+<span class="nt">&lt;/VirtualHost&gt;</span>
+</pre></div>
+</div>
+<dl class="simple">
+<dt>Where:</dt><dd><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">/path/to/bedita</span></code> refers simply to the <strong>Backend</strong> path on filesystem</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">DocumentRoot</span></code> should point to the <code class="docutils literal notranslate"><span class="pre">webroot</span></code> folder</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">AllowOverride</span> <span class="pre">All</span></code> is needed to enable <code class="docutils literal notranslate"><span class="pre">.htaccess</span></code> files</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Require</span> <span class="pre">all</span> <span class="pre">granted</span></code> allows access from anywhere, you may decide to set some restrictions based on hosts/IP</p></li>
+</ul>
+</dd>
+</dl>
+<p>To enable <a class="reference external" href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Access_control_CORS">CORS</a> on virtualhost configuration
+you may add these lines, provided that <strong>mod_headers</strong> is enabled</p>
+<div class="highlight-apache notranslate"><div class="highlight"><pre><span></span><span class="nb">Header</span> set Access-Control-Allow-Origin <span class="s2">&quot;*&quot;</span>
+<span class="nb">Header</span> set Access-Control-Allow-Headers <span class="s2">&quot;content-type, origin, x-requested-with, authorization&quot;</span>
+<span class="nb">Header</span> set Access-Control-Allow-Methods <span class="s2">&quot;PUT, GET, POST, PATCH, DELETE, OPTIONS&quot;</span>
+<span class="nb">Header</span> set Access-Control-Expose-Headers <span class="s2">&quot;Location&quot;</span>
+</pre></div>
+</div>
+<dl class="simple">
+<dt>In this example:</dt><dd><ul class="simple">
+<li><p>all origins and HTTP methods are allowed, you may want to add restrictions</p></li>
+<li><p>only headers used by BEdita4 are allowed</p></li>
+<li><p>“Location” header is exposed in response, this is useful to get URL of a newly created resource</p></li>
+</ul>
+</dd>
+</dl>
+<p>Alternatively you can setup <em>CORS</em> configuration directly in BEdita, see <a class="reference internal" href="configuration.html#configuration-cors"><span class="std std-ref">CORS</span></a></p>
+</div>
+<div class="section" id="nginx">
+<h3>Nginx<a class="headerlink" href="#nginx" title="Permalink to this headline">¶</a></h3>
+<p>[TBD]</p>
+</div>
+</div>
+<div class="section" id="manual-setup">
+<h2>Manual Setup<a class="headerlink" href="#manual-setup" title="Permalink to this headline">¶</a></h2>
+<p>To setup database connection manually or review the current connection
+you may edit the main default configuration file located in <code class="docutils literal notranslate"><span class="pre">config/app.php</span></code> where datasources are defined.</p>
+<p>Look for <code class="docutils literal notranslate"><span class="pre">Datasources</span></code> array definition then modify <code class="docutils literal notranslate"><span class="pre">host</span></code>, <code class="docutils literal notranslate"><span class="pre">username</span></code>,
+<code class="docutils literal notranslate"><span class="pre">password</span></code> and <code class="docutils literal notranslate"><span class="pre">database</span></code> fields.</p>
+<div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;Datasources&#39;</span> <span class="o">=&gt;</span> <span class="p">[</span>
+    <span class="s1">&#39;default&#39;</span> <span class="o">=&gt;</span> <span class="p">[</span>
+        <span class="s1">&#39;className&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;Cake\Database\Connection&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;driver&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;Cake\Database\Driver\Mysql&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;host&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;localhost&#39;</span><span class="p">,</span>
+        <span class="c1">//&#39;port&#39; =&gt; &#39;non_standard_port_number&#39;,</span>
+        <span class="s1">&#39;username&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;......&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;password&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;......&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;database&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;......&#39;</span><span class="p">,</span>
+        <span class="o">.....</span>
+    <span class="p">],</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+<dl class="simple">
+<dt>Other noteworthy fields:</dt><dd><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">port</span></code> - populate only in case of non standard ports</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">driver</span></code> - change to <code class="docutils literal notranslate"><span class="pre">'Cake\Database\Driver\Postgres'</span></code> or <code class="docutils literal notranslate"><span class="pre">'Cake\Database\Driver\Sqlite'</span></code> accordingly</p></li>
+<li><p>for SQlite you need to set only an absolute local file path in <code class="docutils literal notranslate"><span class="pre">database</span></code></p></li>
+</ul>
+</dd>
+</dl>
+</div>
+<div class="section" id="setup-docker">
+<span id="id1"></span><h2>Docker<a class="headerlink" href="#setup-docker" title="Permalink to this headline">¶</a></h2>
+<p>You need a working <a class="reference external" href="https://www.docker.com">Docker</a> setup in order to pull, build or run images.</p>
+<div class="section" id="pull-official-image">
+<h3>Pull official image<a class="headerlink" href="#pull-official-image" title="Permalink to this headline">¶</a></h3>
+<p>You can get the latest offical image build from Docker Hub like this.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ docker pull bedita/bedita:latest
+</pre></div>
+</div>
+<p>You may also use <code class="docutils literal notranslate"><span class="pre">:4-cactus</span></code> tag instead of <code class="docutils literal notranslate"><span class="pre">:latest</span></code>, they are currently synonyms.
+Release tags will be available soon.</p>
+</div>
+<div class="section" id="build-image-locally">
+<h3>Build image locally<a class="headerlink" href="#build-image-locally" title="Permalink to this headline">¶</a></h3>
+<p>If you want to build an image from local sources you can do it like this from BEdita root folder:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ docker build -t bedita4-local .
+</pre></div>
+</div>
+<p>You may of course choose whatever name you like for the generated image instead of <code class="docutils literal notranslate"><span class="pre">bedita4-local</span></code>.</p>
+</div>
+<div class="section" id="run">
+<h3>Run<a class="headerlink" href="#run" title="Permalink to this headline">¶</a></h3>
+<p>Run a Docker image setting an initial API KEY and admin username and password like this:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ docker run -p <span class="m">8090</span>:80 --env <span class="nv">BEDITA_API_KEY</span><span class="o">=</span><span class="m">1029384756</span> <span class="se">\</span>
+    --env <span class="nv">BEDITA_ADMIN_USR</span><span class="o">=</span>admin --env <span class="nv">BEDITA_ADMIN_PWD</span><span class="o">=</span>admin <span class="se">\</span>
+    bedita/bedita:latest
+</pre></div>
+</div>
+<p>This will launch a BEdita4 instance using <code class="docutils literal notranslate"><span class="pre">SQLite</span></code> as its storage backend. It should become available at <a class="reference external" href="http://localhost:8090/home">http://localhost:8090/home</a> almost instantly.</p>
+<p>Replace <code class="docutils literal notranslate"><span class="pre">bedita/bedita:latest</span></code> with <code class="docutils literal notranslate"><span class="pre">bedita4-local</span></code> (or other chosen name) to launch a local built image.</p>
+</div>
+<div class="section" id="using-postgresql-or-mysql">
+<h3>Using PostgreSQL or MySQL<a class="headerlink" href="#using-postgresql-or-mysql" title="Permalink to this headline">¶</a></h3>
+<p>Other database backends can be used with BEdita by launching the database server in a separate Docker container.
+You may simply pull <code class="docutils literal notranslate"><span class="pre">mysql:5.7</span></code> or <code class="docutils literal notranslate"><span class="pre">postgres:latest</span></code> official images to achieve this.</p>
+<p>A MySQL 5.7 server can then be launched in a container with this command:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>docker run -d --name mysql <span class="se">\</span>
+    --env <span class="nv">MYSQL_ROOT_PASSWORD</span><span class="o">=</span>root <span class="se">\</span>
+    --env <span class="nv">MYSQL_DATABASE</span><span class="o">=</span>bedita <span class="se">\</span>
+    --env <span class="nv">MYSQL_USER</span><span class="o">=</span>bedita <span class="se">\</span>
+    --env <span class="nv">MYSQL_PASSWORD</span><span class="o">=</span>bedita <span class="se">\</span>
+    mysql:5.7
+</pre></div>
+</div>
+<p>Then, a BEdita instance can be configured to use MySQL as its backend launching this command:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>docker run -d --name<span class="o">=</span>bedita <span class="se">\</span>
+    --env <span class="nv">DATABASE_URL</span><span class="o">=</span>mysql://bedita:bedita@mysql:3306/bedita <span class="se">\</span>
+    -p <span class="m">8090</span>:80 --link mysql:mysql <span class="se">\</span>
+    bedita/bedita:latest
+</pre></div>
+</div>
+<p>Notice the <code class="docutils literal notranslate"><span class="pre">DATABASE_URL</span></code> environment variable setting.</p>
+<p>The BEdita container will automatically wait until MySQL container becomes available, then will run connect to it, launch required schema migrations, and start the Web server. The application should become available at <a class="reference external" href="http://localhost:8090/home">http://localhost:8090/home</a> in a matter of few seconds. However, depending on the responsiveness of MySQL container, this might take longer.</p>
+</div>
+<div class="section" id="logging">
+<h3>Logging<a class="headerlink" href="#logging" title="Permalink to this headline">¶</a></h3>
+<p>Logs are written to stdout and sterr, so that they can be inspected via <code class="docutils literal notranslate"><span class="pre">docker</span> <span class="pre">logs</span></code>. This is considered a common practice for Docker containers, and there are tools that can collect and ingest logs written this way. However, <code class="docutils literal notranslate"><span class="pre">LOG_ERROR_URL</span></code> and <code class="docutils literal notranslate"><span class="pre">LOG_DEBUG_URL</span></code> can be overwritten at container launch via <code class="docutils literal notranslate"><span class="pre">--env</span></code> flag to send logs to a different destination. For instance, one might want to launch a Logstash container, link it to BEdita container, and send BEdita logs to Logstash.</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="overview.html" class="btn btn-neutral float-left" title="Overview" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="configuration.html" class="btn btn-neutral float-right" title="Configuration" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2020, Channelweb Srl, Chialab Srl.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

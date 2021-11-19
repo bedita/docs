@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Authentication /auth &mdash; BEdita 4.1.0 documentation</title><link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/api_methods.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Users /users" href="users.html" />
+    <link rel="prev" title="Home Document /home" href="home.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> BEdita
+          </a>
+              <div class="version">
+                4.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../setup.html">Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../configuration.html">Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../database.html">Database</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../bedita_objects.html">Objects in BEdita</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../authorization.html">Authentication &amp; Authorization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../shell.html">Shell commands</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">API reference</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="intro.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="request_response.html">Request and Response</a></li>
+<li class="toctree-l2"><a class="reference internal" href="parameters.html">Common GET parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="home.html">Home Document <code class="docutils literal notranslate"><span class="pre">/home</span></code></a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Authentication <code class="docutils literal notranslate"><span class="pre">/auth</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#login">Login</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#who-am-i">Who Am I?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#update-user-profle">Update user profle</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#credentials-change">Credentials change</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="users.html">Users <code class="docutils literal notranslate"><span class="pre">/users</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="roles.html">Roles <code class="docutils literal notranslate"><span class="pre">/roles</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="objects.html">Objects <code class="docutils literal notranslate"><span class="pre">/objects</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="streams.html">Streams <code class="docutils literal notranslate"><span class="pre">/streams</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="media/thumbs.html">Media thumbs <code class="docutils literal notranslate"><span class="pre">/media/thumbs</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="admin.html">Administration <code class="docutils literal notranslate"><span class="pre">/admin</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="model/index.html">Model <code class="docutils literal notranslate"><span class="pre">/model</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="signup.html">Signup <code class="docutils literal notranslate"><span class="pre">/signup</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="status.html">Status <code class="docutils literal notranslate"><span class="pre">/status</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="trash.html">Trash <code class="docutils literal notranslate"><span class="pre">/trash</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../glossary.html">Glossary</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">BEdita</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="index.html">API reference</a> &raquo;</li>
+      <li>Authentication <code class="docutils literal notranslate"><span class="pre">/auth</span></code></li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/endpoints/auth.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="section" id="authentication-auth">
+<h1>Authentication <code class="docutils literal notranslate"><span class="pre">/auth</span></code><a class="headerlink" href="#authentication-auth" title="Permalink to this headline">¶</a></h1>
+<p><code class="docutils literal notranslate"><span class="pre">/auth</span></code> endpoint is responsible for login related actions.
+With it a user is able to login and to get user login data.</p>
+<p>Different actions are supported:</p>
+<ul class="simple">
+<li><p>standard <strong>login</strong> - providing username and password and without <code class="docutils literal notranslate"><span class="pre">Authorization</span></code> header</p></li>
+<li><p>token <strong>renew</strong> - with <code class="docutils literal notranslate"><span class="pre">Authorization</span></code> header and without username and password</p></li>
+<li><p><strong>whoami</strong> - get logged user profile data</p></li>
+<li><p>profile <strong>update</strong> - logged user profile data</p></li>
+<li><p>credential <strong>change</strong> request - request to update password</p></li>
+<li><p>credential <strong>change</strong> update - actual password update action using secret hash</p></li>
+</ul>
+<div class="section" id="login">
+<span id="auth-login"></span><h2>Login<a class="headerlink" href="#login" title="Permalink to this headline">¶</a></h2>
+<dl class="post">
+<dt id="post--auth">
+<code class="sig-name descname">POST </code><code class="sig-name descname">/auth</code><a class="headerlink" href="#post--auth" title="Permalink to this definition">¶</a></dt>
+<dd><p>Perform login.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Form Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>username</strong> – Username of user to be logged in. To be omitted when renewing token.</p></li>
+<li><p><strong>password</strong> – Password of user to be logged in. To be omitted when renewing token.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Request Headers</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><a class="reference external" href="https://tools.ietf.org/html/rfc7235#section-4.2">Authorization</a> – <em>(Optional)</em> Use only in token renew, prefixed with <code class="docutils literal notranslate"><span class="pre">Bearer</span></code>.</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Status Codes</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><a class="reference external" href="https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.2.1">200 OK</a> – Login successful.</p></li>
+<li><p><a class="reference external" href="https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.2">401 Unauthorized</a> – Unauthorized user, or invalid renew token.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Response JSON Object</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>meta.jwt</strong> – The JSON Web Token to be used to authenticate (in header <a class="reference external" href="https://tools.ietf.org/html/rfc7235#section-4.2">Authorization</a>).</p></li>
+<li><p><strong>meta.renew</strong> – The renew token, to be used to reiterate login process when JWT expires.</p></li>
+</ul>
+</dd>
+</dl>
+<p><strong>Example request (login with username and password)</strong>:
+since this is not a <a class="reference internal" href="../glossary.html#term-0"><span class="xref std std-term">JSON API</span></a> request you MUST use <code class="docutils literal notranslate"><span class="pre">Content-Type:</span> <span class="pre">application/json</span></code>
+or <code class="docutils literal notranslate"><span class="pre">Content-Type:</span> <span class="pre">application/x-www-form-urlencoded</span></code>, see example below.</p>
+<div class="highlight-http notranslate"><div class="highlight"><pre><span></span><span class="nf">POST</span> <span class="nn">/auth</span> <span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Host</span><span class="o">:</span> <span class="l">example.com</span>
+<span class="na">Accept</span><span class="o">:</span> <span class="l">application/vnd.api+json</span>
+<span class="na">Content-Type</span><span class="o">:</span> <span class="l">application/json</span>
+
+<span class="p">{</span>
+    <span class="nt">&quot;username&quot;</span> <span class="p">:</span> <span class="s2">&quot;bedita&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;password&quot;</span> <span class="p">:</span> <span class="s2">&quot;bedita&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Same request using classic <code class="docutils literal notranslate"><span class="pre">Content-Type:</span> <span class="pre">application/x-www-form-urlencoded</span></code></p>
+<div class="highlight-http notranslate"><div class="highlight"><pre><span></span><span class="nf">POST</span> <span class="nn">/auth</span> <span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Host</span><span class="o">:</span> <span class="l">example.com</span>
+<span class="na">Accept</span><span class="o">:</span> <span class="l">application/vnd.api+json</span>
+<span class="na">Content-Type</span><span class="o">:</span> <span class="l">application/x-www-form-urlencoded</span>
+
+username=bedita&amp;password=bedita
+</pre></div>
+</div>
+<p><strong>Example response</strong>:</p>
+<div class="highlight-http notranslate"><div class="highlight"><pre><span></span><span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Content-Type</span><span class="o">:</span> <span class="l">application/vnd.api+json</span>
+
+<span class="p">{</span>
+    <span class="nt">&quot;links&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;self&quot;</span><span class="p">:</span> <span class="s2">&quot;http://example.com/auth&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;home&quot;</span><span class="p">:</span> <span class="s2">&quot;http://example.com/home&quot;</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;meta&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;jwt&quot;</span><span class="p">:</span> <span class="s2">&quot;eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJiZWRpdGEiLCJibG9ja2VkIjpmYWxzZSwibGFzdF9sb2dpbiI6IjIwMTYtMDgtMDFUMTM6MTk6MzkrMDAwMCIsImxhc3RfbG9naW5fZXJyIjpudWxsLCJudW1fbG9naW5fZXJyIjowLCJjcmVhdGVkIjoiMjAxNi0wOC0wMVQxMzoxOToyOSswMDAwIiwibW9kaWZpZWQiOiIyMDE2LTA4LTAxVDEzOjE5OjI5KzAwMDAiLCJyb2xlcyI6W10sImlzcyI6Imh0dHA6XC9cLzEwLjAuODMuNDo4MDgwIiwiaWF0IjoxNDcwMDU4NTE3LCJuYmYiOjE0NzAwNTg1MTcsImV4cCI6MTQ3MDA2NTcxN30.rGcCEKiYjETnkaKVgG5-gJxIMXALVaZ4MeV5aKbWtQE&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;renew&quot;</span><span class="p">:</span> <span class="s2">&quot;eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC8xMC4wLjgzLjQ6ODA4MCIsImlhdCI6MTQ3MDA1ODUxNywibmJmIjoxNDcwMDU4NTE3LCJzdWIiOjEsImF1ZCI6Imh0dHA6XC9cLzEwLjAuODMuNDo4MDgwXC9hdXRoIn0.mU3QToPvc0uY-XQRhDA1F2hfpRjjT2ljSerKQygk2T8&quot;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>Example request (token renewal)</strong>:</p>
+<div class="highlight-http notranslate"><div class="highlight"><pre><span></span><span class="nf">POST</span> <span class="nn">/auth</span> <span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Host</span><span class="o">:</span> <span class="l">example.com</span>
+<span class="na">Accept</span><span class="o">:</span> <span class="l">application/vnd.api+json</span>
+<span class="na">Authorization</span><span class="o">:</span> <span class="l">Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC8xMC4wLjgzLjQ6ODA4MCIsImlhdCI6MTQ3MDA1ODUxNywibmJmIjoxNDcwMDU4NTE3LCJzdWIiOjEsImF1ZCI6Imh0dHA6XC9cLzEwLjAuODMuNDo4MDgwXC9hdXRoIn0.mU3QToPvc0uY-XQRhDA1F2hfpRjjT2ljSerKQygk2T8</span>
+</pre></div>
+</div>
+<p><strong>Example response</strong>: (<em>same as above, with new JWT and renew token</em>)</p>
+</dd></dl>
+
+</div>
+<div class="section" id="who-am-i">
+<span id="auth-whoami"></span><h2>Who Am I?<a class="headerlink" href="#who-am-i" title="Permalink to this headline">¶</a></h2>
+<dl class="get">
+<dt id="get--auth-user">
+<code class="sig-name descname">GET </code><code class="sig-name descname">/auth/user</code><a class="headerlink" href="#get--auth-user" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get logged user profile data.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Request Headers</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><a class="reference external" href="https://tools.ietf.org/html/rfc7235#section-4.2">Authorization</a> – Use token prefixed with <code class="docutils literal notranslate"><span class="pre">Bearer</span></code>.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Status Codes</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><a class="reference external" href="https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.2.1">200 OK</a> – Get operation successful.</p></li>
+<li><p><a class="reference external" href="https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.2">401 Unauthorized</a> – Unauthorized user, user not logged.</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Response JSON Object</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>data</strong> – User profile data</p></li>
+</ul>
+</dd>
+</dl>
+<p><strong>Example request</strong></p>
+<p><cite>{token}</cite> is JWT token from previuos login and renew examples:</p>
+<div class="highlight-http notranslate"><div class="highlight"><pre><span></span><span class="nf">GET</span> <span class="nn">/auth/user</span> <span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Host</span><span class="o">:</span> <span class="l">example.com</span>
+<span class="na">Accept</span><span class="o">:</span> <span class="l">application/vnd.api+json</span>
+<span class="na">Authorization</span><span class="o">:</span> <span class="l">Bearer {token}</span>
+</pre></div>
+</div>
+<p><strong>Example response</strong>:</p>
+<div class="highlight-http notranslate"><div class="highlight"><pre><span></span><span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Content-Type</span><span class="o">:</span> <span class="l">application/vnd.api+json</span>
+
+<span class="p">{</span>
+  <span class="nt">&quot;data&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;2&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;users&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;attributes&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="nt">&quot;username&quot;</span><span class="p">:</span> <span class="s2">&quot;gustavo&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;blocked&quot;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+            <span class="nt">&quot;last_login&quot;</span><span class="p">:</span> <span class="s2">&quot;2016-10-06T08:17:36+00:00&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;last_login_err&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+            <span class="nt">&quot;num_login_err&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+            <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Gustavo&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;surname&quot;</span><span class="p">:</span> <span class="s2">&quot;Supporto&quot;</span>
+        <span class="p">}</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;links&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;self&quot;</span><span class="p">:</span> <span class="s2">&quot;http://example.com/auth/user&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;home&quot;</span><span class="p">:</span> <span class="s2">&quot;http://example.com/home&quot;</span>
+    <span class="p">},</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>Note</strong>: some fields in <cite>“attributes”</cite> are missing for brevity.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="update-user-profle">
+<span id="auth-update"></span><h2>Update user profle<a class="headerlink" href="#update-user-profle" title="Permalink to this headline">¶</a></h2>
+<dl class="patch">
+<dt id="patch--auth-user">
+<code class="sig-name descname">PATCH </code><code class="sig-name descname">/auth/user</code><a class="headerlink" href="#patch--auth-user" title="Permalink to this definition">¶</a></dt>
+<dd><p>Update logged user profile data with some restrictions.
+For basic security reasons some fields are not directly changeable: <cite>username</cite>, <cite>email</cite> and <cite>password</cite>.
+Only exception: <cite>password</cite> may be changed if current valid password is provided in <cite>old_password</cite> field.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Request Headers</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><a class="reference external" href="https://tools.ietf.org/html/rfc7235#section-4.2">Authorization</a> – Use token prefixed with <code class="docutils literal notranslate"><span class="pre">Bearer</span></code>.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Status Codes</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><a class="reference external" href="https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.2.1">200 OK</a> – Get operation successful.</p></li>
+<li><p><a class="reference external" href="https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.2">401 Unauthorized</a> – Unauthorized user, user not logged.</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Response JSON Object</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>data</strong> – User profile data</p></li>
+</ul>
+</dd>
+</dl>
+<p><strong>Example request</strong></p>
+<p><cite>{token}</cite> is JWT token from previuos login and renew examples:</p>
+<div class="highlight-http notranslate"><div class="highlight"><pre><span></span><span class="nf">PATCH</span> <span class="nn">/auth/user</span> <span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Host</span><span class="o">:</span> <span class="l">example.com</span>
+<span class="na">Authorization</span><span class="o">:</span> <span class="l">Bearer {token}</span>
+<span class="na">Accept</span><span class="o">:</span> <span class="l">application/vnd.api+json</span>
+<span class="na">Content-Type</span><span class="o">:</span> <span class="l">application/json</span>
+
+<span class="p">{</span>
+    <span class="nt">&quot;city&quot;</span> <span class="p">:</span> <span class="s2">&quot;Bologna&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;country&quot;</span> <span class="p">:</span> <span class="s2">&quot;Italy&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>Example response</strong>:</p>
+<div class="highlight-http notranslate"><div class="highlight"><pre><span></span><span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Content-Type</span><span class="o">:</span> <span class="l">application/vnd.api+json</span>
+
+<span class="p">{</span>
+  <span class="nt">&quot;data&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;2&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;users&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;attributes&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="nt">&quot;username&quot;</span><span class="p">:</span> <span class="s2">&quot;gustavo&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;GUstavo&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;surname&quot;</span><span class="p">:</span> <span class="s2">&quot;Supporto&quot;</span>
+            <span class="s2">&quot;city&quot;</span> <span class="p">:</span> <span class="s2">&quot;Bologna&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;country&quot;</span> <span class="p">:</span> <span class="s2">&quot;Italy&quot;</span>
+        <span class="p">}</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;links&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;self&quot;</span><span class="p">:</span> <span class="s2">&quot;http://example.com/auth/user&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;home&quot;</span><span class="p">:</span> <span class="s2">&quot;http://example.com/home&quot;</span>
+    <span class="p">},</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>Note</strong>: some fields in <cite>“attributes”</cite> are missing for brevity.</p>
+<p><strong>Example of a password change request</strong></p>
+<div class="highlight-http notranslate"><div class="highlight"><pre><span></span><span class="nf">PATCH</span> <span class="nn">/auth/user</span> <span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Host</span><span class="o">:</span> <span class="l">example.com</span>
+<span class="na">Authorization</span><span class="o">:</span> <span class="l">Bearer {token}</span>
+<span class="na">Accept</span><span class="o">:</span> <span class="l">application/vnd.api+json</span>
+<span class="na">Content-Type</span><span class="o">:</span> <span class="l">application/json</span>
+
+<span class="p">{</span>
+    <span class="nt">&quot;password&quot;</span> <span class="p">:</span> <span class="s2">&quot;a new super strong password&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;old_password&quot;</span> <span class="p">:</span> <span class="s2">&quot;my current password&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</div>
+<div class="section" id="credentials-change">
+<span id="auth-change"></span><h2>Credentials change<a class="headerlink" href="#credentials-change" title="Permalink to this headline">¶</a></h2>
+<p>Authentications credential change works in two steps:</p>
+<ul class="simple">
+<li><p>a credential change request action</p></li>
+<li><p>an actual credential change using a secret hash</p></li>
+</ul>
+<p>Only use case currently supported is <code class="docutils literal notranslate"><span class="pre">password</span></code> change.</p>
+<p>After a request action an email is sent to requesting user containing a URL with a secret hash to actually perform the change.</p>
+<dl class="post">
+<dt id="post--auth-change">
+<code class="sig-name descname">POST </code><code class="sig-name descname">/auth/change</code><a class="headerlink" href="#post--auth-change" title="Permalink to this definition">¶</a></dt>
+<dd><p>Request a credential change.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Form Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>contact</strong> – Email of user requesting credendials change.</p></li>
+<li><p><strong>change_url</strong> – Change URL that will be sent via email.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Status Codes</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><a class="reference external" href="https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.2.5">204 No Content</a> – No content on operation success.</p></li>
+<li><p><a class="reference external" href="https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.1">400 Bad Request</a> – On malformed or missing input data.</p></li>
+<li><p><a class="reference external" href="https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.5">404 Not Found</a> – If no user is found.</p></li>
+</ul>
+</dd>
+</dl>
+<p><strong>Example request</strong>:
+Since this is not a <a class="reference internal" href="../glossary.html#term-0"><span class="xref std std-term">JSON API</span></a> request you MUST use <code class="docutils literal notranslate"><span class="pre">Content-Type:</span> <span class="pre">application/json</span></code></p>
+<div class="highlight-http notranslate"><div class="highlight"><pre><span></span><span class="nf">POST</span> <span class="nn">/auth/change</span> <span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Content-Type</span><span class="o">:</span> <span class="l">application/json</span>
+
+<span class="p">{</span>
+    <span class="nt">&quot;contact&quot;</span><span class="p">:</span> <span class="s2">&quot;{my email}&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;change_url&quot;</span><span class="p">:</span> <span class="s2">&quot;{change url}&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<p>A <code class="docutils literal notranslate"><span class="pre">change_url</span></code> is required in order to create the URL that will be sent to the user in the form
+<code class="docutils literal notranslate"><span class="pre">{change_url}?uuid={uuid}</span></code> where <code class="docutils literal notranslate"><span class="pre">{uuid}</span></code> is a system generated hash that will expire after 24h.</p>
+<p>In your <code class="docutils literal notranslate"><span class="pre">change_url</span></code> page you will have to read the <code class="docutils literal notranslate"><span class="pre">uuid</span></code> query parameter and proceed to actual change performing the following request.</p>
+<dl class="patch">
+<dt id="patch--auth-change">
+<code class="sig-name descname">PATCH </code><code class="sig-name descname">/auth/change</code><a class="headerlink" href="#patch--auth-change" title="Permalink to this definition">¶</a></dt>
+<dd><p>Perform a credential (password) change.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Form Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>uuid</strong> – Secret UUID sent via email in <code class="docutils literal notranslate"><span class="pre">change_url</span></code>.</p></li>
+<li><p><strong>password</strong> – New user password.</p></li>
+<li><p><strong>login</strong> – Optional boolean parameter, if <code class="docutils literal notranslate"><span class="pre">true</span></code> a login is also performed.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Status Codes</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><a class="reference external" href="https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.2.1">200 OK</a> – On operation success.</p></li>
+<li><p><a class="reference external" href="https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.1">400 Bad Request</a> – On malformed or missing input data.</p></li>
+<li><p><a class="reference external" href="https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.5">404 Not Found</a> – Not found if provided UUID is incorrect or expired.</p></li>
+</ul>
+</dd>
+</dl>
+<p><strong>Example request</strong>:
+Since this is not a <a class="reference internal" href="../glossary.html#term-0"><span class="xref std std-term">JSON API</span></a> request you MUST use <code class="docutils literal notranslate"><span class="pre">Content-Type:</span> <span class="pre">application/json</span></code></p>
+<div class="highlight-http notranslate"><div class="highlight"><pre><span></span><span class="nf">PATCH</span> <span class="nn">/auth/change</span> <span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Content-Type</span><span class="o">:</span> <span class="l">application/json</span>
+
+<span class="p">{</span>
+    <span class="nt">&quot;uuid&quot;</span><span class="p">:</span> <span class="s2">&quot;{uuid}&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;password&quot;</span><span class="p">:</span> <span class="s2">&quot;{new password}&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;login&quot;</span><span class="p">:</span> <span class="kc">true</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<p>Response will contain user data as in previous <a class="reference internal" href="#auth-whoami"><span class="std std-ref">Who Am I?</span></a> request.</p>
+<p>If <code class="docutils literal notranslate"><span class="pre">&quot;login&quot;</span></code> is true a login is also performed and <a class="reference internal" href="../glossary.html#term-2"><span class="xref std std-term">JWT</span></a> <a class="reference internal" href="../glossary.html#term-access-token"><span class="xref std std-term">access token</span></a> and <a class="reference internal" href="../glossary.html#term-refresh-token"><span class="xref std std-term">refresh token</span></a> tokens are returned in <code class="docutils literal notranslate"><span class="pre">&quot;meta&quot;</span></code> section for immediate use. This key is optional, if missing <code class="docutils literal notranslate"><span class="pre">&quot;login&quot;:</span> <span class="pre">false</span></code> is assumed.</p>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="home.html" class="btn btn-neutral float-left" title="Home Document /home" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="users.html" class="btn btn-neutral float-right" title="Users /users" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2020, Channelweb Srl, Chialab Srl.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

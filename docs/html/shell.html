@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Shell commands &mdash; BEdita 4.1.0 documentation</title><link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/api_methods.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="API reference" href="endpoints/index.html" />
+    <link rel="prev" title="Authentication &amp; Authorization" href="authorization.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> BEdita
+          </a>
+              <div class="version">
+                4.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="setup.html">Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="configuration.html">Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="database.html">Database</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bedita_objects.html">Objects in BEdita</a></li>
+<li class="toctree-l1"><a class="reference internal" href="authorization.html">Authentication &amp; Authorization</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Shell commands</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#bedita"><code class="docutils literal notranslate"><span class="pre">bedita</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#setup"><code class="docutils literal notranslate"><span class="pre">setup</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#db-admin"><code class="docutils literal notranslate"><span class="pre">db_admin</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#init"><code class="docutils literal notranslate"><span class="pre">init</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#check-schema"><code class="docutils literal notranslate"><span class="pre">check_schema</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#jobs"><code class="docutils literal notranslate"><span class="pre">jobs</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#pending"><code class="docutils literal notranslate"><span class="pre">pending</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#run"><code class="docutils literal notranslate"><span class="pre">run</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#spec"><code class="docutils literal notranslate"><span class="pre">spec</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#generate"><code class="docutils literal notranslate"><span class="pre">generate</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="endpoints/index.html">API reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="glossary.html">Glossary</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">BEdita</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Shell commands</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/shell.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="section" id="shell-commands">
+<h1>Shell commands<a class="headerlink" href="#shell-commands" title="Permalink to this headline">¶</a></h1>
+<p>A number of administration tasks can be performed via shell.</p>
+<p>All shells and commands listed below can be invoked via a binary that’s located
+in the <code class="file docutils literal notranslate"><span class="pre">bin/</span></code> directory. The basic syntax is:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> bin/cake SHELL <span class="o">[</span>COMMAND<span class="o">]</span> <span class="o">[</span>argument1 argument2 ...<span class="o">]</span> <span class="o">[</span>--option1 --option2<span class="o">=</span>val ...<span class="o">]</span>
+</pre></div>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Windows users must use <code class="docutils literal notranslate"><span class="pre">bin\cake</span></code> instead (note the backslash).</p>
+</div>
+<p>For instance, if you want to run the <a class="reference internal" href="#shell-bedita-setup"><span class="std std-ref">setup</span></a> command in the
+<a class="reference internal" href="#shell-bedita"><span class="std std-ref">bedita</span></a> shell you can run:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> bin/cake bedita setup
+</pre></div>
+</div>
+<p>If you want to run the <a class="reference internal" href="#shell-db-admin-init"><span class="std std-ref">init</span></a> command in the
+<a class="reference internal" href="#shell-db-admin"><span class="std std-ref">db_admin</span></a> shell with a couple of additional options you can run:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> bin/cake db_admin init --no-force --seed
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><a class="reference external" href="https://book.cakephp.org/3.0/en/console-and-shells/completion-shell.html#how-to-enable-bash-autocompletion-for-the-cakephp-console">Bash autocomplete</a>
+might come in handy</p>
+</div>
+<div class="section" id="bedita">
+<span id="shell-bedita"></span><h2><code class="docutils literal notranslate"><span class="pre">bedita</span></code><a class="headerlink" href="#bedita" title="Permalink to this headline">¶</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">bedita</span></code> shell is the first place you’ll ever want to search in
+when you’re looking for a tool to perform an administrative task.</p>
+<div class="section" id="setup">
+<span id="shell-bedita-setup"></span><h3><code class="docutils literal notranslate"><span class="pre">setup</span></code><a class="headerlink" href="#setup" title="Permalink to this headline">¶</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">setup</span></code> subcommand will lead you through the several steps required to
+get a new BEdita instance to work.</p>
+<p>You’ll be asked for database connection credentials, as well as user
+credentials for the first administrator user to be added to the system.</p>
+<p>Additional steps, like checking for correct permissions on some folders,
+creating database tables, or checking if current database schema is
+up-to-date with the latest changes, are performed.</p>
+<p><strong>It is safe to run this command again once BEdita has been initialized.</strong></p>
+<dl class="option">
+<dt id="cmdoption-bedita-setup-y">
+<code class="sig-name descname">-y</code><code class="sig-prename descclassname"></code><code class="sig-prename descclassname">, </code><code class="sig-name descname">--yes</code><code class="sig-prename descclassname"></code><a class="headerlink" href="#cmdoption-bedita-setup-y" title="Permalink to this definition">¶</a></dt>
+<dd><p>Run in non-interactive mode.</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-bedita-setup-config-file">
+<code class="sig-name descname">--config-file</code><code class="sig-prename descclassname"> &lt;path&gt;</code><a class="headerlink" href="#cmdoption-bedita-setup-config-file" title="Permalink to this definition">¶</a></dt>
+<dd><p>Path to configuration file (default: <code class="file docutils literal notranslate"><span class="pre">config/app.php</span></code>).</p>
+</dd></dl>
+
+<dl>
+<dt>Example</dt><dd><div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> bin/cake bedita setup
+</pre></div>
+</div>
+</dd>
+</dl>
+</div>
+</div>
+<div class="section" id="db-admin">
+<span id="shell-db-admin"></span><h2><code class="docutils literal notranslate"><span class="pre">db_admin</span></code><a class="headerlink" href="#db-admin" title="Permalink to this headline">¶</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">db_admin</span></code> shell is specialized in database administration tasks
+for developers. As a user of BEdita, you’ll hardly need any of the commands
+that this shell provides.</p>
+<div class="section" id="init">
+<span id="shell-db-admin-init"></span><h3><code class="docutils literal notranslate"><span class="pre">init</span></code><a class="headerlink" href="#init" title="Permalink to this headline">¶</a></h3>
+<p>This subcommand will initialize the database. The database connection <strong>must</strong>
+be already configured in order for this command to work. If you’re looking for
+a command-line wizard to guide you through all the steps required to install
+BEdita, please head to the <a class="reference internal" href="#shell-bedita-setup"><span class="std std-ref">setup command</span></a>.</p>
+<p>If any table is present in the database, you’ll be asked if you want your
+database to be weeped, or if you wish to abort the operation. When the schema
+has been created, you’ll also be asked if you want additional set of data to be
+loaded into the database. A minimum set of data is loaded regardless of your
+choice — this is required in order for BEdita to work.</p>
+<p>This command can be run in unattended (non-interactive) mode by appending
+command-line flags <code class="docutils literal notranslate"><span class="pre">--[no-]force</span></code> and <code class="docutils literal notranslate"><span class="pre">--[no-]seed</span></code>.</p>
+<dl class="option">
+<dt id="cmdoption-db-admin-init-f">
+<code class="sig-name descname">-f</code><code class="sig-prename descclassname"></code><code class="sig-prename descclassname">, </code><code class="sig-name descname">--force</code><code class="sig-prename descclassname"></code><a class="headerlink" href="#cmdoption-db-admin-init-f" title="Permalink to this definition">¶</a></dt>
+<dd><p>Force removal of all tables in case target database is not empty.</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-db-admin-init-no-force">
+<code class="sig-name descname">--no-force</code><code class="sig-prename descclassname"></code><a class="headerlink" href="#cmdoption-db-admin-init-no-force" title="Permalink to this definition">¶</a></dt>
+<dd><p>Abort if target database is not empty.</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-db-admin-init-s">
+<code class="sig-name descname">-s</code><code class="sig-prename descclassname"></code><code class="sig-prename descclassname">, </code><code class="sig-name descname">--seed</code><code class="sig-prename descclassname"></code><a class="headerlink" href="#cmdoption-db-admin-init-s" title="Permalink to this definition">¶</a></dt>
+<dd><p>Seed database with additional set of data.</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-db-admin-init-no-seed">
+<code class="sig-name descname">--no-seed</code><code class="sig-prename descclassname"></code><a class="headerlink" href="#cmdoption-db-admin-init-no-seed" title="Permalink to this definition">¶</a></dt>
+<dd><p>Don’t load any additional set of data. A minimum set of data required for
+BEdita to work is loaded anyway.</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-db-admin-init-c">
+<code class="sig-name descname">-c</code><code class="sig-prename descclassname"> &lt;connection&gt;</code><code class="sig-prename descclassname">, </code><code class="sig-name descname">--connection</code><code class="sig-prename descclassname"> &lt;connection&gt;</code><a class="headerlink" href="#cmdoption-db-admin-init-c" title="Permalink to this definition">¶</a></dt>
+<dd><p>Database connection to be used (default: <code class="docutils literal notranslate"><span class="pre">default</span></code>).</p>
+</dd></dl>
+
+<dl>
+<dt>Example</dt><dd><div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> bin/cake db_admin init --no-force --seed
+</pre></div>
+</div>
+</dd>
+</dl>
+</div>
+<div class="section" id="check-schema">
+<span id="shell-db-admin-check-schema"></span><h3><code class="docutils literal notranslate"><span class="pre">check_schema</span></code><a class="headerlink" href="#check-schema" title="Permalink to this headline">¶</a></h3>
+<p>This subcommand will perform checks on the current schema. This command is
+mostly useful when developing features that require making changes to the
+schema of BEdita’s database.</p>
+<p>You’ll be notified of:</p>
+<ul class="simple">
+<li><p>migration history not in sync (schema not migrated to the latest
+available version)</p></li>
+<li><p>new changes (added or removed tables; changes to columns,
+indexes or constraints)</p></li>
+<li><p>naming that offends SQL conventions</p></li>
+</ul>
+<p>This command exits with a non-zero exit code whenever current schema is not
+completely up-to-date and it follows SQL conventions, making it possible to
+employ this command in other automated tasks.</p>
+<dl class="option">
+<dt id="cmdoption-db-admin-check-schema-c">
+<code class="sig-name descname">-c</code><code class="sig-prename descclassname"> &lt;connection&gt;</code><code class="sig-prename descclassname">, </code><code class="sig-name descname">--connection</code><code class="sig-prename descclassname"> &lt;connection&gt;</code><a class="headerlink" href="#cmdoption-db-admin-check-schema-c" title="Permalink to this definition">¶</a></dt>
+<dd><p>Database connection to be used (default: <code class="docutils literal notranslate"><span class="pre">default</span></code>).</p>
+</dd></dl>
+
+<dl>
+<dt>Example</dt><dd><div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> bin/cake db_admin check_schema --verbose
+</pre></div>
+</div>
+</dd>
+</dl>
+</div>
+</div>
+<div class="section" id="jobs">
+<span id="shell-jobs"></span><h2><code class="docutils literal notranslate"><span class="pre">jobs</span></code><a class="headerlink" href="#jobs" title="Permalink to this headline">¶</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">jobs</span></code> shell is used to run asynchonous pending jobs stored in <cite>async_jobs</cite> table.</p>
+<div class="section" id="pending">
+<span id="shell-jobs-pending"></span><h3><code class="docutils literal notranslate"><span class="pre">pending</span></code><a class="headerlink" href="#pending" title="Permalink to this headline">¶</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">pending</span></code> subcommand will launch all <cite>pending</cite> jobs waiting to be run.
+A <code class="docutils literal notranslate"><span class="pre">--limit</span></code> option may be used to set a maximum number of jobs to run.</p>
+<dl class="option">
+<dt id="cmdoption-jobs-pending-l">
+<code class="sig-name descname">-l</code><code class="sig-prename descclassname"> &lt;limit&gt;</code><code class="sig-prename descclassname">, </code><code class="sig-name descname">--limit</code><code class="sig-prename descclassname"> &lt;limit&gt;</code><a class="headerlink" href="#cmdoption-jobs-pending-l" title="Permalink to this definition">¶</a></dt>
+<dd><p>Specify maximum number of jobs to run.</p>
+</dd></dl>
+
+<dl>
+<dt>Example</dt><dd><div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> bin/cake <span class="nb">jobs</span> pending -l <span class="m">10</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</div>
+<div class="section" id="run">
+<span id="shell-jobs-run"></span><h3><code class="docutils literal notranslate"><span class="pre">run</span></code><a class="headerlink" href="#run" title="Permalink to this headline">¶</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">run</span></code> subcommand will launch a single job from its UUID.</p>
+<dl>
+<dt>Example</dt><dd><div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> bin/cake <span class="nb">jobs</span> run 0660d795-d1bf-4ca0-9a05-2ee47943a658
+</pre></div>
+</div>
+</dd>
+</dl>
+</div>
+</div>
+<div class="section" id="spec">
+<span id="shell-spec"></span><h2><code class="docutils literal notranslate"><span class="pre">spec</span></code><a class="headerlink" href="#spec" title="Permalink to this headline">¶</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">spec</span></code> shell can be used to automatically generate piece of documentation
+for available API endpoints.</p>
+<div class="section" id="generate">
+<span id="shell-spec-generate"></span><h3><code class="docutils literal notranslate"><span class="pre">generate</span></code><a class="headerlink" href="#generate" title="Permalink to this headline">¶</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">generate</span></code> subcommand will generate Swagger documentation in YAML format
+for currently available API endpoints.</p>
+<dl class="option">
+<dt id="cmdoption-spec-generate-o">
+<code class="sig-name descname">-o</code><code class="sig-prename descclassname"> &lt;output&gt;</code><code class="sig-prename descclassname">, </code><code class="sig-name descname">--output</code><code class="sig-prename descclassname"> &lt;output&gt;</code><a class="headerlink" href="#cmdoption-spec-generate-o" title="Permalink to this definition">¶</a></dt>
+<dd><p>Specify an output file (default: <code class="file docutils literal notranslate"><span class="pre">plugins/BEdita/API/spec/be4.yaml</span></code>).</p>
+</dd></dl>
+
+<dl>
+<dt>Example</dt><dd><div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> bin/cake spec generate
+</pre></div>
+</div>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="authorization.html" class="btn btn-neutral float-left" title="Authentication &amp; Authorization" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="endpoints/index.html" class="btn btn-neutral float-right" title="API reference" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2020, Channelweb Srl, Chialab Srl.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

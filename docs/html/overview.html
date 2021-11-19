@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Overview &mdash; BEdita 4.1.0 documentation</title><link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/api_methods.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Setup" href="setup.html" />
+    <link rel="prev" title="BEdita 4 documentation" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> BEdita
+          </a>
+              <div class="version">
+                4.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Overview</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#backend">Backend</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#manager">Manager</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="setup.html">Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="configuration.html">Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="database.html">Database</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bedita_objects.html">Objects in BEdita</a></li>
+<li class="toctree-l1"><a class="reference internal" href="authorization.html">Authentication &amp; Authorization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="shell.html">Shell commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="endpoints/index.html">API reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="glossary.html">Glossary</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">BEdita</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Overview</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/overview.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="section" id="overview">
+<h1>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h1>
+<p>BEdita is a tool to handle the data of your mobile, IoT, web and desktop applications.</p>
+<dl class="simple">
+<dt>It’s a full fledged content management solution with:</dt><dd><ul class="simple">
+<li><p>an HTTP REST driven server application - the <strong>Backend</strong> - with a complete API to model, create, modify and retrieve data</p></li>
+<li><p>a default progressive web application - the <strong>Manager</strong> - to control &amp; manage your data</p></li>
+</ul>
+</dd>
+</dl>
+<p>BEdita is built with <a class="reference external" href="http://cakephp.org">CakePHP 3</a> and uses relational DBMS like <a class="reference external" href="http://www.mysql.com">MySQL</a>,
+<a class="reference external" href="https://www.postgresql.org">Postgres</a> or <a class="reference external" href="http://sqlite.com">SQLite</a>
+in conjunction with (optional) NoSQL systems like <a class="reference external" href="http://redis.io/">Redis</a>, <a class="reference external" href="https://www.elastic.co/">Elastic Search</a> and <a class="reference external" href="https://www.influxdata.com/time-series-platform/influxdb/">InfluxDb</a> to boost
+performance and scale up to Big Data scenarios.</p>
+<p><a class="reference external" href="http://jsonapi.org">JSON API</a> is the primary, although not unique, exchange data format.</p>
+<div class="section" id="backend">
+<h2>Backend<a class="headerlink" href="#backend" title="Permalink to this headline">¶</a></h2>
+<p>The <strong>Backend</strong> is the core of BEdita: an HTTP REST service that exposes a set of API endpoints.</p>
+<p>It’s not a standalone application service or daemon like a DBMS, but it’s an application deployed in a Web server like Apache or Nginx
+and accessible via standard HTTP ports.</p>
+<p>So at first it may look like a <em>standard</em> Web application, but it’s not.</p>
+<p>It doesn’t offer an HTML interface, it doesn’t respond in HTML <a class="footnote-reference brackets" href="#a" id="id1">1</a> but only in JSON <a class="footnote-reference brackets" href="#b" id="id2">2</a>: the only way to communicate
+with this service is through its <a class="reference internal" href="glossary.html#term-0"><span class="xref std std-term">JSON API</span></a> REST endpoints. See <a class="reference internal" href="endpoints/index.html"><span class="doc">API reference</span></a> for an overview.</p>
+<p>To install a backend instance see <a class="reference internal" href="setup.html"><span class="doc">Setup</span></a></p>
+</div>
+<div class="section" id="manager">
+<h2>Manager<a class="headerlink" href="#manager" title="Permalink to this headline">¶</a></h2>
+<p>The <strong>Manager</strong> is a progressive javascript web application to manage all of your data using the backend REST API.</p>
+<p>You may see this application as the primary GUI of BEdita or as a <em>control panel</em> or <em>admin console</em>.</p>
+<p>To operate with this application you need to login first.</p>
+<p>The first user created during setup has the permanent <a class="reference internal" href="glossary.html#term-role"><span class="xref std std-term">role</span></a> of <em>administrator</em> and using its credentials you may:</p>
+<ul class="simple">
+<li><p>create new users and assign roles to them</p></li>
+<li><p>create new roles</p></li>
+<li><p>create and modify objects - contents or tree structures that may be used in your applications</p></li>
+<li><p>create new object types from your application domain or extend existing types</p></li>
+<li><p>create relations between objects</p></li>
+<li><p>give access permissions to endpoints and objects to some roles</p></li>
+<li><p>set configuration settings and view system information and relevant events</p></li>
+</ul>
+<p>Through its dynamic permission system keep in mind that users having different roles may perform different actions:</p>
+<ul class="simple">
+<li><p>some users may not be able to login in the <strong>Manager</strong> - e.g. standard users of your applications</p></li>
+<li><p>some users may not have access to some endpoints - like modeling new types, or view some object types</p></li>
+<li><p>some users may have a read-only access to some endpoints - they may only see certain types but not create or modify anything</p></li>
+</ul>
+<p class="rubric">Notes</p>
+<dl class="footnote brackets">
+<dt class="label" id="a"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
+<dd><p>it’s possible however, only for testing/debugging purposes, to activate HTML responses
+to use the <strong>Backend</strong> in a browser, see <a class="reference internal" href="configuration.html#configuration-accept"><span class="std std-ref">Accept</span></a></p>
+</dd>
+<dt class="label" id="b"><span class="brackets"><a class="fn-backref" href="#id2">2</a></span></dt>
+<dd><p>other formats like YML (or XML) could be added in future releases.</p>
+</dd>
+</dl>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="index.html" class="btn btn-neutral float-left" title="BEdita 4 documentation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="setup.html" class="btn btn-neutral float-right" title="Setup" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2020, Channelweb Srl, Chialab Srl.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Request and Response &mdash; BEdita 4.1.0 documentation</title><link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/api_methods.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Common GET parameters" href="parameters.html" />
+    <link rel="prev" title="Introduction" href="intro.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> BEdita
+          </a>
+              <div class="version">
+                4.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../setup.html">Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../configuration.html">Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../database.html">Database</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../bedita_objects.html">Objects in BEdita</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../authorization.html">Authentication &amp; Authorization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../shell.html">Shell commands</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">API reference</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="intro.html">Introduction</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Request and Response</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#methods">Methods</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#request">Request</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#response">Response</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#status-codes">Status codes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#errors">Errors</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="parameters.html">Common GET parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="home.html">Home Document <code class="docutils literal notranslate"><span class="pre">/home</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="auth.html">Authentication <code class="docutils literal notranslate"><span class="pre">/auth</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="users.html">Users <code class="docutils literal notranslate"><span class="pre">/users</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="roles.html">Roles <code class="docutils literal notranslate"><span class="pre">/roles</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="objects.html">Objects <code class="docutils literal notranslate"><span class="pre">/objects</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="streams.html">Streams <code class="docutils literal notranslate"><span class="pre">/streams</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="media/thumbs.html">Media thumbs <code class="docutils literal notranslate"><span class="pre">/media/thumbs</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="admin.html">Administration <code class="docutils literal notranslate"><span class="pre">/admin</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="model/index.html">Model <code class="docutils literal notranslate"><span class="pre">/model</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="signup.html">Signup <code class="docutils literal notranslate"><span class="pre">/signup</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="status.html">Status <code class="docutils literal notranslate"><span class="pre">/status</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="trash.html">Trash <code class="docutils literal notranslate"><span class="pre">/trash</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../glossary.html">Glossary</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">BEdita</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="index.html">API reference</a> &raquo;</li>
+      <li>Request and Response</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/endpoints/request_response.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="section" id="request-and-response">
+<h1>Request and Response<a class="headerlink" href="#request-and-response" title="Permalink to this headline">¶</a></h1>
+<p>Every <strong>BEdita 4</strong> API call provides a standard request and response format layout: most of the endpoints are operations involving resources, think of classical CRUD operations for simplicity, and will have the same layout while some other operations like authentication are not and are slightly different.</p>
+<p>Requests and responses will follow in general the <a class="reference internal" href="../glossary.html#term-0"><span class="xref std std-term">JSON API</span></a> specification as default format.
+There are few exceptions though: in some situations a very simple JSON object format is used as request body. See below for some examples.</p>
+<div class="section" id="methods">
+<span id="api-methods"></span><h2>Methods<a class="headerlink" href="#methods" title="Permalink to this headline">¶</a></h2>
+<p><strong>HTTP</strong> methods used in API requests, following common REST best practices, are:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><strong>GET</strong> to read resources or other meta informations</p></li>
+<li><p><strong>POST</strong> to create new resources or for operations requiring input data like authentication</p></li>
+<li><p><strong>PATCH</strong> to modify existing resources</p></li>
+<li><p><strong>DELETE</strong> to delete existing resources</p></li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="request">
+<span id="api-requests"></span><h2>Request<a class="headerlink" href="#request" title="Permalink to this headline">¶</a></h2>
+<p><strong>DELETE</strong> and <strong>GET</strong> requests do not contain in general a body. Have a look at <a class="reference internal" href="parameters.html"><span class="doc">Common GET parameters</span></a> for an overview of GET query strings.</p>
+<p>In case of <strong>POST</strong> and <strong>PATCH</strong> methods instead a <a class="reference internal" href="../glossary.html#term-0"><span class="xref std std-term">JSON API</span></a> compliant format body part has to be sent by the client.</p>
+<p>A minimal body request will have this layout:</p>
+<blockquote>
+<div><div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="nt">&quot;data&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;documents&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;attributes&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="nt">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;This is a title&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;Brief description or abstract&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;body&quot;</span><span class="p">:</span> <span class="s2">&quot;Document body with long text...&quot;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p>Very few operations like authentication require a flat key-value JSON object format like:</p>
+<blockquote>
+<div><div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="nt">&quot;username&quot;</span><span class="p">:</span> <span class="s2">&quot;my-username&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;password&quot;</span><span class="p">:</span> <span class="s2">&quot;my-password&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div></blockquote>
+</div>
+<div class="section" id="response">
+<span id="api-responses"></span><h2>Response<a class="headerlink" href="#response" title="Permalink to this headline">¶</a></h2>
+<p>Everytime a response contains a body it will be in <a class="reference internal" href="../glossary.html#term-0"><span class="xref std std-term">JSON API</span></a> compliant format.</p>
+<p>A simple example of a <strong>GET /documents</strong> response will help us highlight some important concepts:</p>
+<blockquote>
+<div><div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="nt">&quot;data&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;2&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;documents&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;attributes&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="nt">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;My first document&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;A brief description&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;body&quot;</span><span class="p">:</span> <span class="s2">&quot;A long description&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;draft&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;uname&quot;</span><span class="p">:</span> <span class="s2">&quot;documents_my-first-document&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;custom_field&quot;</span><span class="p">:</span> <span class="mi">1234</span><span class="p">,</span>
+                <span class="nt">&quot;extra&quot;</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="nt">&quot;ke1&quot;</span><span class="p">:</span> <span class="s2">&quot;value1&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;key2&quot;</span><span class="p">:</span> <span class="p">[</span>
+                        <span class="s2">&quot;value2&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;other value&quot;</span>
+                    <span class="p">]</span>
+                <span class="p">},</span>
+                <span class="nt">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;en&quot;</span>
+            <span class="p">},</span>
+            <span class="nt">&quot;meta&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="nt">&quot;locked&quot;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+                <span class="nt">&quot;created&quot;</span><span class="p">:</span> <span class="s2">&quot;2017-03-22T17:39:23+00:00&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;modified&quot;</span><span class="p">:</span> <span class="s2">&quot;2017-06-25T21:33:33+00:00&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;published&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+                <span class="nt">&quot;created_by&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
+                <span class="nt">&quot;modified_by&quot;</span><span class="p">:</span> <span class="mi">9</span>
+            <span class="p">},</span>
+            <span class="nt">&quot;links&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="nt">&quot;self&quot;</span><span class="p">:</span> <span class="s2">&quot;https://api.example.com/documents/2&quot;</span>
+            <span class="p">},</span>
+            <span class="nt">&quot;relationships&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="nt">&quot;linked_to&quot;</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="nt">&quot;links&quot;</span><span class="p">:</span> <span class="p">{</span>
+                        <span class="nt">&quot;related&quot;</span><span class="p">:</span> <span class="s2">&quot;https://api.example.com/documents/2/linked_to&quot;</span><span class="p">,</span>
+                        <span class="nt">&quot;self&quot;</span><span class="p">:</span> <span class="s2">&quot;https://api.example.com/documents/2/relationships/linked_to&quot;</span>
+                    <span class="p">}</span>
+                <span class="p">}</span>
+            <span class="p">}</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;3&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;documents&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;attributes&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="p">}</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+        <span class="p">}</span>
+    <span class="p">],</span>
+    <span class="nt">&quot;links&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;self&quot;</span><span class="p">:</span> <span class="s2">&quot;https://api.example.com/documents&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;home&quot;</span><span class="p">:</span> <span class="s2">&quot;https://api.example.com/home&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;first&quot;</span><span class="p">:</span> <span class="s2">&quot;https://api.example.com/documents&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;last&quot;</span><span class="p">:</span> <span class="s2">&quot;https://api.example.com/documents&amp;page=5&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;prev&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+        <span class="nt">&quot;next&quot;</span><span class="p">:</span> <span class="s2">&quot;https://api.example.com/documents&amp;page=2&quot;</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;meta&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;pagination&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="nt">&quot;count&quot;</span><span class="p">:</span> <span class="mi">92</span><span class="p">,</span>
+            <span class="nt">&quot;page&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+            <span class="nt">&quot;page_count&quot;</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span>
+            <span class="nt">&quot;page_items&quot;</span><span class="p">:</span> <span class="mi">20</span><span class="p">,</span>
+            <span class="nt">&quot;page_size&quot;</span><span class="p">:</span> <span class="mi">20</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p>This is the classical response in case of resources list. For a single resource response is very similar, but somehow reduced.</p>
+<p>At the root level we have:</p>
+<blockquote>
+<div><ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;data&quot;</span></code> key will contain an array of resources, or a single resource when a single resource is requested like in <strong>GET /documents/2</strong></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;meta&quot;</span></code> will contain metadata of single resources or of resource lists, mainly pagination info for lists</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;links&quot;</span></code> key appears in more than one place and will contain</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;self&quot;</span></code> (always present) with a link pointing to the resource containing it; it can be an array of resources, a single resource or a relationship</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;home&quot;</span></code> link to <a class="reference internal" href="home.html"><span class="doc">Home Document /home</span></a> endpoint</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;first&quot;</span></code> <code class="docutils literal notranslate"><span class="pre">&quot;last&quot;</span></code> <code class="docutils literal notranslate"><span class="pre">&quot;prev&quot;</span></code> <code class="docutils literal notranslate"><span class="pre">&quot;next&quot;</span></code> <a class="reference internal" href="parameters.html#get-pagination"><span class="std std-ref">Pagination</span></a> URIs to access pages in case of resources array</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</div></blockquote>
+<p>Giving a closer look at <strong>data</strong> key there are some important things to notice:</p>
+<blockquote>
+<div><ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;id&quot;</span></code> and <code class="docutils literal notranslate"><span class="pre">&quot;type&quot;</span></code> must always be present, <code class="docutils literal notranslate"><span class="pre">&quot;type&quot;</span></code> is the unique plural name of object types (like <cite>documents</cite> in this case) or of internal resources (like <cite>roles</cite>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;attributes&quot;</span></code> is for resource attributes, these are generally properties that a client application can modify, once permissions are granted, and contains</p>
+<blockquote>
+<div><ul>
+<li><p><strong>stantard core</strong> properties like <code class="docutils literal notranslate"><span class="pre">&quot;title&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;description&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;lang&quot;</span></code> or <code class="docutils literal notranslate"><span class="pre">&quot;body&quot;</span></code> available for all object types</p></li>
+<li><p><strong>custom</strong> properties that belong to the current resource or object type only - <code class="docutils literal notranslate"><span class="pre">&quot;custom_field&quot;</span></code> in this example</p></li>
+<li><p><strong>special core</strong> properties available for all object types, with some specific meaning and usage:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;status&quot;</span></code> may have only <code class="docutils literal notranslate"><span class="pre">on</span></code>, <code class="docutils literal notranslate"><span class="pre">draft</span></code> or <code class="docutils literal notranslate"><span class="pre">off</span></code> as values; it representes an editorial status, depending on client application settings objects with status <code class="docutils literal notranslate"><span class="pre">draft</span></code> and <code class="docutils literal notranslate"><span class="pre">off</span></code> may not be visible</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;uname&quot;</span></code> is the object unique name, a modifiable unique identifier of every object inside a project, represented by an URL-friendly string that may be derived from the <code class="docutils literal notranslate"><span class="pre">&quot;title&quot;</span></code> or from other properties; upon creation a <code class="docutils literal notranslate"><span class="pre">uname</span></code> is automatically created and when a client application requests to create or modifiy this property the actual value may be changed by the system to avoid conflicts with an existing identical <code class="docutils literal notranslate"><span class="pre">uname</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;extra&quot;</span></code> is a special property where an application may put arbitrary data, use it as you wish… we don’t wanna know :)</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</div></blockquote>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;meta&quot;</span></code> is for resource metadata, or properties that are not directly changeable by a client application, like:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;created&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;modified&quot;</span></code> and <code class="docutils literal notranslate"><span class="pre">&quot;published&quot;</span></code> will show creation date, last modification date and date of publishing (when <code class="docutils literal notranslate"><span class="pre">status</span></code> changed to <code class="docutils literal notranslate"><span class="pre">on</span></code>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;created_by&quot;</span></code> and <code class="docutils literal notranslate"><span class="pre">&quot;modified_by&quot;</span></code> display the id of the user that created the object and of the user that modified it for the last time</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;locked&quot;</span></code> is a special property, when set to <strong>true</strong> an object is not deletable and its <code class="docutils literal notranslate"><span class="pre">status</span></code> and <code class="docutils literal notranslate"><span class="pre">uname</span></code> cannot be modified</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;links&quot;</span></code> contains a <code class="docutils literal notranslate"><span class="pre">&quot;self&quot;</span></code> link to representation of the object itself</p></li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">&quot;relationships&quot;</span></code> displays links to read or manipulate related resources or objects, in general we have:</dt><dd><ul class="simple">
+<li><p><strong>core</strong> relations between objects and resources, like the one between <a class="reference internal" href="../glossary.html#term-user"><span class="xref std std-term">user</span></a> and <a class="reference internal" href="../glossary.html#term-role"><span class="xref std std-term">role</span></a></p></li>
+<li><p><strong>custom</strong> semantic relations between objects dynamically created using <a class="reference internal" href="model/relations.html"><span class="doc">Relations /model/relations</span></a></p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="status-codes">
+<span id="api-http-status"></span><h2>Status codes<a class="headerlink" href="#status-codes" title="Permalink to this headline">¶</a></h2>
+<p>Obviously on every response a meaningful <cite>HTTP status code &lt;https://en.wikipedia.org/wiki/List_of_HTTP_status_codes&gt;</cite> is returned.
+The API consumer must always check it before reading the response body: especially to see if an error has occured.</p>
+<p>Here a short list of the main status codes your client application will receive:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">200</span> <span class="pre">OK</span></code> - A successful GET or PATCH or POST that doesn’t result in a creation.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">201</span> <span class="pre">Created</span></code> - Successful POST that results in a creation. A Location header pointing to the location of the new resource will be provided.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">204</span> <span class="pre">No</span> <span class="pre">Content</span></code> - Successful not returning a body (like a DELETE).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">400</span> <span class="pre">Bad</span> <span class="pre">Request</span></code> - The request is malformed.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">401</span> <span class="pre">Unauthorized</span></code> - No authentication or invalid authentication details are provided.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">403</span> <span class="pre">Forbidden</span></code> - Authentication succeeded but authenticated user doesn’t have access to the resource.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">404</span> <span class="pre">Not</span> <span class="pre">Found</span></code> - A non-existent resource is requested.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">405</span> <span class="pre">Method</span> <span class="pre">Not</span> <span class="pre">Allowed</span></code> - An HTTP method is being requested that isn’t allowed (like requesting a DELETE on <a class="reference internal" href="home.html"><span class="doc">Home Document /home</span></a>).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">406</span> <span class="pre">Not</span> <span class="pre">Acceptable</span></code> - A content negotiation error, content generated is not acceptable according to the <cite>Accept</cite> headers sent in the request - see <a class="reference internal" href="intro.html#api-headers"><span class="std std-ref">Headers</span></a>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">415</span> <span class="pre">Unsupported</span> <span class="pre">Media</span> <span class="pre">Type</span></code> - An unsupported or unknown content type was provided as part of the request.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">500</span> <span class="pre">Internal</span> <span class="pre">Server</span> <span class="pre">Error</span></code> - Something bad happened, hope you don’t get a lot of them :)</p></li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="errors">
+<span id="api-errors"></span><h2>Errors<a class="headerlink" href="#errors" title="Permalink to this headline">¶</a></h2>
+<p>In case of error this is the expected response body layout</p>
+<blockquote>
+<div><div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="nt">&quot;error&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;401&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;Unauthorized&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;code&quot;</span><span class="p">:</span> <span class="s2">&quot;expired_token&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;detail&quot;</span><span class="p">:</span> <span class="s2">&quot;JWT access token has expired&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;meta&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="nt">&quot;trace&quot;</span><span class="p">:</span> <span class="p">[</span>
+                <span class="s2">&quot;#0 /var/www/bedita/plugins/BEdita/API/src/Auth/EndpointAuthorize.php(133): BEdita\\API\\Auth\\JwtAuthenticate-&gt;unauthenticated(Object(Cake\\Http\\ServerRequest), Object(Cake\\Http\\Response))&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;#1 /var/www/bedita/plugins/BEdita/API/src/Auth/EndpointAuthorize.php(115): BEdita\\API\\Auth\\EndpointAuthorize-&gt;unauthenticate()&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;#2 ...&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;....&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;#27 {main}&quot;</span>
+            <span class="p">]</span>
+        <span class="p">}</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;links&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;self&quot;</span><span class="p">:</span> <span class="s2">&quot;https://api.example.com/documents&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;home&quot;</span><span class="p">:</span> <span class="s2">&quot;https://api.example.com/home&quot;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p>Main difference between a failure and a successful response is the presence of the <code class="docutils literal notranslate"><span class="pre">&quot;error&quot;</span></code> key providing:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;status&quot;</span></code> response HTTP status code, for convenience</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;title&quot;</span></code> short, human-readable summary of the problem that SHOULD NOT change from occurrence to occurrence of the problem</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;code&quot;</span></code> API specific error code in string format, used by API consumer to better identify the problem occurred</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;detail&quot;</span></code> human-readable explanation specific to this occurrence of the problem. Can be localized.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;meta&quot;</span></code> will contain stacktrace in <code class="docutils literal notranslate"><span class="pre">&quot;trace&quot;</span></code> only in <strong>debug</strong> mode</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;links&quot;</span></code> with <code class="docutils literal notranslate"><span class="pre">&quot;self&quot;</span></code> URL where error originated, and <code class="docutils literal notranslate"><span class="pre">&quot;home&quot;</span></code> URL</p></li>
+</ul>
+</div></blockquote>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="intro.html" class="btn btn-neutral float-left" title="Introduction" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="parameters.html" class="btn btn-neutral float-right" title="Common GET parameters" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2020, Channelweb Srl, Chialab Srl.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

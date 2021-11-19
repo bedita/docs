@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Object Types /model/object_types &mdash; BEdita 4.1.0 documentation</title><link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/api_methods.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/language_data.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Property Types /model/property_types" href="property_types.html" />
+    <link rel="prev" title="Model /model" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../index.html" class="icon icon-home"> BEdita
+          </a>
+              <div class="version">
+                4.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../setup.html">Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../configuration.html">Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../database.html">Database</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../bedita_objects.html">Objects in BEdita</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../authorization.html">Authentication &amp; Authorization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../shell.html">Shell commands</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">API reference</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../intro.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../request_response.html">Request and Response</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../parameters.html">Common GET parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../home.html">Home Document <code class="docutils literal notranslate"><span class="pre">/home</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../auth.html">Authentication <code class="docutils literal notranslate"><span class="pre">/auth</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users.html">Users <code class="docutils literal notranslate"><span class="pre">/users</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../roles.html">Roles <code class="docutils literal notranslate"><span class="pre">/roles</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../objects.html">Objects <code class="docutils literal notranslate"><span class="pre">/objects</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../streams.html">Streams <code class="docutils literal notranslate"><span class="pre">/streams</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../media/thumbs.html">Media thumbs <code class="docutils literal notranslate"><span class="pre">/media/thumbs</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../admin.html">Administration <code class="docutils literal notranslate"><span class="pre">/admin</span></code></a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Model <code class="docutils literal notranslate"><span class="pre">/model</span></code></a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Object Types <code class="docutils literal notranslate"><span class="pre">/model/object_types</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#create-an-object-type">Create an object type</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#get-single-object-type">Get single object type</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#object-types-list">Object types list</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#modify-an-object-type">Modify an object type</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#remove-an-object-type">Remove an object type</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="property_types.html">Property Types <code class="docutils literal notranslate"><span class="pre">/model/property_types</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="properties.html">Properties <code class="docutils literal notranslate"><span class="pre">/model/properties</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="relations.html">Relations <code class="docutils literal notranslate"><span class="pre">/model/relations</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="schema.html">Schema <code class="docutils literal notranslate"><span class="pre">/model/schema</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="index.html#naming-convention">Naming convention</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../signup.html">Signup <code class="docutils literal notranslate"><span class="pre">/signup</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../status.html">Status <code class="docutils literal notranslate"><span class="pre">/status</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../trash.html">Trash <code class="docutils literal notranslate"><span class="pre">/trash</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../glossary.html">Glossary</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">BEdita</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../index.html">API reference</a> &raquo;</li>
+          <li><a href="index.html">Model <code class="docutils literal notranslate"><span class="pre">/model</span></code></a> &raquo;</li>
+      <li>Object Types <code class="docutils literal notranslate"><span class="pre">/model/object_types</span></code></li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/endpoints/model/object_types.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="section" id="object-types-model-object-types">
+<h1>Object Types <code class="docutils literal notranslate"><span class="pre">/model/object_types</span></code><a class="headerlink" href="#object-types-model-object-types" title="Permalink to this headline">¶</a></h1>
+<p>Through this endpoint you will be able to create new object types, modify, enable/disable or remove an object type.</p>
+<div class="section" id="create-an-object-type">
+<span id="api-model-object-types"></span><h2>Create an object type<a class="headerlink" href="#create-an-object-type" title="Permalink to this headline">¶</a></h2>
+<p>Creation of a new object type happens through <code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/model/object_types</span></code> endpoint.</p>
+<dl class="post">
+<dt id="post--model-object_types">
+<code class="sig-name descname">POST </code><code class="sig-name descname">/model/object_types</code><a class="headerlink" href="#post--model-object_types" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p><strong>Example request (create `cats` type)</strong>:</p>
+<div class="highlight-http notranslate"><div class="highlight"><pre><span></span><span class="nf">POST</span> <span class="nn">/model/object_types</span> <span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Host</span><span class="o">:</span> <span class="l">api.example.com</span>
+<span class="na">Accept</span><span class="o">:</span> <span class="l">application/vnd.api+json</span>
+<span class="na">Content-Type</span><span class="o">:</span> <span class="l">application/vnd.api+json</span>
+
+<span class="p">{</span>
+    <span class="nt">&quot;data&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;object_types&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;attributes&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;cats&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;singular&quot;</span><span class="p">:</span> <span class="s2">&quot;cat&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;This is a cat&quot;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>In its simplest form the only required attributes are:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">name</span></code> object type in plural form, this is the canonical form for this type that will activate <code class="docutils literal notranslate"><span class="pre">/cats</span></code> endpoint</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">singular</span></code> singular form for type</p></li>
+</ul>
+<p>Both must be in <a class="reference external" href="https://en.wikipedia.org/wiki/Snake_case">lowered snake_case</a> format as internal naming convention, see <a class="reference internal" href="index.html#api-model-naming"><span class="std std-ref">Naming convention</span></a>, and must contain at least a letter (a-z) to avoid collisions with numeric ids.
+They also must be unique in your project.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">description</span></code> is an optional description of your type</p></li>
+</ul>
+<p>Expected response is <code class="docutils literal notranslate"><span class="pre">HTTP/1.1</span> <span class="pre">201</span> <span class="pre">OK</span></code>, with <code class="docutils literal notranslate"><span class="pre">application/vnd.api+json</span></code> body data representing object type just created.</p>
+<p>If the object type already exists or data is not valid (i.e. lacks of required fields or inconsistent input), POST fails and response will be <code class="docutils literal notranslate"><span class="pre">400</span> <span class="pre">Bad</span> <span class="pre">Request</span> <span class="pre">-</span> <span class="pre">Invalid</span> <span class="pre">data</span></code>.</p>
+</div>
+<div class="section" id="get-single-object-type">
+<h2>Get single object type<a class="headerlink" href="#get-single-object-type" title="Permalink to this headline">¶</a></h2>
+<p>You can obtain a single type by using <code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/model/object_types/{type}</span></code> endpoint.</p>
+<dl class="get">
+<dt id="get--model-object_types-type">
+<code class="sig-name descname">GET </code><code class="sig-name descname">/model/object_types/{type}</code><a class="headerlink" href="#get--model-object_types-type" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">{type}</span></code> can be a numeric id of the object type or its <code class="docutils literal notranslate"><span class="pre">name</span></code></p></li>
+</ul>
+<p><strong>Example request (get object types)</strong>:</p>
+<div class="highlight-http notranslate"><div class="highlight"><pre><span></span><span class="nf">GET</span> <span class="nn">/model/object_types/cats</span> <span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Host</span><span class="o">:</span> <span class="l">api.example.com</span>
+<span class="na">Accept</span><span class="o">:</span> <span class="l">application/vnd.api+json</span>
+</pre></div>
+</div>
+<p><strong>Example response</strong>:</p>
+<div class="highlight-http notranslate"><div class="highlight"><pre><span></span><span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Content-Type</span><span class="o">:</span> <span class="l">application/vnd.api+json</span>
+
+<span class="p">{</span>
+    <span class="nt">&quot;data&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;13&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;object_types&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;attributes&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;cats&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;singular&quot;</span><span class="p">:</span> <span class="s2">&quot;cat&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;is_abstract&quot;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+            <span class="nt">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;This is a cat&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;associations&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+            <span class="nt">&quot;hidden&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+            <span class="nt">&quot;enabled&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+            <span class="nt">&quot;table&quot;</span><span class="p">:</span> <span class="s2">&quot;BEdita/Core.Objects&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;parent_name&quot;</span><span class="p">:</span> <span class="s2">&quot;objects&quot;</span>
+        <span class="p">},</span>
+        <span class="nt">&quot;meta&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="nt">&quot;created&quot;</span><span class="p">:</span> <span class="s2">&quot;2017-11-21T13:56:54+00:00&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;modified&quot;</span><span class="p">:</span> <span class="s2">&quot;2017-11-21T13:56:54+00:00&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;core_type&quot;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+            <span class="nt">&quot;alias&quot;</span><span class="p">:</span> <span class="s2">&quot;Cats&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;relations&quot;</span><span class="p">:</span> <span class="p">[]</span>
+        <span class="p">},</span>
+        <span class="nt">&quot;relationships&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="nt">&quot;left_relations&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="nt">&quot;data&quot;</span><span class="p">:</span> <span class="p">[],</span>
+                <span class="nt">&quot;links&quot;</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="nt">&quot;related&quot;</span><span class="p">:</span> <span class="s2">&quot;http://api.example.com/model/object_types/13/left_relations&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;self&quot;</span><span class="p">:</span> <span class="s2">&quot;http://api.example.com/model/object_types/13/relationships/left_relations&quot;</span>
+                <span class="p">}</span>
+            <span class="p">},</span>
+            <span class="nt">&quot;right_relations&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="nt">&quot;data&quot;</span><span class="p">:</span> <span class="p">[],</span>
+                <span class="nt">&quot;links&quot;</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="nt">&quot;related&quot;</span><span class="p">:</span> <span class="s2">&quot;http://api.example.com/model/object_types/13/right_relations&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;self&quot;</span><span class="p">:</span> <span class="s2">&quot;http://api.example.com/model/object_types/13/relationships/right_relations&quot;</span>
+                <span class="p">}</span>
+            <span class="p">},</span>
+            <span class="nt">&quot;parent&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="nt">&quot;links&quot;</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="nt">&quot;related&quot;</span><span class="p">:</span> <span class="s2">&quot;http://api.example.com/model/object_types/13/parent&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;self&quot;</span><span class="p">:</span> <span class="s2">&quot;http://api.example.com/model/object_types/13/relationships/parent&quot;</span>
+                <span class="p">}</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;links&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;self&quot;</span><span class="p">:</span> <span class="s2">&quot;http://api.example.com/model/object_types/cats&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;home&quot;</span><span class="p">:</span> <span class="s2">&quot;http://api.example.com/home&quot;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Example response shows us some additional interesting fields:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;is_abstract&quot;</span></code> tells us if an object type is abstract or concrete; an abstract type can only have concrete subtypes but there can be no object of this type</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;associations&quot;</span></code>: list of internal entities associated with this type like <code class="docutils literal notranslate"><span class="pre">DateRanges</span></code> or <code class="docutils literal notranslate"><span class="pre">Streams</span></code>, formatted as JSON array, defaults to null</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;hidden&quot;</span></code>: list of core properties to hide, those properties will be ignored on every request and response for this type, defaults to null</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;enabled&quot;</span></code>: is a simple flag to activate/deactivate an object type in your project; you will not be able to set it to <code class="docutils literal notranslate"><span class="pre">false</span></code> if objects of this type or sub-types exist</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;table&quot;</span></code>: table class responsible to store your object data, expressed in <a class="reference external" href="https://book.cakephp.org/3.0/en/appendices/glossary.html#term-plugin-syntax">CakePHP plugin syntax</a>, defaults to <code class="docutils literal notranslate"><span class="pre">&quot;BEdita/Core.Objects&quot;</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;parent_name&quot;</span></code>: <cite>“name”</cite> of the parent abstract type, defaults to <code class="docutils literal notranslate"><span class="pre">&quot;objects&quot;</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">core_type</span></code> is a system flag indicating whether this is a <code class="docutils literal notranslate"><span class="pre">core</span></code> object type or a user created type on this project</p></li>
+</ul>
+<p>Relationships available are instead:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;left_relations&quot;</span></code> and <code class="docutils literal notranslate"><span class="pre">&quot;right_relations&quot;</span></code> representing object types with _left_ or _right_ side relations to this type, see <a class="reference internal" href="relations.html"><span class="doc">Relations /model/relations</span></a> for an axplanation</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;parent&quot;</span></code> abstract parent type of this one</p></li>
+</ul>
+</div>
+<div class="section" id="object-types-list">
+<h2>Object types list<a class="headerlink" href="#object-types-list" title="Permalink to this headline">¶</a></h2>
+<p>To retrieve a list of object types you can simply use <code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/model/object_types</span></code> and take advantage of common filters like <a class="reference internal" href="../parameters.html#filter-field"><span class="std std-ref">Field filter</span></a> or <a class="reference internal" href="../parameters.html#filter-search"><span class="std std-ref">Search Query filter</span></a></p>
+<dl class="get">
+<dt id="get--model-object_types">
+<code class="sig-name descname">GET </code><code class="sig-name descname">/model/object_types</code><a class="headerlink" href="#get--model-object_types" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p><strong>Example request get enabled object types</strong>:</p>
+<div class="highlight-http notranslate"><div class="highlight"><pre><span></span><span class="nf">GET</span> <span class="nn">/model/object_types?filter[enabled]=true</span> <span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Accept</span><span class="o">:</span> <span class="l">application/vnd.api+json</span>
+</pre></div>
+</div>
+<p>Response will contain an array of <code class="docutils literal notranslate"><span class="pre">object_types</span></code> in typical list format as shown in <a class="reference internal" href="../request_response.html#api-responses"><span class="std std-ref">Response</span></a>.</p>
+</div>
+<div class="section" id="modify-an-object-type">
+<h2>Modify an object type<a class="headerlink" href="#modify-an-object-type" title="Permalink to this headline">¶</a></h2>
+<p>You can modify an object type by using <code class="docutils literal notranslate"><span class="pre">PATCH</span> <span class="pre">/model/object_types/{type}</span></code> endpoint.</p>
+<dl class="patch">
+<dt id="patch--model-object_types-type">
+<code class="sig-name descname">PATCH </code><code class="sig-name descname">/model/object_types/{type}</code><a class="headerlink" href="#patch--model-object_types-type" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">{type}</span></code> can be a numeric id of the object type or its <code class="docutils literal notranslate"><span class="pre">name</span></code></p></li>
+</ul>
+<p><strong>Example request: modify an object type</strong>:</p>
+<p>In this example we will simply disable the newly created type and change its description</p>
+<div class="highlight-http notranslate"><div class="highlight"><pre><span></span><span class="nf">PATCH</span> <span class="nn">/model/object_types/13</span> <span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Host</span><span class="o">:</span> <span class="l">api.example.com</span>
+<span class="na">Accept</span><span class="o">:</span> <span class="l">application/vnd.api+json</span>
+<span class="na">Content-Type</span><span class="o">:</span> <span class="l">application/vnd.api+json</span>
+
+<span class="p">{</span>
+    <span class="nt">&quot;data&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="mi">13</span><span class="p">,</span>
+        <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;object_types&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;attributes&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="nt">&quot;enabled&quot;</span> <span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+            <span class="nt">&quot;description&quot;</span> <span class="p">:</span> <span class="s2">&quot;This was a cat&quot;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Response 200 OK is expected.</p>
+<div class="highlight-http notranslate"><div class="highlight"><pre><span></span>HTTP/1.1 200 OK
+Content-Type: application/vnd.api+json
+
+{
+    &quot;data&quot;: {
+        &quot;id&quot;: 13,
+        &quot;type&quot;: &quot;object_types&quot;,
+        &quot;attributes&quot;: {
+            &quot;username&quot;: &quot;johndoe&quot;,
+            &quot;name&quot;: &quot;Johnny&quot;,
+            &quot;surname&quot;: &quot;Doe&quot;
+        },
+        &quot;meta&quot;: {
+            ...
+        },
+        &quot;relationships&quot;: {
+            ...
+        }
+    },
+    &quot;links&quot;: {
+        &quot;self&quot;: &quot;http://api.example.com/model/object_types/13&quot;,
+        &quot;home&quot;: &quot;http://api.example.com/home&quot;
+    }
+}
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">&quot;meta&quot;</span></code> and <code class="docutils literal notranslate"><span class="pre">&quot;relationships&quot;</span></code> here omitted for brevity.</p>
+</div>
+<div class="section" id="remove-an-object-type">
+<h2>Remove an object type<a class="headerlink" href="#remove-an-object-type" title="Permalink to this headline">¶</a></h2>
+<p>You can delete permanently an object type by using <code class="docutils literal notranslate"><span class="pre">DELETE</span> <span class="pre">/model/object_types/{type}</span></code> endpoint.</p>
+<p>This operation cannot be reversed and will not be allowed if:</p>
+<ul class="simple">
+<li><p>one or more objects of this type exist</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">core_type</span></code> attribute flag is <code class="docutils literal notranslate"><span class="pre">true</span></code></p></li>
+<li><p>a subtype of this type exits</p></li>
+</ul>
+<dl class="delete">
+<dt id="delete--model-object_types-(type)">
+<code class="sig-name descname">DELETE </code><code class="sig-name descname">/model/object_types/</code><span class="sig-paren">(</span><em class="sig-param">type</em><span class="sig-paren">)</span><a class="headerlink" href="#delete--model-object_types-(type)" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">{type}</span></code> can be a numeric id of the object type or its <code class="docutils literal notranslate"><span class="pre">name</span></code></p></li>
+</ul>
+<p><strong>Example request: delete cats</strong>:</p>
+<div class="highlight-http notranslate"><div class="highlight"><pre><span></span><span class="nf">DELETE</span> <span class="nn">/model/object_types/cats</span> <span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Host</span><span class="o">:</span> <span class="l">api.example.com</span>
+</pre></div>
+</div>
+<p>Expected HTTP status response is <code class="docutils literal notranslate"><span class="pre">204</span> <span class="pre">No</span> <span class="pre">Content</span></code>.</p>
+<p>If object type is not found, response will be <code class="docutils literal notranslate"><span class="pre">404</span> <span class="pre">Not</span> <span class="pre">Found</span></code>, if delete operation is not allowed a <code class="docutils literal notranslate"><span class="pre">403</span> <span class="pre">Forbidden</span></code> will be sent.</p>
+<div class="highlight-http notranslate"><div class="highlight"><pre><span></span><span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">204</span> <span class="ne">No Content</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="index.html" class="btn btn-neutral float-left" title="Model /model" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="property_types.html" class="btn btn-neutral float-right" title="Property Types /model/property_types" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2020, Channelweb Srl, Chialab Srl.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
