@@ -1,4 +1,4 @@
-name: "Pull Request Docs Check"
+name: "Sphinx docs check"
 
 on:
   pull_request:
