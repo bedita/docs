@@ -20,4 +20,4 @@ ER Diagram
 A simple ER diagram is displayed here to give you a glimpse of BEdita4 core schema.
 Don't use it as a reference though: we will keep an updated version of this diagram, but some tables or fields may still be missing.
 
-.. image:: _static/be4-schema.svg
+.. image:: static/be4-schema.svg
