@@ -6,6 +6,7 @@ Below you will find instructions to setup BEdita4 on a typical server or desktop
 
 For a quick setup via `Docker <https://www.docker.com>`_ see :ref:`below <setup-docker>`.
 
+
 Prerequisites
 =============
 
