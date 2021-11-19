@@ -42,6 +42,6 @@ jobs:
     - name: 'Push changes'
       uses: ad-m/github-push-action@master
       with:
-        branch: gh-pages
-        directory: gh-pages
+        branch: feat/v4/github-action-sphinx-build
+        directory: docs
         github_token: ${{ secrets.GITHUB_TOKEN }}
