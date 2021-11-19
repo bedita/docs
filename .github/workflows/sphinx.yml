@@ -10,13 +10,16 @@ on:
 
 jobs:
   docs:
-    runs-on: ubuntu-latest
+    runs-on: 'ubuntu-20.04'
     steps:
-    - uses: actions/checkout@v1
-    - uses: ammaraskar/sphinx-action@master
+    - name: 'Checkout current revision'
+      uses: 'actions/checkout@v2'
+    - name: 'Sphinx build'
+      uses: ammaraskar/sphinx-action@master
       with:
         docs-folder: "./"
-    - uses: actions/upload-artifact@v1
+    - name: 'Archive doc in docs folder'
+      uses: 'actions/upload-artifact@v2'
       with:
-        name: DocumentationHTML
-        path: docs/
+        name: 'Documentation HTML'
+        path: 'docs'
