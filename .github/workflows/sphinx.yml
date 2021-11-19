@@ -30,7 +30,7 @@ jobs:
     - name: 'Commit documentation changes'
       run: |
         git clone https://github.com/didoda/docs.git --branch feat/v4/github-action-sphinx-build --single-branch feat/v4/github-action-sphinx-build
-        cp -r build/* docs/
+        cp -r build/html/* docs/
         cd docs
         git config --local user.email "action@github.com"
         git config --local user.name "GitHub Action"
