@@ -13,7 +13,9 @@ API reference
     roles
     objects
     streams
+    folders
     media/thumbs
+    translations
     admin
     model/index
     signup
