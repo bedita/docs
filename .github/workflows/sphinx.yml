@@ -1,0 +1,22 @@
+name: "Sphinx docs check"
+
+on:
+  pull_request:
+    paths:
+      - '**/*.rst'
+  push:
+    paths:
+      - '**/*.rst'
+
+jobs:
+  docs:
+    runs-on: 'ubuntu-20.04'
+    steps:
+
+    - name: 'Checkout current revision'
+      uses: 'actions/checkout@v2'
+
+    - name: 'Sphinx build'
+      uses: ammaraskar/sphinx-action@master
+      with:
+        docs-folder: "./"
