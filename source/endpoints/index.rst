@@ -15,6 +15,7 @@ API reference
     streams
     folders
     media/thumbs
+    translations
     admin
     model/index
     signup
