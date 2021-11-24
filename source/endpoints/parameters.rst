@@ -131,6 +131,8 @@ Simple text search may be performed with a query filter
 
 **Note**: currently only raw text search is performed, more sophisticated actual natural language search will be available in a future release
 
+.. _filter-type:
+
 Type filter
 ^^^^^^^^^^^
 
