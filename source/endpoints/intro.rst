@@ -56,7 +56,6 @@ Typical requests will then be like:
 
 .. _api-dynamic-endpoints:
 
-
 Dynamic endpoints
 -----------------
 

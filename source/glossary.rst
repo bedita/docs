@@ -11,6 +11,10 @@ Glossary
         This token is sent in ``Authorization`` HTTP header using a ``Bearer`` scheme on each request like this: ``Authorization: Bearer <token>``
 
 
+    folder
+        A folder is a special :term:`object` used to create tree structures. The concept is similar to folders in computer filesystems. In a :term:`project` you may have multiple folder trees, hence multiple root folders. Each folder, that is not a root folder, has one and only one parent folder. Other object types can instead have more than one parent folder (multifiling).
+
+
     json api
     JSON API
         `JSON API <http://jsonapi.org/>`_ is a specification for how a client should request that resources be fetched or modified, and how a server should respond to those requests. JSON API is designed to minimize both the number of requests and the amount of data transmitted between clients and servers. This efficiency is achieved without compromising readability, flexibility, or discoverability [cit. from the specification]

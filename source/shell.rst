@@ -224,3 +224,35 @@ Example
     ::
 
         $ bin/cake spec generate
+
+
+.. _shell:tree:
+
+``tree``
+========
+
+The ``tree`` shell provides two tasks: ``check`` and ``recover``.
+
+.. _shell:tree:check:
+
+check
+-----
+
+It performs some object-aware checks such as:
+
+ - detect folders that are not in the tree
+ - detect ubiquitous folders
+ - detect non-folder objects that are roots
+ - detect non-folder objects that have descendants
+ - detect objects that are present more than once within same parent
+
+Usage: ``bin/cake tree check``.
+
+.. _shell:tree:recover:
+
+recover
+-------
+
+It performs a basic recovery of a corrupt tree, by simply invoking CakePHP's TreeBehavior::recover().
+Usage: ``bin/cake tree recover``.
+

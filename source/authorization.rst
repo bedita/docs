@@ -2,7 +2,6 @@
 Authentication & Authorization
 ******************************
 
-
 BEdita4 is a multi-application system: it is designed to handle different client applications requests performed by multiple users on the same :term:`project`.
 
 For every request application and user roles should be identified: each application may have its own grants, and each user also depending on :term:`role` assignement.
@@ -29,7 +28,6 @@ Once the token is retrieved it can be used on every request in the ``Authorizati
 .. sourcecode:: http
 
     Authorization: Bearer <token>
-
 
 Application identification
 --------------------------
@@ -76,16 +74,22 @@ Instead ``permission type`` may have four different values for read operations (
  * **mine** ``(0b01)``: permissions granted only on **my** resources, i.e. resources belonging to the autenticated user
  * **block** ``(0b10)``: no permissions granted, and override all other permissions
 
+The first two bit, starting from right, are for the read operations (GET) and the other two for the write operations (POST, PATCH, DELETE):
+
+ * ``(0b0000)``: **false** for read [characters `00` on the right] and **false** for write [characters `00` in the middle, shifting by 2 positions]
+
+The relative integer number is used on the ``permission type`` column.
+
 To better understand how these rules work an example is given below:
 
-===========  ==========  =============  ============================
-  endpoint      role      application        permission
-===========  ==========  =============  ============================
- documents     NULL         ios-app       read: mine - write: mine
- documents     manager      backend       read: true - write: true
- payments       app          NULL         read: block - write: block
- events        reader       web-app       read: true - write: false
-===========  ==========  =============  ============================
+===========  ==========  =============  ===============================================
+  endpoint      role      application                      permission
+===========  ==========  =============  ===============================================
+ documents     NULL         ios-app      ``int 5  (0b0101)`` write: mine - read: mine
+ documents     manager      backend      ``int 15 (0b1111)`` write: true - read: true
+ payments       app          NULL        ``int 10 (0b1010)`` write: block - read: block
+ events        reader       web-app      ``int 12 (0b1100)`` write: true - read: false
+===========  ==========  =============  ===============================================
 
  * for every role (NULL) on ``/documents`` endpoint through ``ios-app`` application only resources belonging to authenticated user may be read and written
  * users with ``manager`` role accessing ``/documents`` with ``backend`` application are able to read and modify write every resource
