@@ -25,7 +25,7 @@ Don't use it as a reference though: we will keep an updated version of this diag
 Migrations
 ----------
 
-The recommended way to create a schema migration is to use the `bake` shell.
+The recommended way to create a schema migration is to use the ``bake`` shell.
 
 In your terminal, run:
 
