@@ -31,15 +31,17 @@ In your terminal, run:
 
 .. code-block:: bash
 
-  bin/cake bake resources_migration MigrationsName
+  $ bin/cake bake resources_migration MigrationsName
 
 This command will generate two files in your `config/Migrations` folder:
 
-* `YYYYMMDDHHMMSS_MigrationName.php`: this is the file used as reference in the phinxlog
-* `YYYYMMDDHHMMSS_MigrationName.yml`: this will contain the real content of the migration
+* ``YYYYMMDDHHMMSS_MigrationName.php``: this is the file used as reference in the phinxlog
+* ``YYYYMMDDHHMMSS_MigrationName.yml``: this will contain the real content of the migration
 
 Then, you can use the yaml syntax to describe the migration:
+
 .. code-block:: yaml
+
   # MigrationName migration
   ---
 
