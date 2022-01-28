@@ -51,7 +51,7 @@ Then, you can use the yaml syntax to describe the migration:
 
   #remove:
 
-In the following example, we are going to add a property to the `profiles` model, as well as a relation with the `documents` model:
+In the following example, we are going to add a property to the ``profiles`` model, as well as a relation with the ``documents`` model:
 
 .. code-block:: yaml
 
