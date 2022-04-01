@@ -42,7 +42,7 @@ If you are using a **.zip** or **.tar.gz** release file you just need to unpack 
 
 **2. Create an empty database**
 
-Create an empty MySQL or Posgtres database and keep track of main connection parameters
+Create an empty MySQL or Postgres database and keep track of main connection parameters
 like ``host``, ``username``, ``password`` and ``database``.
 Do nothing for SQLite since a new local file will be created.
 
