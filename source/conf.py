@@ -74,7 +74,7 @@ master_doc = 'index'
 from datetime import datetime
 # General information about the project.
 project = u'BEdita'
-copyright = u'2021, Channelweb Srl, Chialab Srl'
+copyright = u'2025, Channelweb Srl, Chialab Srl'
 author = u'Channelweb Srl, Chialab Srl'
 
 # The version info for the project you're documenting, acts as replacement for

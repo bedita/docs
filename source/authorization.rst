@@ -2,7 +2,7 @@
 Authentication & Authorization
 ******************************
 
-BEdita4 is a multi-application system: it is designed to handle different client applications requests performed by multiple users on the same :term:`project`.
+BEdita is a multi-application system: it is designed to handle different client applications requests performed by multiple users on the same :term:`project`.
 
 For every request application and user roles should be identified: each application may have its own grants, and each user also depending on :term:`role` assignement.
 
@@ -110,8 +110,4 @@ OAuth2
 ======
 
 And what about **OAuth2**?
-At this moment BEdita4 is not (yet) an OAuth2 compliant server solution even if many OAuth2 concepts like :term:`access token`
-and :term:`refresh token` are already implemented.
-
-Nonetheless integration with **OAuth2** Authorization services is already in development stage.
-A server compliant implementation will follow.
+BEdita is an OAuth2 compliant server solution.

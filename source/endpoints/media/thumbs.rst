@@ -81,9 +81,9 @@ Thumbnails by preset
 --------------------
 
 Presets allow you to use specific options and thumbnails generator (synchronous or asynchronous),
-according to the BEdita4 API instance configuration.
+according to the BEdita API instance configuration.
 
-In the following example, BEdita4 api config provides various presets:
+In the following example, BEdita api config provides various presets:
 
  - `default` (with synchronous *Glide* generator, width 800, height 600),
  - `small` (with synchronous *Glide* generator, width 100),

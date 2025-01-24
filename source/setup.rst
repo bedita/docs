@@ -2,7 +2,7 @@
 Setup
 *****
 
-Below you will find instructions to setup BEdita4 on a typical server or desktop.
+Below you will find instructions to setup BEdita on a typical server or desktop.
 
 For a quick setup via `Docker <https://www.docker.com>`_ see :ref:`below <setup-docker>`.
 
@@ -10,8 +10,8 @@ For a quick setup via `Docker <https://www.docker.com>`_ see :ref:`below <setup-
 Prerequisites
 =============
 
- * PHP 7.x (recommended) or PHP >= 5.6, with extensions *mbstring*, *intl*
- * MySQL 5.7 (recommended) or MySQL 5.6, Postgres 9.5/9.6 or SQLite 3
+ * PHP 8.3 (recommended) or PHP >= 7.4, with extensions *json*, *mbstring*, *fileinfo*, *intl*, *pdo*, *simplexml*
+ * MySQL 8.0 (recommended) or MySQL 5.7, Postgres 11/12/13/14, MariaDB 10.2/10.3/10.4 or SQLite 3
  * `Composer <https://getcomposer.org/doc/00-intro.md#installation-linux-unix-osx>`_
 
 A web server like Apache or Nginx also recommended in general, but not strictly necessary
@@ -129,7 +129,7 @@ you may add these lines, provided that **mod_headers** is enabled
 
 In this example:
  * all origins and HTTP methods are allowed, you may want to add restrictions
- * only headers used by BEdita4 are allowed
+ * only headers used by BEdita are allowed
  * "Location" header is exposed in response, this is useful to get URL of a newly created resource
 
 Alternatively you can setup *CORS* configuration directly in BEdita, see :ref:`configuration-cors`
@@ -185,7 +185,7 @@ You can get the latest offical image build from Docker Hub like this.
 
     $ docker pull bedita/bedita:latest
 
-You may also use ``:4-cactus`` tag instead of ``:latest``, they are currently synonyms.
+You may also use ``:5-salix`` tag instead of ``:latest``, they are currently synonyms.
 Release tags will be available soon.
 
 
@@ -196,9 +196,9 @@ If you want to build an image from local sources you can do it like this from BE
 
 .. code-block:: bash
 
-    $ docker build -t bedita4-local .
+    $ docker build -t bedita-local .
 
-You may of course choose whatever name you like for the generated image instead of ``bedita4-local``.
+You may of course choose whatever name you like for the generated image instead of ``bedita-local``.
 
 Run
 ----
@@ -212,9 +212,9 @@ Run a Docker image setting an initial API KEY and admin username and password li
         bedita/bedita:latest
 
 
-This will launch a BEdita4 instance using ``SQLite`` as its storage backend. It should become available at http://localhost:8090/home almost instantly.
+This will launch a BEdita instance using ``SQLite`` as its storage backend. It should become available at http://localhost:8090/home almost instantly.
 
-Replace ``bedita/bedita:latest`` with ``bedita4-local`` (or other chosen name) to launch a local built image.
+Replace ``bedita/bedita:latest`` with ``bedita-local`` (or other chosen name) to launch a local built image.
 
 
 Using PostgreSQL or MySQL

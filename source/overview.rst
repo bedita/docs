@@ -39,7 +39,7 @@ To install a backend instance see :doc:`setup`
 Manager
 =======
 
-The **Manager** is a progressive javascript web application to manage all of your data using the backend REST API.
+The **Manager** is an hybrid cakephp+vue web application to manage all of your data using the backend REST API.
 
 You may see this application as the primary GUI of BEdita or as a *control panel* or *admin console*.
 
@@ -54,6 +54,8 @@ The first user created during setup has the permanent :term:`role` of *administr
 * create relations between objects
 * give access permissions to endpoints and objects to some roles
 * set configuration settings and view system information and relevant events
+* model your objects
+* setup configurations and much more
 
 Through its dynamic permission system keep in mind that users having different roles may perform different actions:
 

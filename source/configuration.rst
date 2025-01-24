@@ -1,17 +1,16 @@
 Configuration
 =============
 
-
-Configuration parameters of a BEdita4 application are usually stored in PHP files and on a database table.
+Configuration parameters of a BEdita application are usually stored in PHP files and on a database table.
 
 We have:
 
 * ``config/app.php`` file containing App, Datasource, Cache, Log and other basic *low-level* settings common to every CakePHP application
-* ``config`` table with BEdita4 specific parameters loaded after ``config/app.php``
+* ``config`` table with BEdita specific parameters loaded after ``config/app.php``
 
 To know more about configuration in CakePHP please read this `CakePHP book chapter <http://book.cakephp.org/3.0/en/development/configuration.html>`_
 
-In ``config`` table every plugin (like API and Core BEdita4 plugins) can define and load its own parameters using its own `context` (have a look at **Accept** configuration for an example).
+In ``config`` table every plugin (like API and Core BEdita plugins) can define and load its own parameters using its own `context` (have a look at **Accept** configuration for an example).
 
 Using configurations keep in mind these common usage rules and best practices:
 
@@ -19,7 +18,7 @@ Using configurations keep in mind these common usage rules and best practices:
 * ``config`` table may not override *low-level* config settings like ``Datasources``, ``Cache``, ``EmailTransport``, ``Log``, ``Error`` and ``App``
 * ``config/app.php`` configurations should follow `Twelve Factor app configuration principles <http://12factor.net/config>`_ : use environment variables for everything that is likely to vary between deploys
 
-Below a brief BEdita4 configurations reference in alphabetical order.
+Below a brief BEdita configurations reference in alphabetical order.
 
 .. _configuration-accept:
 
@@ -52,7 +51,7 @@ CORS
 -----
 
 
-It's possible to setup some basic `CORS <https://developer.mozilla.org/en-US/docs/Web/HTTP/Access_control_CORS>`_ configuration parameters directly in BEdita4.
+It's possible to setup some basic `CORS <https://developer.mozilla.org/en-US/docs/Web/HTTP/Access_control_CORS>`_ configuration parameters directly in BEdita.
 
 Using this settings please beware of possible conflicts with similar settings made on your HTTP server.
 
@@ -105,7 +104,7 @@ Where:
 Plugins
 -------
 
-Plugins setup for your BEdita4 instance is done through ``'Plugins'`` configuration key:
+Plugins setup for your BEdita instance is done through ``'Plugins'`` configuration key:
 
 .. sourcecode:: php
 

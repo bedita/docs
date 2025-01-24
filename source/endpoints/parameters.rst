@@ -1,7 +1,7 @@
 Common GET parameters
 =====================
 
-Many HTTP query parameters in BEdita4 API GET method calls are common and may be used to manipulate API response and get only the data you need in your application.
+Many HTTP query parameters in BEdita API GET method calls are common and may be used to manipulate API response and get only the data you need in your application.
 
 Common parameters described here may be used in all API endpoints that handle entities/objects directly.
 
