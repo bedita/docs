@@ -14,7 +14,7 @@ jobs:
     steps:
 
     - name: 'Checkout current revision'
-      uses: 'actions/checkout@v6'
+      uses: 'actions/checkout@v7'
 
     - name: 'Sphinx build'
       uses: ammaraskar/sphinx-action@master
